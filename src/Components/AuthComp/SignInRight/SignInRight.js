@@ -34,16 +34,26 @@ function SignInRight() {
   };
 
   return (
-    <form>
-      <input placeholder="Email" type="email" value={userEmail} onChange={handleEmailInput} />
-      <input
-        placeholder="Password"
-        type="password"
-        value={userPassword}
-        onChange={handlePasswordInput}
-      />
-      <button onClick={handleLoginClick}>SIGN IN</button>
-    </form>
+    <section>
+      <div>
+        <span>Don't have an account?</span>
+        <button>SIGN UP</button>
+      </div>
+
+      <div>
+        <form>
+          <h2>Sign In</h2>
+          <input placeholder="Email" type="email" value={userEmail} onChange={handleEmailInput} />
+          <input
+            placeholder="Password"
+            type="password"
+            value={userPassword}
+            onChange={handlePasswordInput}
+          />
+          <button onClick={handleLoginClick}>SIGN IN</button>
+        </form>
+      </div>
+    </section>
   );
 }
 
