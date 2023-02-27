@@ -1,34 +1,41 @@
-import { LeftSide } from "./signIn.style"
+import { LeftSide,MotionLogoP,ConectMessageP,StoreContainerDiv,StoreIconImg,StoreIconDiv, 
+    SocialLinksImg,DisclaimerP,LogoContainerDiv,LogoDiv,SocialLinksContainterDiv,SocialLinksDiv  } from "./signIn.style"
+import MotionLogoWhite from "../../assets/images/logo_white.png"
+import AppleLogo from "../../assets/svgs/apple.svg"
+import GoogleLogo from "../../assets/svgs/google.svg"
+import TwitterLogo from "../../assets/svgs/twitter_icon.svg"
+import FacebookLogo from "../../assets/svgs/facebook_icon.svg"
+import InstagramLogo from "../../assets/svgs/instagram_icon.svg"
 
 const SignInLeft = () => {
 
     return (
         <LeftSide>
-            <div>
-                <div>
-                    <img src="" alt="logo"/>
-                    <p>Motion</p>
-                </div>
-                <div>
-                    <p>
-                        Connect with friends and the world around you with Motion.
-                    </p>
-                </div>
-                <div>
-                    <img src="" alt="Apple Logo"/>
-                    <img src="" alt="Google Logo"/>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <img src ="" alt="Twiter Icon"/>
-                    <img src ="" alt="Facebook Icon"/>
-                    <img src ="" alt="Instagram Icon"/>
-                </div>
-                <div>
-                    <p>© Motion 2018. All rights reserved. </p>
-                </div>
-            </div>
+            <LogoContainerDiv>
+                <LogoDiv>
+                    <img src={MotionLogoWhite} alt="logo"/>
+                    <MotionLogoP >Motion</MotionLogoP >
+                </LogoDiv>
+                <ConectMessageP >
+                        Connect with friends and the world <br/> around you with Motion.
+                </ConectMessageP >
+                <StoreContainerDiv>
+                    <StoreIconDiv>
+                        <StoreIconImg src={AppleLogo} alt="Apple Logo"/>
+                    </StoreIconDiv>
+                    <StoreIconDiv>
+                        <StoreIconImg src={GoogleLogo} alt="Google Logo"/>
+                    </StoreIconDiv>
+                </StoreContainerDiv>
+            </LogoContainerDiv>
+            <SocialLinksContainterDiv >
+                <SocialLinksDiv>
+                    <SocialLinksImg src ={TwitterLogo} alt="Twiter Icon"/>
+                    <SocialLinksImg src ={FacebookLogo} alt="Facebook Icon"/>
+                    <SocialLinksImg src ={InstagramLogo} alt="Instagram Icon"/>
+                </SocialLinksDiv>
+                <DisclaimerP>© Motion 2018. All rights reserved. </DisclaimerP>
+            </SocialLinksContainterDiv >
         </LeftSide>
     )
 }
