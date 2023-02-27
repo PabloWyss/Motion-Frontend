@@ -15,7 +15,7 @@ export const LeftSide = styled.div `
     background-size: cover;
     font-style: normal;
     text-align: center;
-    letter-spacing: 0.75px;
+    letter-spacing: 0.075px;
     color: white;
     gap: 15%;
 `
@@ -33,12 +33,12 @@ export const LogoDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
 `
 
 export const MotionLogoP = styled.p `
     font-weight: 500;
-    font-size: 30px;
+    font-size: 2rem;
     margin: 0;
     
 `
@@ -52,17 +52,16 @@ export const StoreContainerDiv = styled.div `
 `
 
 export const ConectMessageP = styled.p`
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
+    font-weight: 50rem;
+    font-size: 1.3rem;
     mix-blend-mode: normal;
     opacity: 0.6;   
-    margin : 0px;
+    margin : 0rem;
 `
 
 export const StoreIconImg = styled.img `
-    width: 78.29px;
-    height: 17.35px;    
+    width: 7rem;
+    height: 2rem;    
    
 `
 
@@ -71,23 +70,22 @@ export const StoreIconDiv = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 98.29px;
-    height: 37.35px;
+    width: 9rem;
+    height: 3rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 30px;
+    border-radius: 3rem;
 
 `
 
 export const SocialLinksImg = styled.img`
-    width: 40px;
-    height: 40px;
+    width: 3rem;
+    height: 3rem;
     opacity: 0.5;
 `
 
 export const DisclaimerP = styled.p`
     font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
+    font-size: .8rem;
     margin: 0px;
 `
 
