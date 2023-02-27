@@ -18,6 +18,7 @@ export const LeftSide = styled.div `
     text-align: center;
     letter-spacing: 0.75px;
     color: white;
+    gap: 120px;
 `
 
 export const LogoContainerDiv = styled.div `
@@ -28,11 +29,17 @@ export const LogoContainerDiv = styled.div `
     gap: 30px;
 `
 
+export const LogoDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+`
+
 export const MotionLogoP = styled.p `
     font-weight: 500;
     font-size: 30px;
     line-height: 35px;
-
 `
 
 export const StoreContainerDiv = styled.div `
@@ -72,6 +79,7 @@ export const StoreIconDiv = styled.div`
 export const SocialLinksImg = styled.img`
     width: 40px;
     height: 40px;
+    opacity: 0.5;
 `
 
 export const DisclaimerP = styled.p`
@@ -79,6 +87,22 @@ export const DisclaimerP = styled.p`
     font-size: 12px;
     line-height: 14px;
 
+`
+
+export const SocialLinksContainterDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 40px;
+`
+
+export const SocialLinksDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
 `
 
 

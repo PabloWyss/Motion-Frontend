@@ -1,5 +1,5 @@
 import { LeftSide,MotionLogoP,ConectMessageP,StoreContainerDiv,StoreIconImg,StoreIconDiv, 
-    SocialLinksImg,DisclaimerP,LogoContainerDiv } from "./signIn.style"
+    SocialLinksImg,DisclaimerP,LogoContainerDiv,LogoDiv,SocialLinksContainterDiv,SocialLinksDiv  } from "./signIn.style"
 import MotionLogoWhite from "../../assets/images/logo_white.png"
 import AppleLogo from "../../assets/svgs/apple.svg"
 import GoogleLogo from "../../assets/svgs/google.svg"
@@ -12,13 +12,13 @@ const SignInLeft = () => {
     return (
         <LeftSide>
             <LogoContainerDiv>
-                <div>
+                <LogoDiv>
                     <img src={MotionLogoWhite} alt="logo"/>
                     <MotionLogoP >Motion</MotionLogoP >
-                </div>
+                </LogoDiv>
                 <div>
                     <ConectMessageP >
-                        Connect with friends and the world around you with Motion.
+                        Connect with friends and the world <br/> around you with Motion.
                     </ConectMessageP >
                 </div>
                 <StoreContainerDiv>
@@ -30,16 +30,14 @@ const SignInLeft = () => {
                     </StoreIconDiv>
                 </StoreContainerDiv>
             </LogoContainerDiv>
-            <div>
-                <div>
+            <SocialLinksContainterDiv >
+                <SocialLinksDiv>
                     <SocialLinksImg src ={TwitterLogo} alt="Twiter Icon"/>
                     <SocialLinksImg src ={FacebookLogo} alt="Facebook Icon"/>
                     <SocialLinksImg src ={InstagramLogo} alt="Instagram Icon"/>
-                </div>
-                <div>
-                    <DisclaimerP>© Motion 2018. All rights reserved. </DisclaimerP>
-                </div>
-            </div>
+                </SocialLinksDiv>
+                <DisclaimerP>© Motion 2018. All rights reserved. </DisclaimerP>
+            </SocialLinksContainterDiv >
         </LeftSide>
     )
 }
