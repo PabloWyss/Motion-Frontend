@@ -15,6 +15,7 @@ export const SignInHeader = styled.div`
   min-height: 40px;
   width: 100%;
   gap: 3%;
+  margin-top: 3%;
 `;
 
 export const TextBesidesButton = styled.p`
@@ -24,13 +25,14 @@ export const TextBesidesButton = styled.p`
 
 export const HeaderButton = styled.button`
   background-color: white;
-  padding: 0.8rem 2.5rem;
+  padding: 0.8rem 2.2rem;
   border-radius: 30px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 0.7rem;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   letter-spacing: 1px;
+  margin-right: 4%;
   &:hover {
     cursor: pointer;
   }
@@ -40,7 +42,7 @@ export const AuthForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20%;
+  margin-top: 15%;
   height: 90%;
   width: 100%;
 `;
@@ -52,13 +54,19 @@ export const FormTitle = styled.h2`
 `;
 
 export const InputField = styled.input`
-  margin: 1.5rem;
+  margin: 1rem;
+  line-height: 2rem;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   border-top: none;
   border-right: none;
   border-left: none;
   width: 40%;
 `;
+
+export const FormIcon = styled.img`
+    width: 20px;
+    height: 20px;
+`
 
 export const SignInButton = styled.button`
   padding: 1.2rem 6rem;

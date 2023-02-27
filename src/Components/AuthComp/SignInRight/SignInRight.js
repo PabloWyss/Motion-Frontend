@@ -1,7 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import callAPI from "../../../axios/auth";
-import { AuthForm, FormTitle, HeaderButton, InputField, RightSide, SignInButton, SignInHeader, TextBesidesButton } from "./signInRight.style";
+import AvatarIcon from "../../../assets/svgs/avatar.svg"
+import PasswordIcon from "../../../assets/svgs/password.svg"
+
+import {
+  AuthForm,
+  FormIcon,
+  FormTitle,
+  HeaderButton,
+  InputField,
+  RightSide,
+  SignInButton,
+  SignInHeader,
+  TextBesidesButton,
+} from "./signInRight.style";
 
 function SignInRight() {
   const [userEmail, setEmail] = useState("");
@@ -34,15 +47,27 @@ function SignInRight() {
     navigate("/");
   };
 
+  //navigate to sign up page
+  const handleSignUpClick = () => {
+    navigate("/signup");
+  };
+
   return (
     <RightSide>
       <SignInHeader>
         <TextBesidesButton>Don't have an account?</TextBesidesButton>
-        <HeaderButton>SIGN UP</HeaderButton>
+        <HeaderButton onClick={handleSignUpClick}>SIGN UP</HeaderButton>
       </SignInHeader>
       <AuthForm>
         <FormTitle>Sign In</FormTitle>
-        <InputField placeholder="Email" type="email" value={userEmail} onChange={handleEmailInput} />
+        <FormIcon src={AvatarIcon} alt="Avatar icon"/>
+        <InputField
+          placeholder="Email"
+          type="email"
+          value={userEmail}
+          onChange={handleEmailInput}
+        />
+        <FormIcon src={PasswordIcon} alt="Password icon"/>
         <InputField
           placeholder="Password"
           type="password"
