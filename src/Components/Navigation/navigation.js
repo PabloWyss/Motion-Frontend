@@ -12,7 +12,9 @@ import {
   FindFriendsLogo,
   NavText,
   ContainerLeft,
-  ContainerRight
+  ContainerRight,
+  AlertNum,
+  AlertContainer
 } from "./navigation.style";
 import logo from "../../assets/images/logo.png";
 import avatar from "../../assets/images/users/jennifer.png";
@@ -37,7 +39,10 @@ const Navigation = () => {
         </FindFriendsSection>
       </ContainerLeft>
       <ContainerRight>
-        <AlertIcon src={bell}></AlertIcon>
+        <AlertContainer>
+          <AlertIcon src={bell}></AlertIcon>
+          <AlertNum>3</AlertNum>
+        </AlertContainer>
         <Avatar src={avatar}></Avatar>
         <MenuDots src={menuDots}></MenuDots>
       </ContainerRight>
