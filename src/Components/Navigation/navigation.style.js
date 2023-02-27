@@ -6,6 +6,7 @@ export const MainContainer = styled.div`
   justify-content: center;
   align-items: center;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 10px 20px rgba(0, 0, 0, 0.05);
+  background-color: #FFF;
 `;
 
 export const ContainerLeft = styled.div`
