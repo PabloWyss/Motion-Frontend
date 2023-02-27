@@ -23,6 +23,8 @@ export const ContainerRight = styled.div`
   align-items: center;
   width: 50%;
   height: 100%;
+  
+  
 `;
 
 export const Logo = styled.img`
@@ -32,12 +34,14 @@ export const Logo = styled.img`
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
   border-radius: 3.744px;
   
+  
   `;
 
 export const PageTitle = styled.h1`
   font-weight: 400;
   font-size: 22px;
   line-height: 26px;
+  
 `;
 export const PostsSection = styled.div`
   display: flex;
