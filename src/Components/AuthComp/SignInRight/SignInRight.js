@@ -1,23 +1,23 @@
 import { useState } from "react";
-import callAPI from "../../../axios/auth";
 import { useNavigate } from "react-router-dom";
+import callAPI from "../../../axios/auth";
 
 function SignInRight() {
-    const [userEmail, setEmail] = useState("");
-    const [userPassword, setPassword] = useState("");
-    const navigate = useNavigate();
-  
-    //store typed email
-    const handleEmailInput = (e) => {
-      setEmail(e.target.value);
-    };
-  
-    //store typed password
-    const handlePasswordInput = (e) => {
-      setPassword(e.target.value);
-    };
-  
-    //login
+  const [userEmail, setEmail] = useState("");
+  const [userPassword, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  //store typed email
+  const handleEmailInput = (e) => {
+    setEmail(e.target.value);
+  };
+
+  //store typed password
+  const handlePasswordInput = (e) => {
+    setPassword(e.target.value);
+  };
+
+  //login
   const handleLoginClick = async (e) => {
     e.preventDefault();
     //registration request to API
@@ -28,14 +28,13 @@ function SignInRight() {
         password: userPassword,
       })
     );
-    localStorage.setItem('auth-token', response.data.access);
+    localStorage.setItem("auth-token", response.data.access);
     //redirect to homepage
     navigate("/");
   };
 
-
   return (
-    <form className="login-form">
+    <form>
       <input placeholder="Email" type="email" value={userEmail} onChange={handleEmailInput} />
       <input
         placeholder="Password"
@@ -43,7 +42,7 @@ function SignInRight() {
         value={userPassword}
         onChange={handlePasswordInput}
       />
-      <button onClick={handleLoginClick}>Login</button>
+      <button onClick={handleLoginClick}>SIGN IN</button>
     </form>
   );
 }
