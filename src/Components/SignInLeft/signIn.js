@@ -16,11 +16,9 @@ const SignInLeft = () => {
                     <img src={MotionLogoWhite} alt="logo"/>
                     <MotionLogoP >Motion</MotionLogoP >
                 </LogoDiv>
-                <div>
-                    <ConectMessageP >
+                <ConectMessageP >
                         Connect with friends and the world <br/> around you with Motion.
-                    </ConectMessageP >
-                </div>
+                </ConectMessageP >
                 <StoreContainerDiv>
                     <StoreIconDiv>
                         <StoreIconImg src={AppleLogo} alt="Apple Logo"/>

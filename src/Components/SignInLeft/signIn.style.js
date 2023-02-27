@@ -4,7 +4,7 @@ import backgroundImage from "../../assets/images/background_image.png"
 
 export const LeftSide = styled.div `
     height: 100vh;
-    width: 50%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -13,12 +13,11 @@ export const LeftSide = styled.div `
     background-blend-mode: multiply, normal;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
     background-size: cover;
-    font-family: 'Roboto';
     font-style: normal;
     text-align: center;
     letter-spacing: 0.75px;
     color: white;
-    gap: 120px;
+    gap: 10%;
 `
 
 export const LogoContainerDiv = styled.div `
