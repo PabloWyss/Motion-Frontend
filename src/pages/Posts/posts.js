@@ -1,11 +1,12 @@
 import React from 'react'
-import Header from '../../Components/Header/header'
+import { MainContainer } from './posts.style'
+import Navigation from '../../Components/Navigation/navigation'
 
 const Posts = () => {
   return (
-    <div>
-      <Header/>
-    </div>
+    <MainContainer>
+      <Navigation/>
+    </MainContainer>
   )
 }
 
