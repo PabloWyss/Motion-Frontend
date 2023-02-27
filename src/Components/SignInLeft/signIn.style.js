@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import logoMotion from "../../Images/LogoMotion.svg"
-import back
+
 
 export const LeftSide = styled.div `
     height: 100vh;
