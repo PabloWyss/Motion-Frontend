@@ -20,6 +20,14 @@ export const LeftSide = styled.div `
     color: white;
 `
 
+export const LogoContainerDiv = styled.div `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 30px;
+`
+
 export const MotionLogoP = styled.p `
     font-weight: 500;
     font-size: 30px;
@@ -44,16 +52,32 @@ export const ConectMessageP = styled.p`
 `
 
 export const StoreIconImg = styled.img `
-    width: 98.29px;
-    height: 37.35px;
+    width: 78.29px;
+    height: 17.35px;    
    
 `
 
 export const StoreIconDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 98.29px;
     height: 37.35px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 30px;
+
+`
+
+export const SocialLinksImg = styled.img`
+    width: 40px;
+    height: 40px;
+`
+
+export const DisclaimerP = styled.p`
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
 
 `
 

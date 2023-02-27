@@ -9,7 +9,6 @@ import SignInLeft from "../SignInLeft/signIn";
 function Home() {
   return (
     <div className="App">
-      <SignInLeft/>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/signin" element={<SignIn />} />
