@@ -1,4 +1,8 @@
-import { LeftSide } from "./signIn.style"
+import { LeftSide,MotionLogoP,ConectMessageP,StoreContainerDiv,StoreIconImg   } from "./signIn.style"
+import MotionLogoWhite from "../../assets/images/logo_white.png"
+import AppleLogo from "../../assets/svgs/apple.svg"
+import GoogleLogo from "../../assets/svgs/google.svg"
+
 
 const SignInLeft = () => {
 
@@ -6,18 +10,22 @@ const SignInLeft = () => {
         <LeftSide>
             <div>
                 <div>
-                    <img src="" alt="logo"/>
-                    <p>Motion</p>
+                    <img src={MotionLogoWhite} alt="logo"/>
+                    <MotionLogoP >Motion</MotionLogoP >
                 </div>
                 <div>
-                    <p>
+                    <ConectMessageP >
                         Connect with friends and the world around you with Motion.
-                    </p>
+                    </ConectMessageP >
                 </div>
-                <div>
-                    <img src="" alt="Apple Logo"/>
-                    <img src="" alt="Google Logo"/>
-                </div>
+                <StoreContainerDiv>
+                    <div>
+                        <StoreIconImg src={AppleLogo} alt="Apple Logo"/>
+                    </div>
+                    <div>
+                        <StoreIconImg src={GoogleLogo} alt="Google Logo"/>
+                    </div>
+                </StoreContainerDiv>
             </div>
             <div>
                 <div>
