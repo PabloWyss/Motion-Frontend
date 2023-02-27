@@ -8,6 +8,7 @@ function Home() {
       <Routes>
         <Route path="/" element={<Homepage />} />
       </Routes>
+      <p>Hello</p>
     </div>
   );
 }
