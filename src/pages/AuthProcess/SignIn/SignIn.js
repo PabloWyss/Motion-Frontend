@@ -4,16 +4,11 @@ import { SignInDiv } from "./SignIn.style";
 
 function SignIn() {
   return (
-    <Fragment>
-      <SignInDiv>
-        <SignInLeft />
-        <SignInRight />
-      </SignInDiv>
-    </Fragment>
+    <SignInDiv>
+      <SignInLeft />
+      <SignInRight />
+    </SignInDiv>
   );
 }
 
 export default SignIn;
-
-
-
