@@ -1,9 +1,14 @@
+import FindFirendsGrid from "../../Components/FindFriendsGrid/findfriendsgrid"
+import Navigation from "../../Components/Navigation/navigation"
+
 const FindFirends = () => {
 
     return (
-        <p>
-            Hello
-        </p>
+        <div>
+            <Navigation/>
+            <FindFirendsGrid/>
+        </div>
+        
     )
 }
 
