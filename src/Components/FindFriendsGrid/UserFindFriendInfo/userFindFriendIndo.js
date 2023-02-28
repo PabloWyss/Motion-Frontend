@@ -24,10 +24,8 @@ const UserFindFriendInfo = (prop) => {
           body: raw,
           redirect: 'follow'
         };
-        
         fetch("https://motion.propulsion-home.ch/backend/api/social/followers/toggle-follow/"+userid+"/", requestOptions)
           .then(response => response.text())
-          .then(result => console.log(result))
           .catch(error => console.log('error', error));
       
       }
@@ -36,7 +34,6 @@ const UserFindFriendInfo = (prop) => {
 
     const hanldeFollowButton = () => {
         setFollowUser(!FolowUser)
-        console.log(prop.userInfo.id)
         Usersfollow(prop.userInfo.id)
     }
 

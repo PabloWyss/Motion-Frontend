@@ -12,6 +12,7 @@ export const GridDiv = styled.div `
     gap: 1rem;
     justify-items: center;
     margin-top: 1rem;
+    
 `
 
 export const FindFriednsPageDiv = styled.div `
@@ -19,6 +20,7 @@ export const FindFriednsPageDiv = styled.div `
     display: flex;
     justify-content: space-around;
     background: #F2F2F2;
+    flex-wrap: nowrap;
 `
 
 export const AvaterImg = styled.img `

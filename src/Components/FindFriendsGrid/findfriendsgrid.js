@@ -39,7 +39,6 @@ const FindFirendsGrid = () => {
     useEffect(()=>{
       getUsers()
     },[])
-    console.log(listOfUsers2)
 
     return (
         <FindFriednsPageDiv >
