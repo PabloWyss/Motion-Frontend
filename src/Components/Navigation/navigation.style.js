@@ -6,6 +6,7 @@ export const MainContainer = styled.div`
   justify-content: center;
   align-items: center;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 10px 20px rgba(0, 0, 0, 0.05);
+  background-color: #FFF;
 `;
 
 export const ContainerLeft = styled.div`
@@ -27,44 +28,63 @@ export const ContainerRight = styled.div`
 export const Logo = styled.img`
   height: 26px;
   width: 26px;
-  margin-right: 12px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
   border-radius: 3.744px;
-  margin-left: 40px;
+  margin: 0 15px 0 40px ;
 `;
 
 export const PageTitle = styled.h1`
   font-weight: 400;
   font-size: 22px;
   line-height: 26px;
+  margin-right : 85px;
+  
 `;
 export const PostsSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 15px;
+  gap: 0.5rem;
+  height: 100%;
+  border-bottom: 2px solid transparent;
+  
+  &:hover{
+    border-bottom: 2px solid #AD73FD;
+
+  }
 `;
 
 export const FindFriendsSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 15px;
+  gap: 0.5rem;
+  height: 100%;
+  margin-left: 30px;
+  border-bottom: 2px solid transparent;
+  
+  &:hover{
+    border-bottom: 2px solid #AD73FD;
+
+  }
 `;
 
 export const NavText = styled.p`
   height: 19px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 19px;
 `;
 
 export const PostLogo = styled.img`
-  margin: 0 10px 0 85px;
+  margin: 0 10px 0 0px;
+  height: 1.1rem;
   
 `;
 export const FindFriendsLogo = styled.img`
-  margin: 0 10px 0 30px;
+  margin: 0 10px 0 0px;
+  height: 1.1rem;
+  width: 1.3rem;
 `;
 
 export const AlertContainer = styled.div`
