@@ -11,7 +11,7 @@ const UserFindFriendInfo = (prop) => {
 
     const Usersfollow = (userid) => {
 
-        const Token = localStorage.getItem("Token")
+        const Token = localStorage.getItem("auth-token")
       
         var myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${Token}`);

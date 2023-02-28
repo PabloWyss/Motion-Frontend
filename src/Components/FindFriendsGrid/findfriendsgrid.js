@@ -11,7 +11,7 @@ const FindFirendsGrid = () => {
 
     const getUsers = async () => {
 
-      const Token = localStorage.getItem("Token")
+      const Token = localStorage.getItem("auth-token")
     
       let myHeaders = new Headers();
       myHeaders.append("Authorization", `Bearer ${Token}`);
