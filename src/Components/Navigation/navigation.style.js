@@ -6,7 +6,8 @@ export const MainContainer = styled.div`
   justify-content: center;
   align-items: center;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 10px 20px rgba(0, 0, 0, 0.05);
-  background-color: #fff;
+  background-color: #FFF;
+  
 `;
 
 export const ContainerLeft = styled.div`
@@ -30,14 +31,15 @@ export const Logo = styled.img`
   width: 26px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
   border-radius: 3.744px;
-  margin: 0 15px 0 40px;
+  margin: 0 15px 0 40px ;
 `;
 
 export const PageTitle = styled.h1`
   font-weight: 400;
   font-size: 22px;
   line-height: 26px;
-  margin-right: 85px;
+  margin-right : 85px;
+  
 `;
 export const PostsSection = styled.div`
   display: flex;
@@ -46,9 +48,9 @@ export const PostsSection = styled.div`
   gap: 0.5rem;
   height: 100%;
   border-bottom: 2px solid transparent;
-
-  &:hover {
-    border-bottom: 2px solid #ad73fd;
+  
+  &:hover{
+    border-bottom: 2px solid #AD73FD;
   }
 `;
 
@@ -76,6 +78,7 @@ export const NavText = styled.p`
 export const PostLogo = styled.img`
   margin: 0 10px 0 0px;
   height: 1.1rem;
+  
 `;
 export const FindFriendsLogo = styled.img`
   margin: 0 10px 0 0px;
@@ -87,14 +90,26 @@ export const AlertContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  height:  100%;
 `;
 export const AlertIcon = styled.img`
-  margin: 0 45px 0 10px;
-  height: 21px;
+margin: 0 45px 0 10px;
+height: 21px;
 `;
 
+export const AlertNumSpacerAbsolute = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  height: 4rem;
+`
+export const AlertNumSpacer = styled.div`
+  position: relative;
+  height: 8px;
+`
+
 export const AlertNumDiv = styled.div`
-  background: linear-gradient(132.96deg, #c468ff 3.32%, #6e91f6 100%);
+  background: linear-gradient(132.96deg, #C468FF 3.32%, #6E91F6 100%);
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
   border-radius: 50%;
   display: flex;
@@ -104,19 +119,21 @@ export const AlertNumDiv = styled.div`
   width: 20px;
   color: white;
   opacity: 40%;
-  position: absolute;
-  top: 9px;
-`;
+  /* position: absolute; */
+  /* top: 9px */
+
+  
+  `
 export const AlertNum = styled.span`
   font-size: 12px;
   font-weight: bold;
-`;
+`
 
 export const Avatar = styled.img`
-  margin: 0 25px 0 10px;
-  width: 35px;
+margin: 0 25px 0 10px;
+width: 35px;
 `;
 
 export const MenuDots = styled.img`
-  margin: 0 40px 0 0;
+margin: 0 40px 0 0;
 `;

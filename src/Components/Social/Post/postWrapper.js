@@ -3,19 +3,19 @@ import CreateOwnPost from "../CreateOwnPost/createOwnPost";
 import OtherPosts from "../OtherPosts/otherPosts";
 import OwnPosts from "../OwnPosts/ownPosts";
 import SharedPosts from "../Shared Post/sharedPosts";
-import { MainContainer } from "./postWrapper.style";
+import { MainContainer, SideSeperator } from "./postWrapper.style";
 
 const PostWrapper = () => {
   return (
     <MainContainer>
-      <div>
+      <SideSeperator>
         <CreateOwnPost />
         <OwnPosts />
-      </div>
-      <div>
+      </SideSeperator>
+      <SideSeperator>
         <OtherPosts />
         <SharedPosts />
-      </div>
+      </SideSeperator>
     </MainContainer>
   );
 };
