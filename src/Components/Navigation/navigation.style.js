@@ -94,14 +94,14 @@ export const AlertContainer = styled.div`
 `;
 export const AlertIcon = styled.img`
 margin: 0 45px 0 10px;
-height: 21px;
+height: 16px;
 `;
 
 export const AlertNumSpacerAbsolute = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
-  height: 4rem;
+  height: 50px;
 `
 export const AlertNumSpacer = styled.div`
   position: relative;
@@ -115,8 +115,8 @@ export const AlertNumDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 20px;
-  width: 20px;
+  height: 16px;
+  width: 16px;
   color: white;
   opacity: 40%;
   /* position: absolute; */
@@ -125,7 +125,7 @@ export const AlertNumDiv = styled.div`
   
   `
 export const AlertNum = styled.span`
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
 `
 
