@@ -54,9 +54,9 @@ export const FormTitle = styled.h2`
 `;
 
 export const InputContainer = styled.div`
-  text-align: center;
-  width: 100%;
-`;
+text-align: center;
+width: 100%;
+`
 
 export const InputField = styled.input`
   margin: 1rem;
@@ -70,14 +70,14 @@ export const InputField = styled.input`
 `;
 
 export const FormIcon = styled.img`
-  width: 1.5rem;
-  height: 1.5rem;
-  position: absolute;
-  margin-top: 22px;
-  margin-left: 20px;
-`;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    margin-top: 22px;
+    margin-left: 20px;
+`
 
-export const SignInButton = styled.button`
+export const SignUpButton = styled.button`
   padding: 1.2rem 6rem;
   border-radius: 30px;
   border: none;
@@ -86,8 +86,14 @@ export const SignInButton = styled.button`
   font-size: 0.8rem;
   font-family: "Roboto", sans-serif;
   letter-spacing: 1px;
-  margin-top: 15%;
+  margin-top: 12%;
   &:hover {
     cursor: pointer;
   }
 `;
+
+export const ProgressCirclesContainer = styled.div`
+display: flex;
+justify-content: center;
+margin-top: 8%;
+`

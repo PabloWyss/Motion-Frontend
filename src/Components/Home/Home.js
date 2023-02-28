@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import Congratulations from "../../pages/AuthProcess/Congratulations/Congratulations";
 import SignIn from "../../pages/AuthProcess/SignIn/SignIn";
 import SignUp from "../../pages/AuthProcess/SignUp/SignUp";
 import Verification from "../../pages/AuthProcess/Verification/Verification";
@@ -14,6 +15,7 @@ function Home() {
         <Route path="/" element={<Homepage />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/congratulations" element={<Congratulations />} />
         <Route path="/verification" element={<Verification />} />
         <Route path="/posts" element={<Posts />} />
         <Route path="/find-friends" element={<FindFirends/>} />
