@@ -14,7 +14,10 @@ import {
   ContainerLeft,
   ContainerRight,
   AlertNum,
-  AlertContainer
+  AlertContainer,
+  AlertNumDiv,
+  AlertNumSpacer,
+  AlertNumSpacerAbsolute
 } from "./navigation.style";
 import logo from "../../assets/images/logo.png";
 import avatar from "../../assets/images/users/jennifer.png";
@@ -41,7 +44,12 @@ const Navigation = () => {
       <ContainerRight>
         <AlertContainer>
           <AlertIcon src={bell}></AlertIcon>
-          <AlertNum>3</AlertNum>
+          <AlertNumSpacerAbsolute>
+            <AlertNumSpacer></AlertNumSpacer>
+            <AlertNumDiv>
+              <AlertNum>3</AlertNum>
+            </AlertNumDiv>
+          </AlertNumSpacerAbsolute>
         </AlertContainer>
         <Avatar src={avatar}></Avatar>
         <MenuDots src={menuDots}></MenuDots>
