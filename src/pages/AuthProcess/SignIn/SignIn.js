@@ -1,5 +1,5 @@
 import SignInRight from "../../../Components/AuthComp/SignInRight/SignInRight";
-import SignInLeft from "../../../Components/SignInLeft/signIn";
+import SignInLeft from "../../../Components/AuthComp/SignInLeft/signIn";
 import { SignInDiv } from "./SignIn.style";
 
 function SignIn() {

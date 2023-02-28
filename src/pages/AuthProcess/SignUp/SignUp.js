@@ -1,13 +1,13 @@
-import { Fragment } from "react";
 import SignUpRight from "../../../Components/AuthComp/SignUpRight/SignUpRight";
-import SignInLeft from "../../../Components/SignInLeft/signIn";
+import SignInLeft from "../../../Components/AuthComp/SignInLeft/signIn";
+import { SignUpDiv } from "./SignUp.style";
 
 function SignUp() {
   return (
-    <Fragment>
+    <SignUpDiv>
       <SignInLeft />
       <SignUpRight />
-    </Fragment>
+    </SignUpDiv>
   );
 }
 
