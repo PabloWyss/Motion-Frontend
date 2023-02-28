@@ -1,6 +1,18 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import callAPI from "../../../axios/auth";
+import {
+  AuthForm,
+  CompleteButton,
+  FormContainer,
+  FormTitle,
+  InputCode,
+  InputColumns,
+  InputContainer,
+  InputField,
+  ProgressCirclesContainer,
+  RightSide,
+} from "./VerificationRight.style";
 
 function VerificationRight() {
   const [userEmail, setEmail] = useState("");
@@ -65,7 +77,7 @@ function VerificationRight() {
   const handleActivateClick = async (e) => {
     e.preventDefault();
     //redirect to login page
-    navigate("/login");
+    navigate("/signin");
     //registration request to API
     await callAPI.patch(
       "registration/validation/",
@@ -82,34 +94,74 @@ function VerificationRight() {
   };
 
   return (
-    <form className="activation-form">
-      <input placeholder="Email" type="email" value={userEmail} onChange={handleEmailInput} />
-      <input placeholder="Username" value={userName} onChange={handleUserNameInput} />
-      <input placeholder="First Name" value={firstName} onChange={handleFirstNameInput} />
-      <input placeholder="Last Name" value={lastName} onChange={handleLastNameInput} />
-      <input
-        placeholder="Verification Code"
-        value={verificationCode}
-        onChange={handleVerificationCodeInput}
-      />
-      <input
-        placeholder="Password"
-        type="password"
-        value={userPassword}
-        onChange={handlePasswordInput}
-      />
-      <input
-        placeholder="Repeat Password"
-        type="password"
-        value={repeatPassword}
-        onChange={handleRepeatPasswordInput}
-      />
-      <p style={passwordMatch ? { visibility: "hidden" } : { visibility: "visible" }}>
-        The passwords don't match
-      </p>
-
-      <button onClick={handleActivateClick}>Activate User Account</button>
-    </form>
+    <RightSide>
+      <AuthForm className="activation-form">
+        <FormTitle>Verification</FormTitle>
+        <FormContainer>
+          <InputCode
+            placeholder="Verification Code"
+            value={verificationCode}
+            onChange={handleVerificationCodeInput}
+          />
+          <InputContainer>
+            <InputField
+              placeholder="Email"
+              type="email"
+              value={userEmail}
+              onChange={handleEmailInput}
+            />
+            <InputField
+              placeholder="First Name"
+              value={firstName}
+              onChange={handleFirstNameInput}
+            />
+            <InputField
+              placeholder="Password"
+              type="password"
+              value={userPassword}
+              onChange={handlePasswordInput}
+            />
+            <InputField placeholder="Username" value={userName} onChange={handleUserNameInput} />
+            <InputField placeholder="Last Name" value={lastName} onChange={handleLastNameInput} />
+            <InputField
+              placeholder="Repeat Password"
+              type="password"
+              value={repeatPassword}
+              onChange={handleRepeatPasswordInput}
+            />
+          </InputContainer>
+          <p style={passwordMatch ? { visibility: "hidden" } : { visibility: "visible" }}>
+            The passwords don't match
+          </p>
+        </FormContainer>
+        <CompleteButton onClick={handleActivateClick}>Activate User Account</CompleteButton>
+        <ProgressCirclesContainer>
+          <svg height="20" width="20">
+            <circle
+              cx="8"
+              cy="8"
+              r="0.3rem"
+              fill="white"
+              stroke="rgba(0, 0, 0, 0.2)"
+              strokeWidth="2"
+            />
+          </svg>
+          <svg height="20" width="20">
+            <circle
+              cx="8"
+              cy="8"
+              r="0.3rem"
+              fill="white"
+              stroke="rgba(0, 0, 0, 0.2)"
+              strokeWidth="2"
+            />
+          </svg>
+          <svg height="20" width="20">
+            <circle cx="8" cy="8" r="0.3rem" fill="black" stroke="black" />
+          </svg>
+        </ProgressCirclesContainer>
+      </AuthForm>
+    </RightSide>
   );
 }
 
