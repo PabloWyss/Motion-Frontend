@@ -7,6 +7,7 @@ export const MainContainer = styled.div`
   align-items: center;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 10px 20px rgba(0, 0, 0, 0.05);
   background-color: #FFF;
+  
 `;
 
 export const ContainerLeft = styled.div`
@@ -48,7 +49,7 @@ export const PostsSection = styled.div`
   height: 100%;
   border-bottom: 2px solid transparent;
   
-  &:hover{
+  &:active{
     border-bottom: 2px solid #AD73FD;
 
   }
