@@ -3,11 +3,12 @@ import CreateOwnPost from "../CreateOwnPost/createOwnPost";
 import OtherPosts from "../OtherPosts/otherPosts";
 import OwnPosts from "../OwnPosts/ownPosts";
 import SharedPosts from "../Shared Post/sharedPosts";
-import { MainContainer, SideSeperator } from "./postWrapper.style";
+import { MainContainer, PageBorder, SideSeperator } from "./postWrapper.style";
 
 const PostWrapper = () => {
   return (
     <MainContainer>
+      <PageBorder />
       <SideSeperator>
         <CreateOwnPost />
         <OwnPosts />
@@ -16,6 +17,7 @@ const PostWrapper = () => {
         <OtherPosts />
         <SharedPosts />
       </SideSeperator>
+      <PageBorder />
     </MainContainer>
   );
 };

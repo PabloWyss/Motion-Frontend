@@ -1,12 +1,13 @@
 import React from 'react'
+import { Avatar, MainContainer,InputField,SubmitButton } from './createOwnPost.style'
 
 const CreateOwnPost = () => {
   return (
-    <div>
-      <div>Mein Avatar </div>
-      <div>Input </div>
-      <div>Button </div>
-    </div>
+    <MainContainer>
+      <Avatar>Mein Avatar </Avatar>
+      <InputField>Input </InputField>
+      <SubmitButton>Button </SubmitButton>
+    </MainContainer>
 
   )
 }
