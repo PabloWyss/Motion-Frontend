@@ -49,7 +49,7 @@ export const PostsSection = styled.div`
   height: 100%;
   border-bottom: 2px solid transparent;
   
-  &:active{
+  &:hover{
     border-bottom: 2px solid #AD73FD;
 
   }
