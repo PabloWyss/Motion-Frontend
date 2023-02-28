@@ -1,8 +1,5 @@
 const FindFirends = () => {
 
-
-
-
     return (
         <p>
             Hello
