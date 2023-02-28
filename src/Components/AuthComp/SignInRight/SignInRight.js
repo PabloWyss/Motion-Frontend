@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import callAPI from "../../../axios/auth";
+import { AuthForm, FormTitle, HeaderButton, InputField, RightSide, SignInButton, SignInHeader, TextBesidesButton } from "./signInRight.style";
 
 function SignInRight() {
   const [userEmail, setEmail] = useState("");
@@ -34,16 +35,23 @@ function SignInRight() {
   };
 
   return (
-    <form>
-      <input placeholder="Email" type="email" value={userEmail} onChange={handleEmailInput} />
-      <input
-        placeholder="Password"
-        type="password"
-        value={userPassword}
-        onChange={handlePasswordInput}
-      />
-      <button onClick={handleLoginClick}>SIGN IN</button>
-    </form>
+    <RightSide>
+      <SignInHeader>
+        <TextBesidesButton>Don't have an account?</TextBesidesButton>
+        <HeaderButton>SIGN UP</HeaderButton>
+      </SignInHeader>
+      <AuthForm>
+        <FormTitle>Sign In</FormTitle>
+        <InputField placeholder="Email" type="email" value={userEmail} onChange={handleEmailInput} />
+        <InputField
+          placeholder="Password"
+          type="password"
+          value={userPassword}
+          onChange={handlePasswordInput}
+        />
+        <SignInButton onClick={handleLoginClick}>SIGN IN</SignInButton>
+      </AuthForm>
+    </RightSide>
   );
 }
 
