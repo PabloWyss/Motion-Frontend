@@ -7,7 +7,6 @@ import Homepage from "../../pages/Home/Homepage";
 import Posts from "../../pages/Posts/posts";
 import Profile from "../../pages/Profile/Profile";
 import "./App.css";
-import FindFirends from "../../pages/Find-Friends/find-firends";
 
 function Home() {
   return (
@@ -20,7 +19,6 @@ function Home() {
         <Route path="/congratulations" element={<Congratulations />} />
         <Route path="/verification" element={<Verification />} />
         <Route path="/posts" element={<Posts />} />
-        <Route path="/find-friends" element={<FindFirends/>} />
       </Routes>
     </div>
   );
