@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import backgroundImage from "../../assets/images/background_image.png"
+import backgroundImage from "../../../assets/images/background_image.png"
 
 
 export const LeftSide = styled.div `

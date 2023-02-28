@@ -1,11 +1,11 @@
 import { LeftSide,MotionLogoP,ConectMessageP,StoreContainerDiv,StoreIconImg,StoreIconDiv, 
     SocialLinksImg,DisclaimerP,LogoContainerDiv,LogoDiv,SocialLinksContainterDiv,SocialLinksDiv  } from "./signIn.style"
-import MotionLogoWhite from "../../assets/images/logo_white.png"
-import AppleLogo from "../../assets/svgs/apple.svg"
-import GoogleLogo from "../../assets/svgs/google.svg"
-import TwitterLogo from "../../assets/svgs/twitter_icon.svg"
-import FacebookLogo from "../../assets/svgs/facebook_icon.svg"
-import InstagramLogo from "../../assets/svgs/instagram_icon.svg"
+import MotionLogoWhite from "../../../assets/images/logo_white.png"
+import AppleLogo from "../../../assets/svgs/apple.svg"
+import GoogleLogo from "../../../assets/svgs/google.svg"
+import TwitterLogo from "../../../assets/svgs/twitter_icon.svg"
+import FacebookLogo from "../../../assets/svgs/facebook_icon.svg"
+import InstagramLogo from "../../../assets/svgs/instagram_icon.svg"
 
 const SignInLeft = () => {
 
