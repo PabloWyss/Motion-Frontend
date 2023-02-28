@@ -70,7 +70,7 @@ export const FollowInerDivButton = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${props => props.follow ? "white" : "linear-gradient(132.96deg, #C468FF 3.32%, #6E91F6 100%)"}
+    background: ${props => props.follow ? "linear-gradient(132.96deg, #C468FF 3.32%, #6E91F6 100%)" : "white" }
 `
 
 export const AddFriendsInerDivButton = styled.div`

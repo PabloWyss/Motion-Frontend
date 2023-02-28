@@ -47,7 +47,7 @@ const UserFindFriendInfo = (prop) => {
             <AddFriendlocationP>{prop.userInfo.location}</AddFriendlocationP>
             <AddFriendsDivButton>
                 <FollowInerDivButton follow={FolowUser} onClick={hanldeFollowButton}>
-                    <AddFollowAddFriendButton>Follow</AddFollowAddFriendButton>
+                    <AddFollowAddFriendButton>{FolowUser? "Followed" : "Follow"}</AddFollowAddFriendButton>
                 </FollowInerDivButton>
                 <AddFriendsInerDivButton>
                     <AddFollowAddFriendButton>Add Friend</AddFollowAddFriendButton>
