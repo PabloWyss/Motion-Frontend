@@ -42,7 +42,7 @@ export const AuthForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 15%;
+  margin-top: 12%;
   height: 90%;
   width: 100%;
 `;
@@ -53,6 +53,11 @@ export const FormTitle = styled.h2`
   padding-bottom: 4%;
 `;
 
+export const InputContainer = styled.div`
+text-align: center;
+width: 100%;
+`
+
 export const InputField = styled.input`
   margin: 1rem;
   line-height: 2rem;
@@ -61,11 +66,15 @@ export const InputField = styled.input`
   border-right: none;
   border-left: none;
   width: 40%;
+  text-indent: 3rem;
 `;
 
 export const FormIcon = styled.img`
-    width: 20px;
-    height: 20px;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    margin-top: 22px;
+    margin-left: 20px;
 `
 
 export const SignInButton = styled.button`
@@ -77,7 +86,7 @@ export const SignInButton = styled.button`
   font-size: 0.8rem;
   font-family: "Roboto", sans-serif;
   letter-spacing: 1px;
-  margin-top: 20%;
+  margin-top: 15%;
   &:hover {
     cursor: pointer;
   }

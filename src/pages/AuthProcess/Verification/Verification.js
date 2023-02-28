@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import VerificationRight from "../../../Components/AuthComp/VerificationRight/VerificationRight";
-import SignInLeft from "../../../Components/SignInLeft/signIn";
+import SignInLeft from "../../../Components/AuthComp/SignInLeft/signIn";
 
 function Verification() {
   return (
