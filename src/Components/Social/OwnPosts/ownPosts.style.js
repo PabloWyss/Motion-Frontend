@@ -25,30 +25,27 @@ export const FlexRowWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 export const FlexColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`
+`;
 export const Name = styled.div``;
 export const Time = styled.div``;
 export const Menu = styled.div``;
-export const PostText = styled.div``;
-export const PictureGrid = styled.div``;
+export const PostText = styled.p`
+`;
+export const PictureGrid = styled.div`
+  width: 100%;
+  margin: 0 10px;
+  ;
+  
+
+`;
 export const HeartIcon = styled.div``;
 export const ActionButton = styled.div``;
 export const ShareIcon = styled.div``;
 export const LikeCount = styled.div``;
 
-export const BorderSpacer = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 75%;
-  width: 90%;
-  padding: 15px; */
-  
-`

@@ -8,7 +8,9 @@ const SharedPosts = () => {
       <Avatar>Avatar</Avatar>
       <Name>Name</Name>
       <Time>Time</Time>
-      <PostText>Text</PostText>
+      <PostText>
+        Text
+      </PostText>
       <Component>Component OtherPosts</Component>
       <HeartIcon>Heart</HeartIcon>
       <ActionButton>Like Text</ActionButton>
