@@ -5,7 +5,6 @@ import Verification from "../../pages/AuthProcess/Verification/Verification";
 import Homepage from "../../pages/Home/Homepage";
 import Posts from "../../pages/Posts/posts";
 import "./App.css";
-import SignInLeft from "../SignInLeft/signIn";
 
 function Home() {
   return (
