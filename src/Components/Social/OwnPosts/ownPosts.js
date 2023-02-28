@@ -1,13 +1,34 @@
-import React from 'react'
-import { MainContainer, Avatar, Name, Time, PostText, Component, HeartIcon, ActionButton, ShareIcon, LikeCount  } from './ownPosts.style'
+import React from "react";
+import {
+  MainContainer,
+  Avatar,
+  Name,
+  Time,
+  PostText,
+  HeartIcon,
+  ActionButton,
+  ShareIcon,
+  LikeCount,
+  Menu,
+  FlexRowWrapper,
+  FlexColumnWrapper,
+  PictureGrid,
+} from "./ownPosts.style";
+import avatarJennifer from "../../../assets/images/users/jennifer.png";
+
 const OwnPosts = () => {
   return (
     <MainContainer>
-      <Avatar>Avatar</Avatar>
-      <Name>Name</Name>
-      <Time>Time</Time>
+      <FlexRowWrapper>
+        <Avatar src={avatarJennifer} />
+        <FlexColumnWrapper>
+          <Name>Name</Name>
+          <Time>Time</Time>
+        </FlexColumnWrapper>
+        <Menu>Menu</Menu>
+      </FlexRowWrapper>
       <PostText>Text</PostText>
-      <Component>Component OtherPosts</Component>
+      <PictureGrid>PictureGrid</PictureGrid>
       <HeartIcon>Heart</HeartIcon>
       <ActionButton>Like Text</ActionButton>
       <ShareIcon>SharePic</ShareIcon>
@@ -15,6 +36,6 @@ const OwnPosts = () => {
       <LikeCount>CountLikes</LikeCount>
     </MainContainer>
   );
-}
+};
 
-export default OwnPosts
+export default OwnPosts;
