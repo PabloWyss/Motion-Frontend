@@ -1,9 +1,44 @@
 import { AvaterImg,AddFriendUserDiv,AddFriendNameP,AddFriendlocationP,
-        AddFriendsDivButton,AddFriendsInerDivButton,AddFollowAddFriendButton,
+        AddFriendsDivButton,AddFriendsInerDivButton,AddFollowAddFriendButton,FollowInerDivButton,
         AboutMeInfoP,LikedElementsDiv,LikedIndivualElementDiv,LikedIndivualElementP} from "../findfriendsgrid.style"
+import { v4 as uuid } from 'uuid'
+import { useState, useEffect } from "react"
 
 const UserFindFriendInfo = (prop) => {
+    
+    const [FolowUser,setFollowUser] = useState(prop.userInfo.logged_in_user_is_following)
 
+
+    const Usersfollow = (userid) => {
+
+        const Token = localStorage.getItem("Token")
+      
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${Token}`);
+        
+        var raw = "";
+        
+        var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: raw,
+          redirect: 'follow'
+        };
+        
+        fetch("https://motion.propulsion-home.ch/backend/api/social/followers/toggle-follow/"+userid+"/", requestOptions)
+          .then(response => response.text())
+          .then(result => console.log(result))
+          .catch(error => console.log('error', error));
+      
+      }
+
+    
+
+    const hanldeFollowButton = () => {
+        setFollowUser(!FolowUser)
+        console.log(prop.userInfo.id)
+        Usersfollow(prop.userInfo.id)
+    }
 
     return(
         <AddFriendUserDiv >
@@ -14,9 +49,9 @@ const UserFindFriendInfo = (prop) => {
             <AddFriendNameP>{`${prop.userInfo.first_name} ${prop.userInfo.last_name}`}</AddFriendNameP >
             <AddFriendlocationP>{prop.userInfo.location}</AddFriendlocationP>
             <AddFriendsDivButton>
-                <AddFriendsInerDivButton>
+                <FollowInerDivButton follow={FolowUser} onClick={hanldeFollowButton}>
                     <AddFollowAddFriendButton>Follow</AddFollowAddFriendButton>
-                </AddFriendsInerDivButton>
+                </FollowInerDivButton>
                 <AddFriendsInerDivButton>
                     <AddFollowAddFriendButton>Add Friend</AddFollowAddFriendButton>
                 </AddFriendsInerDivButton>
@@ -27,7 +62,7 @@ const UserFindFriendInfo = (prop) => {
             <LikedElementsDiv>
                 {prop.userInfo.things_user_likes.map((element)=>{
                     return (
-                        <LikedIndivualElementDiv>
+                        <LikedIndivualElementDiv key={uuid()}>
                             <LikedIndivualElementP>{element}</LikedIndivualElementP>
                         </LikedIndivualElementDiv>
                     )
@@ -41,7 +76,9 @@ const UserFindFriendInfo = (prop) => {
 export default UserFindFriendInfo
 
 
-// Foto -> Name -> Location -> (follow & addFriend) -> Lorem -> thingsliked
+
+
+
 
 // {
 //     "id": 5,

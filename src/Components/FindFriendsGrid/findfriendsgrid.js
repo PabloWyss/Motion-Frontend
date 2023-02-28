@@ -1,20 +1,50 @@
 import { GridDiv,FindFriednsPageDiv } from "./findfriendsgrid.style"
 import UserFindFriendInfo from "./UserFindFriendInfo/userFindFriendIndo"
 import { v4 as uuid } from 'uuid'
+import { useState, useEffect} from "react"
+import axios from "axios"
 
 
 const FindFirendsGrid = () => {
 
+    const [listOfUsers2,setListOfUsers2] = useState([])
 
-    const listOfUsers = getUserObj.results
+    const getUsers = async () => {
 
-    console.log(listOfUsers)
+      const Token = localStorage.getItem("Token")
     
+      let myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${Token}`);
+      
+      let requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+      };
+
+      let limit = "10"
+      let offset = "11"
+
+      
+      let userList = []
+
+      await fetch(`https://motion.propulsion-home.ch/backend/api/users/?limit=${limit}&offset=${offset}`, requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          userList = result.results})
+        .catch(error => console.log('error', error));
+
+      setListOfUsers2(userList)
+    }
+
+    useEffect(()=>{
+      getUsers()
+    },[])
+    console.log(listOfUsers2)
 
     return (
         <FindFriednsPageDiv >
             <GridDiv >
-                {listOfUsers.map((user)=>{
+                {listOfUsers2.map((user)=>{
                     return <UserFindFriendInfo key={uuid()} userInfo={user}/>
                 })}
             </GridDiv >
@@ -23,336 +53,3 @@ const FindFirendsGrid = () => {
 }
 
 export default FindFirendsGrid
-
-const getUserObj = {
-    "count": 1493,
-    "next": "https://motion.propulsion-home.ch/backend/api/users/?limit=25&offset=25",
-    "previous": null,
-    "results": [
-      
-      {
-        "id": 809,
-        "email": "juans@propulsionacademy.com",
-        "first_name": "Juan Miguel",
-        "last_name": "Sánchez Arce",
-        "username": "JuanMiguelSanchezArce",
-        "job": "",
-        "avatar": "https://motion.propulsion-home.ch/media-files/JMSA_WhiteBackground.png",
-        "banner": "https://motion.propulsion-home.ch/media-files/Groot_Revenge.jpg",
-        "location": "",
-        "phone_number": "",
-        "about_me": "",
-        "things_user_likes": [
-          "BBQ",
-          "Basket",
-          "Guitar",
-          "this",
-          "that",
-  
-        ],
-        "logged_in_user_is_following": false,
-        "logged_in_user_is_friends": false,
-        "logged_in_user_is_rejected": false,
-        "logged_in_user_received_fr": false,
-        "logged_in_user_sent_fr": false,
-        "amount_of_posts": 0,
-        "amount_of_likes": 0,
-        "amount_of_friends": 2,
-        "amount_of_followers": 8,
-        "amount_following": 0
-      },
-      ,
-      {
-        "id": 5,
-        "email": "guillaumer@propulsionacademy.com",
-        "first_name": "Billy",
-        "last_name": "Bob",
-        "username": "Billy",
-        "job": "Coffee drinker",
-        "avatar": "https://motion.propulsion-home.ch/media-files/schrimp_man_TKoKgA3.jpg",
-        "banner": null,
-        "location": "Zürich",
-        "phone_number": "",
-        "about_me": "I like to drink coffee while playing guitar and shooting some free throws",
-        "things_user_likes": [
-          "BBQ",
-          "Basket",
-          "Guitar"
-        ],
-        "logged_in_user_is_following": false,
-        "logged_in_user_is_friends": false,
-        "logged_in_user_is_rejected": false,
-        "logged_in_user_received_fr": false,
-        "logged_in_user_sent_fr": false,
-        "amount_of_posts": 0,
-        "amount_of_likes": 0,
-        "amount_of_friends": 2,
-        "amount_of_followers": 14,
-        "amount_following": 1
-      },
-      {
-        "id": 1786,
-        "email": "kurivytu@forexnews.bg",
-        "first_name": "name",
-        "last_name": "test",
-        "username": "username1234",
-        "job": "",
-        "avatar": null,
-        "banner": null,
-        "location": "",
-        "phone_number": "",
-        "about_me": "",
-        "things_user_likes": [],
-        "logged_in_user_is_following": false,
-        "logged_in_user_is_friends": false,
-        "logged_in_user_is_rejected": false,
-        "logged_in_user_received_fr": false,
-        "logged_in_user_sent_fr": false,
-        "amount_of_posts": 0,
-        "amount_of_likes": 0,
-        "amount_of_friends": 0,
-        "amount_of_followers": 0,
-        "amount_following": 0
-      },
-      {
-        "id": 814,
-        "email": "pantxasera11@hotmail.ch",
-        "first_name": "",
-        "last_name": "",
-        "username": "pantxasera11@hotmail.ch",
-        "job": "",
-        "avatar": null,
-        "banner": null,
-        "location": "",
-        "phone_number": "",
-        "about_me": "",
-        "things_user_likes": [],
-        "logged_in_user_is_following": false,
-        "logged_in_user_is_friends": false,
-        "logged_in_user_is_rejected": false,
-        "logged_in_user_received_fr": false,
-        "logged_in_user_sent_fr": false,
-        "amount_of_posts": 0,
-        "amount_of_likes": 0,
-        "amount_of_friends": 0,
-        "amount_of_followers": 1,
-        "amount_following": 0
-      },
-      {
-        "id": 819,
-        "email": "ndf25159@zwoho.com",
-        "first_name": "",
-        "last_name": "",
-        "username": "ndf25159@zwoho.com",
-        "job": "",
-        "avatar": null,
-        "banner": null,
-        "location": "",
-        "phone_number": "",
-        "about_me": "",
-        "things_user_likes": [],
-        "logged_in_user_is_following": false,
-        "logged_in_user_is_friends": false,
-        "logged_in_user_is_rejected": false,
-        "logged_in_user_received_fr": false,
-        "logged_in_user_sent_fr": false,
-        "amount_of_posts": 0,
-        "amount_of_likes": 0,
-        "amount_of_friends": 0,
-        "amount_of_followers": 1,
-        "amount_following": 0
-      },
-      {
-        "id": 824,
-        "email": "olivia.pvfdfosch@outlook.com",
-        "first_name": "",
-        "last_name": "",
-        "username": "olivia.pvfdfosch@outlook.com",
-        "job": "",
-        "avatar": null,
-        "banner": null,
-        "location": "",
-        "phone_number": "",
-        "about_me": "",
-        "things_user_likes": [],
-        "logged_in_user_is_following": false,
-        "logged_in_user_is_friends": false,
-        "logged_in_user_is_rejected": false,
-        "logged_in_user_received_fr": false,
-        "logged_in_user_sent_fr": false,
-        "amount_of_posts": 0,
-        "amount_of_likes": 0,
-        "amount_of_friends": 0,
-        "amount_of_followers": 0,
-        "amount_following": 0
-      },
-      {
-        "id": 838,
-        "email": "fifoyoc225@geekale.com",
-        "first_name": "peter",
-        "last_name": "peter",
-        "username": "peter12",
-        "job": "",
-        "avatar": null,
-        "banner": null,
-        "location": "",
-        "phone_number": "",
-        "about_me": "",
-        "things_user_likes": [],
-        "logged_in_user_is_following": false,
-        "logged_in_user_is_friends": false,
-        "logged_in_user_is_rejected": false,
-        "logged_in_user_received_fr": false,
-        "logged_in_user_sent_fr": false,
-        "amount_of_posts": 0,
-        "amount_of_likes": 0,
-        "amount_of_friends": 0,
-        "amount_of_followers": 3,
-        "amount_following": 0
-      },
-      {
-        "id": 843,
-        "email": "antonyalex@gmx.net",
-        "first_name": "",
-        "last_name": "",
-        "username": "antonyalex@gmx.net",
-        "job": "",
-        "avatar": null,
-        "banner": null,
-        "location": "",
-        "phone_number": "",
-        "about_me": "",
-        "things_user_likes": [],
-        "logged_in_user_is_following": false,
-        "logged_in_user_is_friends": false,
-        "logged_in_user_is_rejected": false,
-        "logged_in_user_received_fr": false,
-        "logged_in_user_sent_fr": false,
-        "amount_of_posts": 0,
-        "amount_of_likes": 0,
-        "amount_of_friends": 0,
-        "amount_of_followers": 0,
-        "amount_following": 0
-      },
-      {
-        "id": 888,
-        "email": "dapdqsmvzrddtiazou@twzhhq.com",
-        "first_name": "",
-        "last_name": "",
-        "username": "dapdqsmvzrddtiazou@twzhhq.com",
-        "job": "",
-        "avatar": null,
-        "banner": null,
-        "location": "",
-        "phone_number": "",
-        "about_me": "",
-        "things_user_likes": [],
-        "logged_in_user_is_following": false,
-        "logged_in_user_is_friends": false,
-        "logged_in_user_is_rejected": false,
-        "logged_in_user_received_fr": false,
-        "logged_in_user_sent_fr": false,
-        "amount_of_posts": 0,
-        "amount_of_likes": 0,
-        "amount_of_friends": 0,
-        "amount_of_followers": 0,
-        "amount_following": 0
-      },
-      {
-        "id": 848,
-        "email": "asdflkjasdlfj@gmail.com",
-        "first_name": "",
-        "last_name": "",
-        "username": "asdflkjasdlfj@gmail.com",
-        "job": "",
-        "avatar": null,
-        "banner": null,
-        "location": "",
-        "phone_number": "",
-        "about_me": "",
-        "things_user_likes": [],
-        "logged_in_user_is_following": false,
-        "logged_in_user_is_friends": false,
-        "logged_in_user_is_rejected": false,
-        "logged_in_user_received_fr": false,
-        "logged_in_user_sent_fr": false,
-        "amount_of_posts": 0,
-        "amount_of_likes": 0,
-        "amount_of_friends": 0,
-        "amount_of_followers": 0,
-        "amount_following": 0
-      },
-      {
-        "id": 853,
-        "email": "safdasdf@gmail.com",
-        "first_name": "",
-        "last_name": "",
-        "username": "safdasdf@gmail.com",
-        "job": "",
-        "avatar": null,
-        "banner": null,
-        "location": "",
-        "phone_number": "",
-        "about_me": "",
-        "things_user_likes": [],
-        "logged_in_user_is_following": false,
-        "logged_in_user_is_friends": false,
-        "logged_in_user_is_rejected": false,
-        "logged_in_user_received_fr": false,
-        "logged_in_user_sent_fr": false,
-        "amount_of_posts": 0,
-        "amount_of_likes": 0,
-        "amount_of_friends": 0,
-        "amount_of_followers": 0,
-        "amount_following": 0
-      },
-      {
-        "id": 858,
-        "email": "sadflkajsddfasdffasd@gmail.com",
-        "first_name": "",
-        "last_name": "",
-        "username": "sadflkajsddfasdffasd@gmail.com",
-        "job": "",
-        "avatar": null,
-        "banner": null,
-        "location": "",
-        "phone_number": "",
-        "about_me": "",
-        "things_user_likes": [],
-        "logged_in_user_is_following": false,
-        "logged_in_user_is_friends": false,
-        "logged_in_user_is_rejected": false,
-        "logged_in_user_received_fr": false,
-        "logged_in_user_sent_fr": false,
-        "amount_of_posts": 0,
-        "amount_of_likes": 0,
-        "amount_of_friends": 0,
-        "amount_of_followers": 0,
-        "amount_following": 0
-      },
-      {
-        "id": 893,
-        "email": "jik02860@eoopy.com",
-        "first_name": "",
-        "last_name": "",
-        "username": "jik02860@eoopy.com",
-        "job": "",
-        "avatar": null,
-        "banner": null,
-        "location": "",
-        "phone_number": "",
-        "about_me": "",
-        "things_user_likes": [],
-        "logged_in_user_is_following": false,
-        "logged_in_user_is_friends": false,
-        "logged_in_user_is_rejected": false,
-        "logged_in_user_received_fr": false,
-        "logged_in_user_sent_fr": false,
-        "amount_of_posts": 0,
-        "amount_of_likes": 0,
-        "amount_of_friends": 1,
-        "amount_of_followers": 1,
-        "amount_following": 0
-      }
-    ]
-  }

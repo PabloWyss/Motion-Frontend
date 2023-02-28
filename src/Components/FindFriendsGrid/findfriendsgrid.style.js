@@ -18,6 +18,7 @@ export const FindFriednsPageDiv = styled.div `
     width: 100%;
     display: flex;
     justify-content: space-around;
+    background: #F2F2F2;
 `
 
 export const AvaterImg = styled.img `
@@ -35,6 +36,7 @@ export const AddFriendUserDiv = styled.div `
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    background-color: white;
 `
 
 export const AddFriendNameP = styled.p `
@@ -54,6 +56,19 @@ export const AddFriendsDivButton = styled.div`
     display: flex;
     justify-content: space-evenly;
     width: 90%;
+`
+
+export const FollowInerDivButton = styled.div`
+    mix-blend-mode: normal;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
+    border-radius: 3rem;
+    width: 8.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: ${props => props.follow ? "white" : "linear-gradient(132.96deg, #C468FF 3.32%, #6E91F6 100%)"}
 `
 
 export const AddFriendsInerDivButton = styled.div`
