@@ -53,20 +53,37 @@ export const FormTitle = styled.h2`
   padding-bottom: 4%;
 `;
 
-export const InputContainer = styled.div`
-  text-align: center;
-  width: 100%;
+export const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
 `;
 
-export const InputField = styled.input`
-  margin: 1rem;
+export const InputCode = styled.input`
   line-height: 2rem;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   border-top: none;
   border-right: none;
   border-left: none;
-  width: 40%;
-  text-indent: 3rem;
+  width: 99%;
+  margin-top: 5%;
+`;
+
+export const InputContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+`;
+
+export const InputField = styled.input`
+  line-height: 2rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  width: 90%;
+  margin-top: 12%;
 `;
 
 export const FormIcon = styled.img`
@@ -77,7 +94,7 @@ export const FormIcon = styled.img`
   margin-left: 20px;
 `;
 
-export const SignInButton = styled.button`
+export const CompleteButton = styled.button`
   padding: 1.2rem 6rem;
   border-radius: 30px;
   border: none;
@@ -86,8 +103,14 @@ export const SignInButton = styled.button`
   font-size: 0.8rem;
   font-family: "Roboto", sans-serif;
   letter-spacing: 1px;
-  margin-top: 15%;
+  margin-top: 6%;
   &:hover {
     cursor: pointer;
   }
+`;
+
+export const ProgressCirclesContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 8%;
 `;

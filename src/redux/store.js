@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import sliceName from "./slices/myslice";
+import signUpEmailAddress from "./slices/signUpEmailAddress";
 
 export default configureStore({
   reducer: {
-    myslicename: sliceName,
+    signupemail: signUpEmailAddress,
   },
 });

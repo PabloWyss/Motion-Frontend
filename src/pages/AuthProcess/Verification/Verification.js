@@ -1,13 +1,13 @@
-import { Fragment } from "react";
 import VerificationRight from "../../../Components/AuthComp/VerificationRight/VerificationRight";
 import SignInLeft from "../../../Components/AuthComp/SignInLeft/signIn";
+import { VerificationDiv } from "./Verification.style";
 
 function Verification() {
   return (
-    <Fragment>
+    <VerificationDiv>
       <SignInLeft />
       <VerificationRight />
-    </Fragment>
+    </VerificationDiv>
   );
 }
 
