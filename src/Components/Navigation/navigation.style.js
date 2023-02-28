@@ -97,21 +97,27 @@ export const AlertIcon = styled.img`
 margin: 0 45px 0 10px;
 height: 21px;
 `;
-export const AlertNum = styled.p`
+
+
+export const AlertNumDiv = styled.div`
   background: linear-gradient(132.96deg, #C468FF 3.32%, #6E91F6 100%);
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
-  position: fixed;
   border-radius: 50%;
-  padding: 3px 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
   color: white;
-  font-size: 12px;
-  font-weight: bold;
-  top: 0;
-  right: 136px;
   opacity: 40%;
+  position: absolute;
+  top: 9px
 
   
-
+  `
+export const AlertNum = styled.span`
+  font-size: 12px;
+  font-weight: bold;
 `
 
 export const Avatar = styled.img`
