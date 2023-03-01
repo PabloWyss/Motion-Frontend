@@ -3,54 +3,59 @@ import { NavigationBellUl,
 NavigationBellLi,
 NavigationBelldiv
  } from "../navigation.style"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchFriendRequests } from "../../../redux/slices/friendReuqestSlice"
+import UsersSentRequest from "./UsersAlerts/usersSentRequest"
+
 
 const BellAlerts = () => {
 
-    // const Token = localStorage.getItem("auth-token")
-    // const [friendRequests,setFriendRequests] = useState({})
 
-    // const SendFriendRequest= async () => {
-    //     let myHeaders = new Headers();
-    //     myHeaders.append("Authorization", `Bearer ${Token}`);
-        
-    //     let requestOptions = {
-    //       method: 'GET',
-    //       headers: myHeaders,
-    //     };
-        
-    //     await fetch("https://motion.propulsion-home.ch/backend/api/social/friends/requests/", requestOptions)
-    //       .then(response => response.json())
-    //       .then(result => setFriendRequests(result.results))
-    //       .catch(error => console.log('error', error));
-      
-    //   }
+    const dispatch = useDispatch()
 
-    //   useEffect (()=>{
-    //     SendFriendRequest()
-    //   },[])
 
-    //   console.log((friendRequests))
-    //   let requesters = friendRequests
+    const myID = "2236"
+    const requestedToUser = []
+    const requestedByUser = []
+
+    useEffect(()=>{
+        dispatch(fetchFriendRequests())
+    },[])
+
+    const request = useSelector(store => store)
     
-    
-
-      
+    if(request.friendRequests.requests.results){
+        const listOfRequests = request.friendRequests.requests.results
+        const requestKeys = Object.keys(listOfRequests)
+        requestKeys.forEach((idElement)=>{
+        if(listOfRequests[idElement].requester.id == myID) {
+            requestedByUser.push(listOfRequests[idElement])
+        } else {
+            requestedToUser.push(listOfRequests[idElement])
+        }
+        })
+    }
 
     return (
         <NavigationBelldiv>
             <NavigationBellUl>
-            <NavigationBellLi>
-                Received Requests
-            </NavigationBellLi>
-            <NavigationBellLi>
-                Users
-            </NavigationBellLi>
-            <NavigationBellLi>
-                Sent Requests
-            </NavigationBellLi>
-            <NavigationBellLi>
-                Users
-            </NavigationBellLi>
+                <p>
+                    Received Requests
+                </p>
+                {requestedToUser.map((elementId)=>{
+                    return (
+                        <UsersSentRequest key={elementId.id} requester={elementId.requester}/>
+                    )
+                })}
+                <NavigationBellLi>
+                    Users
+                </NavigationBellLi>
+                <p>
+                    Sent Requests
+                </p>
+                <NavigationBellLi>
+                    Users
+                </NavigationBellLi>
             </NavigationBellUl>
         </NavigationBelldiv>
         
