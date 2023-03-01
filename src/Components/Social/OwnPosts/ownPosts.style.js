@@ -35,17 +35,13 @@ export const FlexColumnWrapper = styled.div`
 export const Name = styled.div``;
 export const Time = styled.div``;
 export const Menu = styled.div``;
-export const PostText = styled.p`
-`;
+export const PostText = styled.p``;
 export const PictureGrid = styled.div`
   width: 100%;
   margin: 0 10px;
-  ;
   
-
 `;
 export const HeartIcon = styled.div``;
 export const ActionButton = styled.div``;
 export const ShareIcon = styled.div``;
 export const LikeCount = styled.div``;
-

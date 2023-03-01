@@ -5,12 +5,21 @@ export const SearchBarContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 4rem;
+  height: 5rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   -webkit-background-clip: padding-box; /* for Safari */
   background-clip: padding-box; /* for Firefox 4+, Opera, Chrome */
   
 `;
+
+export const SearchBarWrapper = styled.div`
+  width: 64rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const ContainerWrapperLeft = styled.div`
   display: flex;
   width: 50%;
@@ -20,7 +29,7 @@ export const ContainerWrapperLeft = styled.div`
   
 `;
 export const SearchIcon = styled.img`
-  margin: 0 20px 0 24px;
+  margin: 0 1rem 0 1rem;
   height: 1rem;
 `;
 export const SearchInput = styled.input`
@@ -36,16 +45,16 @@ export const ContainerWrapperRight = styled.div`
   height: 100%;
   align-items: center;
   justify-content: end;
-  margin-right: 24px;
 
   
 `;
 export const FilterWrapper = styled.div`
   display: flex;
   height: 100%;
-  width: 200px;
+  width: 12rem;
   justify-content: space-between;
   align-items: center;
+  margin-right: 1rem;
 `;
 export const FilterSetter = styled.p`
   height: 100%;
@@ -60,7 +69,3 @@ export const FilterSetter = styled.p`
   }
 `;
 
-export const PageBorder = styled.div`
-  width: 120px;
-  height: 100%;
-`;

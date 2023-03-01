@@ -1,5 +1,5 @@
-import React from 'react'
-import icon_search from '../../assets/svgs/search_icon.svg'
+import React from "react";
+import icon_search from "../../assets/svgs/search_icon.svg";
 import {
   ContainerWrapperLeft,
   FilterWrapper,
@@ -8,13 +8,13 @@ import {
   SearchIcon,
   SearchInput,
   FilterSetter,
-  PageBorder,
+  SearchBarWrapper
 } from "./searchAndFilterBar.style";
 
 const SearchAndFilterBar = () => {
   return (
     <SearchBarContainer>
-      <PageBorder />
+      <SearchBarWrapper>
       <ContainerWrapperLeft>
         <SearchIcon src={icon_search}></SearchIcon>
         <SearchInput type="text" placeholder="Search posts..."></SearchInput>
@@ -26,9 +26,9 @@ const SearchAndFilterBar = () => {
           <FilterSetter>Follow</FilterSetter>
         </FilterWrapper>
       </ContainerWrapperRight>
-      <PageBorder />
+      </SearchBarWrapper>
     </SearchBarContainer>
   );
-}
+};
 
-export default SearchAndFilterBar
+export default SearchAndFilterBar;
