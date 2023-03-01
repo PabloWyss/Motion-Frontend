@@ -12,7 +12,7 @@ export  const  GetAll_Post = async (offset) => {
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}` );
 
-    var requestOptions = {
+    let requestOptions = {
     method: 'GET',
     headers: myHeaders,
     redirect: 'follow'
@@ -33,7 +33,7 @@ export  const  GetAll_Post = async (offset) => {
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}` );
 
-    var requestOptions = {
+    let requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
@@ -54,7 +54,7 @@ export  const  GetAll_Post = async (offset) => {
     myHeaders.append("Authorization", `Bearer ${Token}` );
      myHeaders.append("Content-Type", "application/json");
   
-  var raw = JSON.stringify({
+  let raw = JSON.stringify({
     "user": {
       "email": "user@example.com",
       "first_name": "string",
@@ -64,7 +64,7 @@ export  const  GetAll_Post = async (offset) => {
     "content": "test22"
   });
   
-  var requestOptions = {
+  let requestOptions = {
     method: 'POST',
     headers: myHeaders,
     body: raw,
@@ -93,7 +93,7 @@ export  const  GetAll_Post = async (offset) => {
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}` );
 
-  var requestOptions = {
+  let requestOptions = {
   method: type,
   headers: myHeaders,
   redirect: 'follow'
@@ -112,7 +112,7 @@ export  const  GetAll_Post = async (offset) => {
   export const GET_post_search =async (search) => {
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}` );
-  var requestOptions = {
+  let requestOptions = {
     method: 'GET',
     headers: myHeaders,
     redirect: 'follow'
@@ -131,9 +131,9 @@ export  const  GetAll_Post = async (offset) => {
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}` );
 
-    var raw = "";
+    let raw = "";
     
-    var requestOptions = {
+    let requestOptions = {
       method: 'POST',
       headers: myHeaders,
       body: raw,
@@ -151,7 +151,7 @@ export  const  GetAll_Post = async (offset) => {
   export const GetUsersFollowing = async() => {
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}` );
-    var requestOptions = {
+    let requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
@@ -172,7 +172,7 @@ export  const  GetAll_Post = async (offset) => {
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}` );
 
-    var requestOptions = {
+    let requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
@@ -192,7 +192,7 @@ export  const  GetAll_Post = async (offset) => {
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}` );
 
-    var requestOptions = {
+    let requestOptions = {
       method: 'POST',
       headers: myHeaders,
       redirect: 'follow'
@@ -217,7 +217,7 @@ export const FriendsRequestsStatus = async(type,friend_request_id) => {
     myHeaders.append("Authorization", `Bearer ${Token}` );
     myHeaders.append("Content-Type", "application/json");
   
-    var raw;
+    let raw;
     if(type==="PATCH")
     {
       raw= JSON.stringify({
@@ -226,7 +226,7 @@ export const FriendsRequestsStatus = async(type,friend_request_id) => {
     }
    
     
-    var requestOptions = {
+    let requestOptions = {
       method: type,
       headers: myHeaders,
       body: raw,
@@ -246,7 +246,7 @@ export const FriendsRequestsStatus = async(type,friend_request_id) => {
   let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}` );
 
-  var requestOptions = {
+  let requestOptions = {
     method: 'POST',
     headers: myHeaders,
     redirect: 'follow'
@@ -269,7 +269,7 @@ export const FriendsRequestsStatus = async(type,friend_request_id) => {
   
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}` );
-    var requestOptions = {
+    let requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
@@ -289,7 +289,7 @@ export const FriendsRequestsStatus = async(type,friend_request_id) => {
   
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}` );
-    var requestOptions = {
+    let requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
@@ -306,7 +306,7 @@ export const FriendsRequestsStatus = async(type,friend_request_id) => {
   
       let myHeaders = new Headers();
       myHeaders.append("Authorization", `Bearer ${Token}` );
-      var requestOptions = {
+      let requestOptions = {
         method: 'GET',
         headers: myHeaders,
         redirect: 'follow'
@@ -323,13 +323,13 @@ export const FriendsRequestsStatus = async(type,friend_request_id) => {
      
       export const GetUsers_me = async () => { 
    
-        //var myHeaders = new Headers();
+        //let myHeaders = new Headers();
   //myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NzU3NjY1LCJqdGkiOiI4NDRkNGIxN2M5ZDM0NGUxYTNkYmI0ZDg1NTgxMjhiOSIsInVzZXJfaWQiOjIyMzV9.uX1RdxUtSQjUjNqFVdv6JItzpMTzhgQROZWbyRP8RY8");
   
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}` );
   
-    var requestOptions = {
+    let requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
