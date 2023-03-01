@@ -1,12 +1,18 @@
 import { useEffect } from "react";
 import { EditProfileButton, MainContainer } from "./profileCardLeft.style";
 
-function ProfileCardLeft() {
-  let userProfile = {};
+function ProfileCardLeft(props) {
+ //1. check if user passed is the same as current user
+ //2. same as current: display own (edit button)
+ //3. other user: display pablo's component 
+ 
+  //let userProfile = {};
+
+
 
 
   useEffect(() => {
-    //retrieve user data
+    //retrieve current user id
   }, [])
 
 

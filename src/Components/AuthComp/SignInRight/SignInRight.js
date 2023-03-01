@@ -35,7 +35,9 @@ function SignInRight() {
   //login
   const handleLoginClick = async (e) => {
     e.preventDefault();
-    //registration request to API
+    //redirect to homepage
+    navigate("/posts");
+    //login request to API
     const response = await callAPI.post(
       "token/",
       JSON.stringify({
@@ -44,8 +46,6 @@ function SignInRight() {
       })
     );
     localStorage.setItem("auth-token", response.data.access);
-    //redirect to homepage
-    navigate("/");
   };
 
   //navigate to sign up page
