@@ -8,7 +8,6 @@ export const MainContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
 `;
 export const WrapperDiv = styled.div`
   margin: 1rem;
@@ -20,18 +19,13 @@ export const WrapperDiv = styled.div`
 export const Avatar = styled.img`
   width: 45px;
   height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
 `;
 
 export const FlexRowWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  
+  width: 100%;
   
 `;
 export const FlexColumnWrapper = styled.div`
@@ -39,22 +33,30 @@ export const FlexColumnWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
- 
+  height: 100%;
 `;
 
-export const TextWrapper = styled.div`
+export const HeaderWrapper = styled.div`
+  margin: 0 1rem;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
- 
-  
+  width: 100%;
+
 `;
-export const Name = styled.div``;
-export const Time = styled.div``;
+export const Name = styled.p`
+  display: flex;
+  align-content: center;
+  justify-content: center;
+`;
+export const Time = styled.p`
+  display: flex;
+  align-content: center;
+  justify-content: center;
+`;
 export const Menu = styled.div``;
 export const PostText = styled.p``;
-export const PictureGrid = styled.div`
-`;
+export const PictureGrid = styled.div``;
 export const HeartIcon = styled.div``;
 export const ActionButton = styled.div``;
 export const ShareIcon = styled.div``;
