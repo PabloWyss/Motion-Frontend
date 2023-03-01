@@ -1,24 +1,26 @@
 import { AvaterImg,AddFriendUserDiv,AddFriendNameP,AddFriendlocationP,
         AddFriendsDivButton,AddFriendsInerDivButton,AddFollowAddFriendButton,FollowInerDivButton,
-        AboutMeInfoP,LikedElementsDiv,LikedIndivualElementDiv,LikedIndivualElementP} from "../findfriendsgrid.style"
+        AboutMeInfoP,LikedElementsDiv,LikedIndivualElementDiv,LikedIndivualElementP,TickerImage} from "../findfriendsgrid.style"
 import { v4 as uuid } from 'uuid'
-import { useState, useEffect } from "react"
+import { useState } from "react"
+import tickerImage from "../../../assets/svgs/Ticker.svg"
 
 const UserFindFriendInfo = (prop) => {
     
     const [FolowUser,setFollowUser] = useState(prop.userInfo.logged_in_user_is_following)
+    const [addFriend,setAddFriend] = useState(prop.userInfo.logged_in_user_sent_fr)
 
+
+    const Token = localStorage.getItem("auth-token")
 
     const Usersfollow = (userid) => {
-
-        const Token = localStorage.getItem("auth-token")
       
-        var myHeaders = new Headers();
+        let myHeaders = new Headers();
         myHeaders.append("Authorization", `Bearer ${Token}`);
         
-        var raw = "";
+        let raw = "";
         
-        var requestOptions = {
+        let requestOptions = {
           method: 'POST',
           headers: myHeaders,
           redirect: 'follow'
@@ -29,11 +31,35 @@ const UserFindFriendInfo = (prop) => {
       
     }
 
+    const SendFriendRequest= (userid) => {
+  
+        let myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${Token}` );
+        
+        let requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          redirect: 'follow'
+        };
+        
+        fetch("https://motion.propulsion-home.ch/backend/api/social/friends/request/"+userid+"/", requestOptions)
+          .then(response => response.json())
+          .catch(error => console.log('error', error));
+      
+      }
+
     
 
     const hanldeFollowButton = () => {
         setFollowUser(!FolowUser)
         Usersfollow(prop.userInfo.id)
+    }
+
+    const hanldeAddFriendButton = () => {
+        if (addFriend == false){
+            setAddFriend(!addFriend)
+            SendFriendRequest(prop.userInfo.id)
+        }
     }
 
     return(
@@ -48,8 +74,9 @@ const UserFindFriendInfo = (prop) => {
                 <FollowInerDivButton follow={FolowUser} onClick={hanldeFollowButton}>
                     <AddFollowAddFriendButton>{FolowUser? "Followed" : "Follow"}</AddFollowAddFriendButton>
                 </FollowInerDivButton>
-                <AddFriendsInerDivButton>
-                    <AddFollowAddFriendButton>Add Friend</AddFollowAddFriendButton>
+                <AddFriendsInerDivButton onClick={hanldeAddFriendButton}>
+                    {addFriend ?<TickerImage src={tickerImage}/>:""}
+                    <AddFollowAddFriendButton >Add Friend</AddFollowAddFriendButton>
                 </AddFriendsInerDivButton>
             </AddFriendsDivButton>
             <AboutMeInfoP>
