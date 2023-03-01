@@ -10,6 +10,7 @@ export const MainContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  
 `;
 export const Avatar = styled.img`
   width: 45px;
@@ -28,6 +29,7 @@ export const InputField = styled.input`
   opacity: 80%;
   ::placeholder {
     font-size: 11px;
+    
   }
 `;
 export const SubmitButton = styled.div`

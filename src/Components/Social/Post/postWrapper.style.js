@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
-  width: 100%; 
+  width: 64rem; 
   height: 100%;
   display: flex;
   align-items: center;
@@ -21,6 +21,6 @@ export const SideSeperator = styled.div`
 `;
 
 export const PageBorder = styled.div`
-  width: 15rem;
+  width: 30rem;
   height: 100%;
 `

@@ -27,13 +27,17 @@ const OwnPosts = () => {
         </FlexColumnWrapper>
         <Menu>Menu</Menu>
       </FlexRowWrapper>
-      <PostText>Text</PostText>
+      <PostText>
+        Text
+      </PostText>
       <PictureGrid>PictureGrid</PictureGrid>
-      <HeartIcon>Heart</HeartIcon>
-      <ActionButton>Like Text</ActionButton>
-      <ShareIcon>SharePic</ShareIcon>
-      <ActionButton>Share Text</ActionButton>
-      <LikeCount>CountLikes</LikeCount>
+      <FlexRowWrapper>
+        <HeartIcon>Heart</HeartIcon>
+        <ActionButton>Like Text</ActionButton>
+        <ShareIcon>SharePic</ShareIcon>
+        <ActionButton>Share Text</ActionButton>
+        <LikeCount>CountLikes</LikeCount>
+      </FlexRowWrapper>
     </MainContainer>
   );
 };
