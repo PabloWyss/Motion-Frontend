@@ -1,6 +1,11 @@
+import { MainContainer } from "./profileCounters.style";
+
 function ProfileCounters() {
-    return <div>Profile Counters</div>;
-  }
-  
-  export default ProfileCounters;
-  
+  return (
+    <MainContainer>
+      <div>Profile Counters</div>
+    </MainContainer>
+  );
+}
+
+export default ProfileCounters;
