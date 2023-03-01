@@ -114,3 +114,8 @@ export const ProgressCirclesContainer = styled.div`
   justify-content: center;
   margin-top: 8%;
 `;
+export const ErrorMessage = styled.div`
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+`;

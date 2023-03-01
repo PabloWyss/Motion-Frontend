@@ -91,3 +91,10 @@ export const SignInButton = styled.button`
     cursor: pointer;
   }
 `;
+
+
+export const ErrorMessage = styled.div`
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+`;

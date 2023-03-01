@@ -11,7 +11,7 @@ import {
   InputContainer,
   InputField,
   ProgressCirclesContainer,
-  RightSide,
+  RightSide,ErrorMessage
 } from "./VerificationRight.style";
 
 function VerificationRight() {
@@ -24,6 +24,9 @@ function VerificationRight() {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [passwordMatch, setPasswordMatch] = useState(true);
   const navigate = useNavigate();
+
+
+  const [error, setError] = useState('');
 
   //store typed email
   const handleEmailInput = (e) => {
@@ -76,8 +79,22 @@ function VerificationRight() {
   //validation
   const handleActivateClick = async (e) => {
     e.preventDefault();
-    //redirect to login page
-    navigate("/signin");
+
+
+    if (!userEmail || !userName || !verificationCode || !userPassword || !repeatPassword|| !firstName|| !lastName) 
+    {
+      setError('Every field is required.');
+      return;
+    }
+    else
+    {
+     let emessage="";
+
+
+
+
+
+    
     //registration request to API
     await callAPI.patch(
       "registration/validation/",
@@ -90,12 +107,50 @@ function VerificationRight() {
         first_name: firstName,
         last_name: lastName,
       })
-    );
+    ).catch(error => 
+     
+      emessage=error.message,
+      
+    
+      );;
+      
+  
+
+    //console.log("68: "+emessage);
+    if (!emessage) 
+      {
+         //redirect to login page
+          navigate("/signin");
+     
+        return;
+      }
+      else
+      {
+       
+          alert(emessage)
+        
+      }
+    
+    
+    
+    
+    
+    
+    ;
+    }
+
+
+
+
+
+
+  
   };
 
   return (
     <RightSide>
       <AuthForm className="activation-form">
+      {error && <ErrorMessage>{error}</ErrorMessage>}
         <FormTitle>Verification</FormTitle>
         <FormContainer>
           <InputCode

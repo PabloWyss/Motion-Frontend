@@ -14,7 +14,7 @@ import {
   RightSide,
   SignInHeader,
   SignUpButton,
-  TextBesidesButton,
+  TextBesidesButton,ErrorMessage
 } from "./signUpRight.style";
 import { setSignUpEmail } from "../../../redux/slices/signUpEmailAddress";
 
@@ -23,6 +23,7 @@ function SignUpRight() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const [error, setError] = useState('');
   //store typed email
   const handleEmailInput = (e) => {
     setEmail(e.target.value);
@@ -31,17 +32,56 @@ function SignUpRight() {
   //sign up - create a new user
   const handleSignUpClick = async (e) => {
     e.preventDefault();
-    //store user email in redux for congratulations page
-    dispatch(setSignUpEmail(userEmail));
+
+    if (!userEmail) 
+    {
+      setError('Please enter email');
+      return;
+    }
+    else
+    {
+     let emessage="";
+     dispatch(setSignUpEmail(userEmail));
+
+       //store user email in redux for congratulations page
+   
     //redirect to activation page
-    navigate("/congratulations");
+  
     //registration request to API
     await callAPI.post(
       "registration/",
       JSON.stringify({
         email: userEmail,
       })
-    );
+    ).catch(error => 
+     
+      emessage=error.message,
+      
+    
+      );;
+      
+  
+    //console.log(emessage);
+   
+      if (!emessage) 
+      {
+        navigate("/congratulations");
+       
+       
+      
+        return;
+      }
+      else
+      {
+       
+          alert('Please check your email')
+        
+      }
+    }
+
+
+
+  
   };
 
   //navigate to sign in page
@@ -56,6 +96,7 @@ function SignUpRight() {
         <HeaderButton onClick={handleSignInClick}>SIGN IN</HeaderButton>
       </SignInHeader>
       <AuthForm>
+      {error && <ErrorMessage>{error}</ErrorMessage>}
         <FormTitle>Sign Up</FormTitle>
         <InputContainer>
           <FormIcon src={LetterIcon}></FormIcon>
