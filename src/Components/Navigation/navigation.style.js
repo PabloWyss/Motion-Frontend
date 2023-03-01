@@ -120,8 +120,7 @@ export const AlertNumDiv = styled.div`
   width: 16px;
   color: white;
   opacity: 40%;
-  /* position: absolute; */
-  /* top: 9px */
+
 
   
   `
@@ -175,7 +174,6 @@ export const NavigationBellDiv = styled.div`
   position: absolute;
   right: 8.5rem;
   top: 5rem;
-  background-color: white;
 `
 
 export const NavigationBellUl = styled.ul `
@@ -185,13 +183,15 @@ export const NavigationBellUl = styled.ul `
   margin: 0;
   padding: 0;
   width: 20rem;
-  background-color: white;
+  background: red;
   list-style-type: none;
 `
 
 export const NavigationBelldiv = styled.div `
   display: flex;
   justify-content: center;
+  background-color: white;
+  opacity: 1;
 `
 
 
