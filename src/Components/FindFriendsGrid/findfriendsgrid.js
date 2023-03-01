@@ -21,7 +21,7 @@ const FindFirendsGrid = () => {
         headers: myHeaders,
       };
 
-      let limit = "10"
+      let limit = "9"
       let offset = "11"
 
       

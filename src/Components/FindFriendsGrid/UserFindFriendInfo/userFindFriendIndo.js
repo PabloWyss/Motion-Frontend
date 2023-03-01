@@ -21,14 +21,13 @@ const UserFindFriendInfo = (prop) => {
         var requestOptions = {
           method: 'POST',
           headers: myHeaders,
-          body: raw,
           redirect: 'follow'
         };
         fetch("https://motion.propulsion-home.ch/backend/api/social/followers/toggle-follow/"+userid+"/", requestOptions)
           .then(response => response.text())
           .catch(error => console.log('error', error));
       
-      }
+    }
 
     
 
