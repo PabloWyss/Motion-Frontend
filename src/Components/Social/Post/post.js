@@ -312,6 +312,9 @@ export const FriendsRequestsStatus = (type,friend_request_id) => {
         .catch(error => console.log('error', error));
       }
     
+
+
+      const Token = localStorage.getItem("auth-token")
       export const GetUsers_me = async () => { 
    
         //var myHeaders = new Headers();
