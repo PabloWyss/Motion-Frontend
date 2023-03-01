@@ -3,24 +3,24 @@ import Congratulations from "../../pages/AuthProcess/Congratulations/Congratulat
 import SignIn from "../../pages/AuthProcess/SignIn/SignIn";
 import SignUp from "../../pages/AuthProcess/SignUp/SignUp";
 import Verification from "../../pages/AuthProcess/Verification/Verification";
-import Homepage from "../../pages/Home/Homepage";
 import Posts from "../../pages/Posts/posts";
 import Profile from "../../pages/Profile/Profile";
 import "./App.css";
 import FindFirends from "../../pages/Find-Friends/find-firends";
+import RouteProtection from "../HOC/RouteProtection";
 
 function Home() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/" element={<RouteProtection route={<Posts />}/>} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/congratulations" element={<Congratulations />} />
         <Route path="/verification" element={<Verification />} />
-        <Route path="/posts" element={<Posts />} />
-        <Route path="/find-friends" element={<FindFirends/>} />
+        <Route path="/posts" element={<RouteProtection route={<Posts />}/>} />
+        <Route path="/find-friends" element={<RouteProtection route={<FindFirends />}/>} />
+        <Route path="/profile" element={<RouteProtection route={<Profile />}/>} />
       </Routes>
     </div>
   );

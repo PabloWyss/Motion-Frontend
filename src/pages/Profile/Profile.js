@@ -1,6 +1,6 @@
 import Navigation from "../../Components/Navigation/navigation";
 import ProfileBackground from "../../Components/UserProfile/ProfileBackground/ProfileBackground";
-import ProfileCard from "../../Components/UserProfile/ProfileCard/ProfileCard";
+import ProfileComp from "../../Components/UserProfile/ProfileComp/ProfileComp";
 import { ProfilePage } from "./profile.style";
 
 function Profile() {
@@ -8,7 +8,7 @@ function Profile() {
     <ProfilePage>
       <Navigation />
       <ProfileBackground />
-      <ProfileCard />
+      <ProfileComp />
     </ProfilePage>
   );
 }
