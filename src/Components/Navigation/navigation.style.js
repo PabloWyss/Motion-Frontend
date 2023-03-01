@@ -187,3 +187,21 @@ export const NavigationBellUl = styled.ul `
   background-color: white;
   list-style-type: none;
 `
+
+export const NavigationBelldiv = styled.div `
+  display: flex;
+  justify-content: center;
+`
+
+
+export const NavigationBellLi = styled.li `
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+  margin: 0;
+  border: solid 1px #d8d3d3;
+  &:hover{
+    background-color: #d8d3d3;
+  }
+`

@@ -66,9 +66,9 @@ const Navigation = () => {
               <AlertNum>3</AlertNum>
             </AlertNumDiv>
           </AlertNumSpacerAbsolute>
-          <NavigationBellDiv>
+          {/* <NavigationBellDiv>
             <BellAlerts/>
-          </NavigationBellDiv>
+          </NavigationBellDiv> */}
         </AlertContainer>
         <Avatar src={avatar}></Avatar>
         <MenuDots src={menuDots} onClick={handleDotsClicjed}></MenuDots>

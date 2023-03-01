@@ -1,25 +1,59 @@
-import { NavigationBellUl } from "../navigation.style"
+import { useEffect, useState } from "react"
+import { NavigationBellUl,
+NavigationBellLi,
+NavigationBelldiv
+ } from "../navigation.style"
 
 const BellAlerts = () => {
 
+    // const Token = localStorage.getItem("auth-token")
+    // const [friendRequests,setFriendRequests] = useState({})
+
+    // const SendFriendRequest= async () => {
+    //     let myHeaders = new Headers();
+    //     myHeaders.append("Authorization", `Bearer ${Token}`);
+        
+    //     let requestOptions = {
+    //       method: 'GET',
+    //       headers: myHeaders,
+    //     };
+        
+    //     await fetch("https://motion.propulsion-home.ch/backend/api/social/friends/requests/", requestOptions)
+    //       .then(response => response.json())
+    //       .then(result => setFriendRequests(result.results))
+    //       .catch(error => console.log('error', error));
+      
+    //   }
+
+    //   useEffect (()=>{
+    //     SendFriendRequest()
+    //   },[])
+
+    //   console.log((friendRequests))
+    //   let requesters = friendRequests
+    
     
 
+      
 
     return (
-        <NavigationBellUl>
-            <li>
+        <NavigationBelldiv>
+            <NavigationBellUl>
+            <NavigationBellLi>
                 Received Requests
-            </li>
-            <li>
+            </NavigationBellLi>
+            <NavigationBellLi>
                 Users
-            </li>
-            <li>
+            </NavigationBellLi>
+            <NavigationBellLi>
                 Sent Requests
-            </li>
-            <li>
+            </NavigationBellLi>
+            <NavigationBellLi>
                 Users
-            </li>
-        </NavigationBellUl>
+            </NavigationBellLi>
+            </NavigationBellUl>
+        </NavigationBelldiv>
+        
     )
 }
 
