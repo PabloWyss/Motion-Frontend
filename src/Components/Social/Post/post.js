@@ -312,4 +312,25 @@ export const FriendsRequestsStatus = (type,friend_request_id) => {
         .catch(error => console.log('error', error));
       }
     
-      
+
+
+      const Token = localStorage.getItem("auth-token")
+      export const GetUsers_me = async () => { 
+   
+        //var myHeaders = new Headers();
+  //myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NzU3NjY1LCJqdGkiOiI4NDRkNGIxN2M5ZDM0NGUxYTNkYmI0ZDg1NTgxMjhiOSIsInVzZXJfaWQiOjIyMzV9.uX1RdxUtSQjUjNqFVdv6JItzpMTzhgQROZWbyRP8RY8");
+  
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+  
+    var requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+  
+  await fetch("https://motion.propulsion-home.ch/backend/api/users/me/", requestOptions)
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+      }
