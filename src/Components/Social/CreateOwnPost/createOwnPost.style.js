@@ -22,6 +22,7 @@ export const WrapperDiv = styled.div`
 export const Avatar = styled.img`
   width: 3.5rem;
   height: 3.5rem;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
