@@ -2,7 +2,6 @@ import { GridDiv,FindFriednsPageDiv } from "./findfriendsgrid.style"
 import UserFindFriendInfo from "./UserFindFriendInfo/userFindFriendIndo"
 import { v4 as uuid } from 'uuid'
 import { useState, useEffect} from "react"
-import axios from "axios"
 
 
 const FindFirendsGrid = () => {
@@ -21,7 +20,7 @@ const FindFirendsGrid = () => {
         headers: myHeaders,
       };
 
-      let limit = "10"
+      let limit = "20"
       let offset = "11"
 
       

@@ -31,7 +31,6 @@ export const AvaterImg = styled.img `
 
 export const AddFriendUserDiv = styled.div `
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 10px 20px rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
     height: 30rem;
     width: 20rem;
     display: flex;
@@ -39,6 +38,7 @@ export const AddFriendUserDiv = styled.div `
     align-items: center;
     justify-content: space-evenly;
     background-color: white;
+    border-radius: .3rem;
 `
 
 export const AddFriendNameP = styled.p `
@@ -65,12 +65,16 @@ export const FollowInerDivButton = styled.div`
     border: 1px solid #d9d9d9;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
     border-radius: 3rem;
-    width: 8.5rem;
+    width: 8rem;
     height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${props => props.follow ? "white" : "linear-gradient(132.96deg, #C468FF 3.32%, #6E91F6 100%)"}
+    &:hover {
+        transform: scale(1.10);
+        transition: .2s;
+    }
+    background: ${props => props.follow ? "linear-gradient(132.96deg, #C468FF 3.32%, #6E91F6 100%)" : "white" };
 `
 
 export const AddFriendsInerDivButton = styled.div`
@@ -78,16 +82,19 @@ export const AddFriendsInerDivButton = styled.div`
     border: 1px solid #d9d9d9;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
     border-radius: 3rem;
-    width: 8.5rem;
+    width: 8rem;
     height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    &:hover {
+        transform: scale(1.10);
+        transition: .3s;
+    }
 `
 
 export const AddFollowAddFriendButton = styled.p`
-    font-size: 10px;
-    line-height: 12px;
+    font-size: .7rem;
     text-align: center;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -118,9 +125,14 @@ export const LikedIndivualElementDiv = styled.div`
 
 export const LikedIndivualElementP = styled.p`
     font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    margin-left: 20px;
-    margin-right: 20px;
+    font-size: .7rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     
+`
+
+export const TickerImage = styled.img`
+    height: 1.5rem;
+    width: 1.5rem;
+    opacity: .4;
 `
