@@ -14,13 +14,18 @@ import {
   RightSide,
   SignInButton,
   SignInHeader,
-  TextBesidesButton,
+  TextBesidesButton,ErrorMessage
 } from "./signInRight.style";
 
 function SignInRight() {
   const [userEmail, setEmail] = useState("");
   const [userPassword, setPassword] = useState("");
   const navigate = useNavigate();
+
+
+  
+  const [error, setError] = useState('');
+
 
   //store typed email
   const handleEmailInput = (e) => {
@@ -35,8 +40,17 @@ function SignInRight() {
   //login
   const handleLoginClick = async (e) => {
     e.preventDefault();
+
+    if (!userEmail || !userPassword) 
+    {
+      setError('Please enter both email and password.');
+      return;
+    }
+    else
+    {
+     let emessage="";
     //redirect to homepage
-    navigate("/posts");
+
     //login request to API
     const response = await callAPI.post(
       "token/",
@@ -44,8 +58,34 @@ function SignInRight() {
         email: userEmail,
         password: userPassword,
       })
-    );
-    localStorage.setItem("auth-token", response.data.access);
+    ).catch(error => 
+     
+      emessage=error.message,
+      
+    
+      );;
+      
+  
+
+    //console.log("68: "+emessage);
+      if (!emessage) 
+      {
+        navigate("/posts");
+        localStorage.setItem("auth-token", response.data.access);
+        return;
+      }
+      else
+      {
+       
+          alert('Please check your username and password!')
+        
+      }
+     
+    }
+
+
+     
+    
   };
 
   //navigate to sign up page
@@ -60,12 +100,14 @@ function SignInRight() {
         <HeaderButton onClick={handleSignUpClick}>SIGN UP</HeaderButton>
       </SignInHeader>
       <AuthForm>
+      {error && <ErrorMessage>{error}</ErrorMessage>}
         <FormTitle>Sign In</FormTitle>
         <InputContainer>
           <FormIcon src={AvatarIcon}></FormIcon>
           <InputField
             placeholder="Email"
             type="email"
+            required
             value={userEmail}
             onChange={handleEmailInput}
           />
@@ -75,7 +117,8 @@ function SignInRight() {
           <InputField
             placeholder="Password"
             type="password"
-            value={userPassword}
+            required
+            value={userPassword} 
             onChange={handlePasswordInput}
           />
         </InputContainer>

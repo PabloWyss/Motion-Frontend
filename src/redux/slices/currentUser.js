@@ -3,13 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 export const currentUser = createSlice({
   name: "current-user",
   initialState: {
-    currentuserid: "",
+    currentuser: {},
   },
   reducers: {
-    setCurrentUserID: (state, action) => {
-      state.currentuserid = action.payload;
+    setCurrentUser: (state, action) => {
+      const newCurrentUser = { ...action.payload };
+      state.currentuser = newCurrentUser;
+      localStorage.setItem("user", JSON.stringify(newCurrentUser));
     },
   },
 });
-export const { setCurrentUserID } = currentUser.actions;
+export const { setCurrentUser } = currentUser.actions;
 export default currentUser.reducer;

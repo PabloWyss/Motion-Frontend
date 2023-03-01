@@ -2,14 +2,15 @@ import denyButton from "../../../../assets/svgs/ButtonDenyRequest.svg"
 import acceptButton from "../../../../assets/svgs/ButtonButtonAcceptR.svg"
 import checkMark from "../../../../assets/svgs/Ticker.svg"
 import cross from "../../../../assets/svgs/Shapecross.svg"
+import avatarImage from "../../../../assets/svgs/avatar.svg"
 
 const UsersSentRequest = (prop) => {
 
-    console.log(prop.requester)
-
     return (
         <div>
-            <img alt="avatar" src=""/>
+            {prop.requester.avatar?
+            <img alt="avatar" src={prop.requester.avatar}/>:
+            <img alt="avatar" src={avatarImage}/>}
             <div>
                 <p>
                     {prop.requester.first_name} {prop.requester.last_name}

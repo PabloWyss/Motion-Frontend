@@ -174,6 +174,8 @@ export const NavigationBellDiv = styled.div`
   position: absolute;
   right: 8.5rem;
   top: 5rem;
+  border: solid 1px #d8d3d3;
+  z-index: 1;
 `
 
 export const NavigationBellUl = styled.ul `
@@ -183,7 +185,7 @@ export const NavigationBellUl = styled.ul `
   margin: 0;
   padding: 0;
   width: 20rem;
-  background: red;
+  background: white;
   list-style-type: none;
 `
 
