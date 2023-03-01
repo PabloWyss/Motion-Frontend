@@ -1,10 +1,10 @@
 import denyButton from "../../../../assets/images/denyInv.png"
 import acceptButton from "../../../../assets/images/acceptInv.png"
 import avatarImage from "../../../../assets/svgs/avatar.svg"
-import { AcceptDenyImg, RequestDiv,ImageNameDiv, NameP  } from "../../navigation.style"
+import clock from "../../../../assets/svgs/Groupclock.svg"
+import { AcceptDenyImg, RequestDiv,ImageNameDiv,NameP, FirstNameLastNameDiv,AcceptDenyDiv } from "../../navigation.style"
 
 const UsersReceivedRequest = (prop) => {
-    console.log(prop.receiver)
 
     return (
         <RequestDiv >
@@ -12,7 +12,7 @@ const UsersReceivedRequest = (prop) => {
                 {prop.receiver.avatar?
                 <AcceptDenyImg alt="avatar" src={prop.receiver.avatar}/>:
                 <AcceptDenyImg alt="avatar" src={avatarImage}/>}
-                <div>
+                <FirstNameLastNameDiv >
                     <NameP >
                         {prop.receiver.first_name} {prop.receiver.last_name}
                     </NameP >
@@ -20,12 +20,12 @@ const UsersReceivedRequest = (prop) => {
                         {prop.receiver.location}
                     </NameP >
 
-                </div>
+                </FirstNameLastNameDiv >
             </ImageNameDiv >
-            <div>
-                <AcceptDenyImg alt="acceptButton" src={acceptButton}/>
-                <AcceptDenyImg alt="denybutton" src={denyButton}/>
-            </div>
+            <AcceptDenyDiv  >
+                <AcceptDenyImg alt="clock" src={clock}/>
+            </AcceptDenyDiv  >
+            
         </RequestDiv >
     )
 }

@@ -184,7 +184,7 @@ export const NavigationBellUl = styled.ul `
   align-items: flex-start;
   margin: 0;
   padding: 0;
-  width: 20rem;
+  width: 17rem;
   background: white;
   list-style-type: none;
 `
@@ -193,7 +193,6 @@ export const NavigationBelldiv = styled.div `
   display: flex;
   justify-content: center;
   background-color: white;
-  opacity: 1;
 `
 
 
@@ -205,9 +204,6 @@ export const NavigationBellLi = styled.li `
   width: 100%;
   margin: 0;
   border: solid 1px #d8d3d3;
-  &:hover{
-    background-color: #d8d3d3;
-  }
 `
 
 export const RequestDiv = styled.div `
@@ -226,6 +222,7 @@ export const ImageNameDiv = styled.div`
   display: flex;
   justify-content: flex-start;
   gap: 2rem;
+  padding-left: .5rem;
 `
 
 export const NameP = styled.p`
@@ -234,9 +231,10 @@ export const NameP = styled.p`
 
 export const FirstNameLastNameDiv = styled.div`
   display: flex;
-  width: 5rem;
 `
 
 export const AcceptDenyDiv = styled.div`
   display: flex;
+  justify-content: flex-end;
+  padding-right: .5rem;
 `
