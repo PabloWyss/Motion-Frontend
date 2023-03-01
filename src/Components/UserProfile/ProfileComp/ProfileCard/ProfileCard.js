@@ -8,8 +8,8 @@ function ProfileCard(props) {
     <CardMainContainer>
       <ProfileCardLeft userdata={props.userdata} />
       <ProfileCardRightContainer>
-        <ProfileData />
-        <ProfileCounters />
+        <ProfileData userdata={props.userdata} />
+        <ProfileCounters userdata={props.userdata} />
       </ProfileCardRightContainer>
     </CardMainContainer>
   );
