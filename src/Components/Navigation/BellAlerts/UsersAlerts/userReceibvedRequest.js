@@ -1,33 +1,33 @@
 import denyButton from "../../../../assets/images/denyInv.png"
 import acceptButton from "../../../../assets/images/acceptInv.png"
 import avatarImage from "../../../../assets/svgs/avatar.svg"
-import { AcceptDenyImg, RequestDiv,ImageNameDiv,NameP, FirstNameLastNameDiv,AcceptDenyDiv    } from "../../navigation.style"
+import { AcceptDenyImg, RequestDiv,ImageNameDiv, NameP  } from "../../navigation.style"
 
-const UsersSentRequest = (prop) => {
+const UsersReceivedRequest = (prop) => {
+    console.log(prop.receiver)
 
     return (
         <RequestDiv >
             <ImageNameDiv >
-                {prop.requester.avatar?
-                <AcceptDenyImg alt="avatar" src={prop.requester.avatar}/>:
+                {prop.receiver.avatar?
+                <AcceptDenyImg alt="avatar" src={prop.receiver.avatar}/>:
                 <AcceptDenyImg alt="avatar" src={avatarImage}/>}
-                <FirstNameLastNameDiv >
+                <div>
                     <NameP >
-                        {prop.requester.first_name} {prop.requester.last_name}
+                        {prop.receiver.first_name} {prop.receiver.last_name}
                     </NameP >
                     <NameP >
-                        {prop.requester.location}
+                        {prop.receiver.location}
                     </NameP >
 
-                </FirstNameLastNameDiv >
+                </div>
             </ImageNameDiv >
-            <AcceptDenyDiv  >
+            <div>
                 <AcceptDenyImg alt="acceptButton" src={acceptButton}/>
                 <AcceptDenyImg alt="denybutton" src={denyButton}/>
-            </AcceptDenyDiv  >
-            
+            </div>
         </RequestDiv >
     )
 }
 
-export default UsersSentRequest
+export default UsersReceivedRequest

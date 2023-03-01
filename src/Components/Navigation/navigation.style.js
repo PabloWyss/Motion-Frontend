@@ -199,6 +199,7 @@ export const NavigationBelldiv = styled.div `
 
 export const NavigationBellLi = styled.li `
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   gap: 1rem;
   width: 100%;
@@ -207,4 +208,35 @@ export const NavigationBellLi = styled.li `
   &:hover{
     background-color: #d8d3d3;
   }
+`
+
+export const RequestDiv = styled.div `
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 3rem;
+`
+
+export const AcceptDenyImg = styled.img `
+  height: 2rem;
+  width: 2rem;
+`
+
+export const ImageNameDiv = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+`
+
+export const NameP = styled.p`
+  margin:0;
+`
+
+export const FirstNameLastNameDiv = styled.div`
+  display: flex;
+  width: 5rem;
+`
+
+export const AcceptDenyDiv = styled.div`
+  display: flex;
 `

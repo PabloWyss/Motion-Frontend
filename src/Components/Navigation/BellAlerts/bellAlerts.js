@@ -6,6 +6,7 @@ NavigationBelldiv
 import { useDispatch, useSelector } from "react-redux"
 import { fetchFriendRequests } from "../../../redux/slices/friendReuqestSlice"
 import UsersSentRequest from "./UsersAlerts/usersSentRequest"
+import UsersReceivedRequest from "./UsersAlerts/userReceibvedRequest"
 
 
 
@@ -49,13 +50,16 @@ const BellAlerts = () => {
                     )
                 })}
                 <NavigationBellLi>
-                    Users
                 </NavigationBellLi>
                 <p>
                     Sent Requests
                 </p>
                 <NavigationBellLi>
-                    Users
+                {requestedByUser.map((elementId)=>{
+                    return (
+                        <UsersReceivedRequest key={elementId.id} receiver={elementId.receiver}/>
+                    )
+                })}
                 </NavigationBellLi>
             </NavigationBellUl>
         </NavigationBelldiv>

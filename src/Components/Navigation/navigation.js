@@ -47,9 +47,9 @@ const Navigation = () => {
     setBellClicked(!bellClicked)
   }
 
-  const handleMouseOutOfBellMenu = () => {
-    setBellClicked(!bellClicked)
-  }
+  // const handleMouseOutOfBellMenu = () => {
+  //   setBellClicked(!bellClicked)
+  // }
 
 
   return (
@@ -76,7 +76,7 @@ const Navigation = () => {
             </AlertNumDiv>
           </AlertNumSpacerAbsolute>
           {bellClicked ?
-            <NavigationBellDiv onMouseLeave={handleMouseOutOfBellMenu}>
+            <NavigationBellDiv >
               <BellAlerts/>
             </NavigationBellDiv>:
             ""
