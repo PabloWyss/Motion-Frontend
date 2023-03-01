@@ -1,27 +1,23 @@
-import { useEffect } from "react";
-import { EditProfileButton, MainContainer } from "./profileCardLeft.style";
+//import { useSelector } from "react-redux";
+import UserFindFriendInfo from "../../../../FindFriendsGrid/UserFindFriendInfo/userFindFriendIndo";
+import OwnProfileInfos from "./OwnProfileInfos/OwnProfileInfos";
 
 function ProfileCardLeft(props) {
- //1. check if user passed is the same as current user
- //2. same as current: display own (edit button)
- //3. other user: display pablo's component 
- 
-  //let userProfile = {};
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  //retrieving of current user from redux doesn't work
+  //const currentUser = useSelector((store) => store.currentuser);
 
+  //check if user passed is the same as current user
+  //and render the corresponding component
+  const displayContent = () => {
+    return props.userdata.id === currentUser.id ? (
+      <OwnProfileInfos userdata={props.userdata} />
+    ) : (
+      <UserFindFriendInfo />
+    );
+  };
 
-
-
-  useEffect(() => {
-    //retrieve current user id
-  }, [])
-
-
-  return (
-    <MainContainer>
-      <p>Profile card left</p>
-      <EditProfileButton>EDIT PROFILE</EditProfileButton>
-    </MainContainer>
-  );
+  return displayContent();
 }
 
 export default ProfileCardLeft;
