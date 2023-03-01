@@ -1,18 +1,25 @@
-export  const  GetAll_Post = (offset) => {
+import { async } from "q";
 
-    //
+
+
+const Token = localStorage.getItem("auth-token")
+
+
+export  const  GetAll_Post = async (offset) => {
+
+    //GET: lists all the posts of all users in chronological order, with a pagination of 25 posts by default. To get the other posts, you should use limit and offset query params as following: /api/social/posts/?limit=<int>&offset=<int>
      
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NjgxMzk4LCJqdGkiOiI0Yjg0NjMwOWQ4MDU0ZTQzOTFiYjgxMjkyMmM2ZDlhMiIsInVzZXJfaWQiOjIyNTF9.o-vrYJ1SHkVh5OtsmccYdxQ0DWkQh-6fnqyhg8QgDNc");
-  
-  var requestOptions = {
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+
+    let requestOptions = {
     method: 'GET',
     headers: myHeaders,
     redirect: 'follow'
   };
   
-  fetch("https://motion.propulsion-home.ch/backend/api/social/posts/?limit=25&offset="+offset, requestOptions)
-    .then(response => response.text())
+  await fetch("https://motion.propulsion-home.ch/backend/api/social/posts/?limit=25&offset="+offset, requestOptions)
+    .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
   
@@ -20,19 +27,20 @@ export  const  GetAll_Post = (offset) => {
   
   }
   
-  export const GetPost_UserId=(offset) =>
+  export const GetPost_UserId=async(UserId,offset) =>
   {
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NjgxMzk4LCJqdGkiOiI0Yjg0NjMwOWQ4MDU0ZTQzOTFiYjgxMjkyMmM2ZDlhMiIsInVzZXJfaWQiOjIyNTF9.o-vrYJ1SHkVh5OtsmccYdxQ0DWkQh-6fnqyhg8QgDNc");
-    
-    var requestOptions = {
+    //GET: lists all the posts of a specific user in chronological order
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+
+    let requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
     };
     
-    fetch("https://motion.propulsion-home.ch/backend/api/social/posts/user/2251/?limit=25&offset="+offset, requestOptions)
-      .then(response => response.text())
+   await fetch("https://motion.propulsion-home.ch/backend/api/social/posts/user/"+UserId+"/?limit=25&offset="+offset, requestOptions)
+      .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
   }
@@ -40,13 +48,13 @@ export  const  GetAll_Post = (offset) => {
   
   
   
-  export  const  Post = () => {
+  export  const  Post =async () => {
   
-  var myHeaders = new Headers();
-  myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NjgxMzk4LCJqdGkiOiI0Yjg0NjMwOWQ4MDU0ZTQzOTFiYjgxMjkyMmM2ZDlhMiIsInVzZXJfaWQiOjIyNTF9.o-vrYJ1SHkVh5OtsmccYdxQ0DWkQh-6fnqyhg8QgDNc");
-  myHeaders.append("Content-Type", "application/json");
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+     myHeaders.append("Content-Type", "application/json");
   
-  var raw = JSON.stringify({
+  let raw = JSON.stringify({
     "user": {
       "email": "user@example.com",
       "first_name": "string",
@@ -56,15 +64,15 @@ export  const  GetAll_Post = (offset) => {
     "content": "test22"
   });
   
-  var requestOptions = {
+  let requestOptions = {
     method: 'POST',
     headers: myHeaders,
     body: raw,
     redirect: 'follow'
   };
   
-  fetch("https://motion.propulsion-home.ch/backend/api/social/posts/", requestOptions)
-    .then(response => response.text())
+  await fetch("https://motion.propulsion-home.ch/backend/api/social/posts/", requestOptions)
+    .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
   
@@ -75,22 +83,24 @@ export  const  GetAll_Post = (offset) => {
   
   
   
-  export const GET_post_id = (type,post_id) => {
+  export const GET_post_id = async(type,post_id) => {
   
     //type = GET,PATCH or DELETE
+  //GET: get a specific post by ID and display all the information about that post
+  // PATCH: update a specific post (only allow owner of post or admin)
+  // DELETE: delete a post by ID (only allow owner of post or admin)
   
-  
-  var myHeaders = new Headers();
-  myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NjgxMzk4LCJqdGkiOiI0Yjg0NjMwOWQ4MDU0ZTQzOTFiYjgxMjkyMmM2ZDlhMiIsInVzZXJfaWQiOjIyNTF9.o-vrYJ1SHkVh5OtsmccYdxQ0DWkQh-6fnqyhg8QgDNc");
-  
-  var requestOptions = {
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+
+  let requestOptions = {
   method: type,
   headers: myHeaders,
   redirect: 'follow'
   };
   
-  fetch("https://motion.propulsion-home.ch/backend/api/social/posts/"+post_id, requestOptions)
-  .then(response => response.text())
+  await fetch("https://motion.propulsion-home.ch/backend/api/social/posts/"+post_id, requestOptions)
+  .then(response => response.json())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
   
@@ -99,58 +109,56 @@ export  const  GetAll_Post = (offset) => {
   
   
   
-  export const GET_post_search = (search) => {
-  var myHeaders = new Headers();
-  myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NjgxMzk4LCJqdGkiOiI0Yjg0NjMwOWQ4MDU0ZTQzOTFiYjgxMjkyMmM2ZDlhMiIsInVzZXJfaWQiOjIyNTF9.o-vrYJ1SHkVh5OtsmccYdxQ0DWkQh-6fnqyhg8QgDNc");
-  
-  var requestOptions = {
+  export const GET_post_search =async (search) => {
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+  let requestOptions = {
     method: 'GET',
     headers: myHeaders,
     redirect: 'follow'
   };
   
-  fetch("https://motion.propulsion-home.ch/backend/api/social/posts/?search="+search, requestOptions)
-    .then(response => response.text())
+  await fetch("https://motion.propulsion-home.ch/backend/api/social/posts/?search="+search, requestOptions)
+    .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
   }
   
   
   
-  export const Usersfollow = (userid) => {
+  export const Usersfollow = async(userid) => {
   
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NjgxMzk4LCJqdGkiOiI0Yjg0NjMwOWQ4MDU0ZTQzOTFiYjgxMjkyMmM2ZDlhMiIsInVzZXJfaWQiOjIyNTF9.o-vrYJ1SHkVh5OtsmccYdxQ0DWkQh-6fnqyhg8QgDNc");
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+
+    let raw = "";
     
-    var raw = "";
-    
-    var requestOptions = {
+    let requestOptions = {
       method: 'POST',
       headers: myHeaders,
       body: raw,
       redirect: 'follow'
     };
     
-    fetch("https://motion.propulsion-home.ch/backend/api/social/followers/toggle-follow/"+userid+"/", requestOptions)
-      .then(response => response.text())
+   await fetch("https://motion.propulsion-home.ch/backend/api/social/followers/toggle-follow/"+userid+"/", requestOptions)
+      .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
   
   }
   
   
-  export const GetUsersFollowing = () => {
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NjgxMzk4LCJqdGkiOiI0Yjg0NjMwOWQ4MDU0ZTQzOTFiYjgxMjkyMmM2ZDlhMiIsInVzZXJfaWQiOjIyNTF9.o-vrYJ1SHkVh5OtsmccYdxQ0DWkQh-6fnqyhg8QgDNc");
-    
-    var requestOptions = {
+  export const GetUsersFollowing = async() => {
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+    let requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
     };
     
-    fetch("https://motion.propulsion-home.ch/backend/api/social/followers/following/", requestOptions)
-      .then(response => response.text())
+   await fetch("https://motion.propulsion-home.ch/backend/api/social/followers/following/", requestOptions)
+      .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
   
@@ -159,18 +167,19 @@ export  const  GetAll_Post = (offset) => {
   }
   
   
-  export const GetUsersFollowers = () => {
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NjgxMzk4LCJqdGkiOiI0Yjg0NjMwOWQ4MDU0ZTQzOTFiYjgxMjkyMmM2ZDlhMiIsInVzZXJfaWQiOjIyNTF9.o-vrYJ1SHkVh5OtsmccYdxQ0DWkQh-6fnqyhg8QgDNc");
-    
-    var requestOptions = {
+  export const GetUsersFollowers = async() => {
+
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+
+    let requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
     };
     
-    fetch("https://motion.propulsion-home.ch/backend/api/social/followers/followers/", requestOptions)
-      .then(response => response.text())
+   await fetch("https://motion.propulsion-home.ch/backend/api/social/followers/followers/", requestOptions)
+      .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
   
@@ -178,37 +187,37 @@ export  const  GetAll_Post = (offset) => {
   }
   
   
-  export const SendFriendRequest= (userid) => {
+  export const SendFriendRequest= async (userid) => {
   
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NjgxMzk4LCJqdGkiOiI0Yjg0NjMwOWQ4MDU0ZTQzOTFiYjgxMjkyMmM2ZDlhMiIsInVzZXJfaWQiOjIyNTF9.o-vrYJ1SHkVh5OtsmccYdxQ0DWkQh-6fnqyhg8QgDNc");
-    
-    var requestOptions = {
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+
+    let requestOptions = {
       method: 'POST',
       headers: myHeaders,
       redirect: 'follow'
     };
     
-    fetch("https://motion.propulsion-home.ch/backend/api/social/friends/request/"+userid+"/", requestOptions)
-      .then(response => response.text())
+   await fetch("https://motion.propulsion-home.ch/backend/api/social/friends/request/"+userid+"/", requestOptions)
+      .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
   
   }
 
   
-export const FriendsRequestsStatus = (type,friend_request_id) => {
+export const FriendsRequestsStatus = async(type,friend_request_id) => {
 
     //type = GET,PATCH or DELETE
     //GET: Get details of a friend request
     //PATCH: Accept or Reject an open friend request
     //DELETE: Delete a friend request
   
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NzU3NjY1LCJqdGkiOiI4NDRkNGIxN2M5ZDM0NGUxYTNkYmI0ZDg1NTgxMjhiOSIsInVzZXJfaWQiOjIyMzV9.uX1RdxUtSQjUjNqFVdv6JItzpMTzhgQROZWbyRP8RY8");
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
     myHeaders.append("Content-Type", "application/json");
   
-    var raw;
+    let raw;
     if(type==="PATCH")
     {
       raw= JSON.stringify({
@@ -217,34 +226,34 @@ export const FriendsRequestsStatus = (type,friend_request_id) => {
     }
    
     
-    var requestOptions = {
+    let requestOptions = {
       method: type,
       headers: myHeaders,
       body: raw,
       redirect: 'follow'
     };
     
-    fetch("https://motion.propulsion-home.ch/backend/api/social/friends/requests/"+friend_request_id, requestOptions)
-      .then(response => response.text())
+   await fetch("https://motion.propulsion-home.ch/backend/api/social/friends/requests/"+friend_request_id, requestOptions)
+      .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
   
   
   }
-  export const GetAllAcceptedFriends = () => {
+  export const GetAllAcceptedFriends = async () => {
   //api/social/friends/ GET: List all accepted friends
   
-  var myHeaders = new Headers();
-  myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NzU3NjY1LCJqdGkiOiI4NDRkNGIxN2M5ZDM0NGUxYTNkYmI0ZDg1NTgxMjhiOSIsInVzZXJfaWQiOjIyMzV9.uX1RdxUtSQjUjNqFVdv6JItzpMTzhgQROZWbyRP8RY8");
-  
-  var requestOptions = {
+  let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+
+  let requestOptions = {
     method: 'POST',
     headers: myHeaders,
     redirect: 'follow'
   };
   
-  fetch("https://motion.propulsion-home.ch/backend/api/social/friends", requestOptions)
-    .then(response => response.text())
+ await fetch("https://motion.propulsion-home.ch/backend/api/social/friends", requestOptions)
+    .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
   
@@ -253,77 +262,74 @@ export const FriendsRequestsStatus = (type,friend_request_id) => {
   }
   
   
-  export const GetAllUsers=(offset) =>
+  export const GetAllUsers=async(offset) =>
   {
   
     //GET: Get all the users
   
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NzY5NTE0LCJqdGkiOiJjNjkyNTYyYTRlNWQ0ZjMzOTY4ZDkxN2I3MjllYWRjMyIsInVzZXJfaWQiOjIyODR9.rSLQ_bZT_DwG4Z9l53V21oDP5-gw2MU8QjvplW9619c");
-    
-    var requestOptions = {
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+    let requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
     };
     
-    fetch("https://motion.propulsion-home.ch/backend/api/users/?limit=25&offset="+offset, requestOptions)
-      .then(response => response.text())
+   await fetch("https://motion.propulsion-home.ch/backend/api/users/?limit=25&offset="+offset, requestOptions)
+      .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
   }
   
   
   
-  export const GETSearchUsers_Text = (search,offset) => {
+  export const GETSearchUsers_Text = async(search,offset) => {
   
     //GET: Search users
   
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NzY5NTE0LCJqdGkiOiJjNjkyNTYyYTRlNWQ0ZjMzOTY4ZDkxN2I3MjllYWRjMyIsInVzZXJfaWQiOjIyODR9.rSLQ_bZT_DwG4Z9l53V21oDP5-gw2MU8QjvplW9619c");
-    
-    var requestOptions = {
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+    let requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
     };
     
-    fetch("https://motion.propulsion-home.ch/backend/api/users/?limit=25&offset="+offset+"&search="+search, requestOptions)
-      .then(response => response.text())
+   await fetch("https://motion.propulsion-home.ch/backend/api/users/?limit=25&offset="+offset+"&search="+search, requestOptions)
+      .then(response => response.json())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));
     }
   
-    export const GETSearchUsers_userid = (userid) => {
+    export const GETSearchUsers_userid = async(userid) => {
       //GET: Get specific user profile
   
-      var myHeaders = new Headers();
-      myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NzY5NTE0LCJqdGkiOiJjNjkyNTYyYTRlNWQ0ZjMzOTY4ZDkxN2I3MjllYWRjMyIsInVzZXJfaWQiOjIyODR9.rSLQ_bZT_DwG4Z9l53V21oDP5-gw2MU8QjvplW9619c");
-      
-      var requestOptions = {
+      let myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${Token}` );
+      let requestOptions = {
         method: 'GET',
         headers: myHeaders,
         redirect: 'follow'
       };
       
-      fetch("https://motion.propulsion-home.ch/backend/api/users/"+userid, requestOptions)
-        .then(response => response.text())
+     await fetch("https://motion.propulsion-home.ch/backend/api/users/"+userid, requestOptions)
+        .then(response => response.json())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
       }
     
 
 
-      const Token = localStorage.getItem("auth-token")
+     
       export const GetUsers_me = async () => { 
    
-        //var myHeaders = new Headers();
+        //let myHeaders = new Headers();
   //myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc3NzU3NjY1LCJqdGkiOiI4NDRkNGIxN2M5ZDM0NGUxYTNkYmI0ZDg1NTgxMjhiOSIsInVzZXJfaWQiOjIyMzV9.uX1RdxUtSQjUjNqFVdv6JItzpMTzhgQROZWbyRP8RY8");
   
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}` );
   
-    var requestOptions = {
+    let requestOptions = {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow'
