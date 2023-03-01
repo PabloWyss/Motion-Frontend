@@ -8,11 +8,13 @@ import {
   SearchIcon,
   SearchInput,
   FilterSetter,
+  PageBorder,
 } from "./searchAndFilterBar.style";
 
 const SearchAndFilterBar = () => {
   return (
     <SearchBarContainer>
+      <PageBorder />
       <ContainerWrapperLeft>
         <SearchIcon src={icon_search}></SearchIcon>
         <SearchInput type="text" placeholder="Search posts..."></SearchInput>
@@ -24,6 +26,7 @@ const SearchAndFilterBar = () => {
           <FilterSetter>Follow</FilterSetter>
         </FilterWrapper>
       </ContainerWrapperRight>
+      <PageBorder />
     </SearchBarContainer>
   );
 }

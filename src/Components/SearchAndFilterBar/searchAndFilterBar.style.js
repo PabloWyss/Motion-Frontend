@@ -17,9 +17,10 @@ export const ContainerWrapperLeft = styled.div`
   height: 100%;
   align-items: center;
   justify-content: start;
+  
 `;
 export const SearchIcon = styled.img`
-  margin: 0 20px 0 9rem;
+  margin: 0 20px 0 24px;
   height: 1rem;
 `;
 export const SearchInput = styled.input`
@@ -35,18 +36,21 @@ export const ContainerWrapperRight = styled.div`
   height: 100%;
   align-items: center;
   justify-content: end;
+  margin-right: 24px;
+
+  
 `;
 export const FilterWrapper = styled.div`
   display: flex;
   height: 100%;
-  width: 300px;
-  justify-content: space-evenly;
+  width: 200px;
+  justify-content: space-between;
   align-items: center;
 `;
 export const FilterSetter = styled.p`
   height: 100%;
   display: flex;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   justify-content: center;
   align-items: center;
   border-bottom: 2px solid transparent;
@@ -54,4 +58,9 @@ export const FilterSetter = styled.p`
   &:hover {
     border-bottom: 2px solid black;
   }
+`;
+
+export const PageBorder = styled.div`
+  width: 120px;
+  height: 100%;
 `;
