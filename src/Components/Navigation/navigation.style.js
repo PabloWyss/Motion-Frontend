@@ -136,5 +136,72 @@ width: 35px;
 `;
 
 export const MenuDots = styled.img`
-margin: 0 40px 0 0;
+margin: 0 2.5rem 0 0;
 `;
+
+export const NavigationDotsDiv = styled.div`
+  position: absolute;
+  right: 1rem;
+  top: 5rem;
+`
+
+export const NavigationDotsUl = styled.ul `
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  width: 7rem;
+  background-color: white;
+`
+
+export const NavigationDotsLi = styled.li `
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  width: 100%;
+  margin: 0;
+  border: solid 1px #d8d3d3;
+  &:hover{
+    background-color: #d8d3d3;
+  }
+`
+
+export const NavigationDotsImg = styled.img `
+  opacity: .4;
+`
+
+export const NavigationBellDiv = styled.div`
+  position: absolute;
+  right: 8.5rem;
+  top: 5rem;
+`
+
+export const NavigationBellUl = styled.ul `
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  width: 20rem;
+  background-color: white;
+  list-style-type: none;
+`
+
+export const NavigationBelldiv = styled.div `
+  display: flex;
+  justify-content: center;
+`
+
+
+export const NavigationBellLi = styled.li `
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+  margin: 0;
+  border: solid 1px #d8d3d3;
+  &:hover{
+    background-color: #d8d3d3;
+  }
+`

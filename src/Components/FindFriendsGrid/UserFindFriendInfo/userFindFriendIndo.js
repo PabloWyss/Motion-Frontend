@@ -4,6 +4,7 @@ import { AvaterImg,AddFriendUserDiv,AddFriendNameP,AddFriendlocationP,
 import { v4 as uuid } from 'uuid'
 import { useState } from "react"
 import tickerImage from "../../../assets/svgs/Ticker.svg"
+import avatarImage from "../../../assets/svgs/avatar.svg"
 
 const UserFindFriendInfo = (prop) => {
     
@@ -66,7 +67,7 @@ const UserFindFriendInfo = (prop) => {
         <AddFriendUserDiv >
             {prop.userInfo.avatar? 
             <AvaterImg alt="avatar" src={prop.userInfo.avatar}/> : 
-            <p>No Image</p>
+            <AvaterImg alt="avatar" src={avatarImage}/>
             }
             <AddFriendNameP>{`${prop.userInfo.first_name} ${prop.userInfo.last_name}`}</AddFriendNameP >
             <AddFriendlocationP>{prop.userInfo.location}</AddFriendlocationP>
@@ -120,7 +121,8 @@ export default UserFindFriendInfo
 //       "Basket",
 //       "Guitar"
 //     ],
-//     "logged_in_user_is_following": false,
+//     "logged_in_user_is_following": 
+
 //     "logged_in_user_is_friends": false,
 //     "logged_in_user_is_rejected": false,
 //     "logged_in_user_received_fr": false,
