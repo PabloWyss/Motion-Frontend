@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Logo,
   MainContainer,
@@ -29,6 +29,18 @@ import bell from "../../assets/svgs/notification_bell.svg"
 import NavigationDots from "./NavigationDots/navigationDots";
 
 const Navigation = () => {
+
+  const [dotsClicked, setDotsClicked] = useState(false)
+
+  const handleDotsClicjed = () => {
+    setDotsClicked(!dotsClicked)
+  }
+
+  const handleMouseOutOfMenu = () => {
+    setDotsClicked(!dotsClicked)
+  }
+
+
   return (
     <MainContainer>
       <ContainerLeft>
@@ -54,10 +66,12 @@ const Navigation = () => {
           </AlertNumSpacerAbsolute>
         </AlertContainer>
         <Avatar src={avatar}></Avatar>
-        <MenuDots src={menuDots}></MenuDots>
-        <NavigationDotsDiv>
-          <NavigationDots/>
-        </NavigationDotsDiv>
+        <MenuDots src={menuDots} onClick={handleDotsClicjed}></MenuDots>
+        {dotsClicked ? 
+         <NavigationDotsDiv onMouseLeave={handleMouseOutOfMenu}>
+         <NavigationDots/>
+       </NavigationDotsDiv> :
+       ""}
       </ContainerRight>
     </MainContainer>
   );

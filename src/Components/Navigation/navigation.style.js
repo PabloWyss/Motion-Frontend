@@ -141,6 +141,32 @@ margin: 0 2.5rem 0 0;
 
 export const NavigationDotsDiv = styled.div`
   position: absolute;
-  right: 2.5rem;
-  top: 5rem
+  right: 1rem;
+  top: 5rem;
+`
+
+export const NavigationDotsUl = styled.ul `
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  width: 7rem;
+  background-color: white;
+`
+
+export const NavigationDotsLi = styled.li `
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  width: 100%;
+  margin: 0;
+  border: solid 1px #d8d3d3;
+  &:hover{
+    background-color: #d8d3d3;
+  }
+`
+
+export const NavigationDotsImg = styled.img `
+  opacity: .4;
 `
