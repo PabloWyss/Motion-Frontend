@@ -21,7 +21,7 @@ const FindFirendsGrid = () => {
       };
 
       let limit = "20"
-      let offset = "11"
+      let offset = "0"
 
       
       let userList = []

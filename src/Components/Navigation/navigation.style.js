@@ -136,5 +136,11 @@ width: 35px;
 `;
 
 export const MenuDots = styled.img`
-margin: 0 40px 0 0;
+margin: 0 2.5rem 0 0;
 `;
+
+export const NavigationDotsDiv = styled.div`
+  position: absolute;
+  right: 2.5rem;
+  top: 5rem
+`

@@ -17,7 +17,8 @@ import {
   AlertContainer,
   AlertNumDiv,
   AlertNumSpacer,
-  AlertNumSpacerAbsolute
+  AlertNumSpacerAbsolute,
+  NavigationDotsDiv
 } from "./navigation.style";
 import logo from "../../assets/images/logo.png";
 import avatar from "../../assets/images/users/jennifer.png";
@@ -25,6 +26,7 @@ import menuDots from "../../assets/svgs/menu.svg"
 import findFriendLogo from "../../assets/svgs/icon-friends.svg"
 import postsLogo from "../../assets/svgs/posts_logo.svg"
 import bell from "../../assets/svgs/notification_bell.svg"
+import NavigationDots from "./NavigationDots/navigationDots";
 
 const Navigation = () => {
   return (
@@ -53,6 +55,9 @@ const Navigation = () => {
         </AlertContainer>
         <Avatar src={avatar}></Avatar>
         <MenuDots src={menuDots}></MenuDots>
+        <NavigationDotsDiv>
+          <NavigationDots/>
+        </NavigationDotsDiv>
       </ContainerRight>
     </MainContainer>
   );
