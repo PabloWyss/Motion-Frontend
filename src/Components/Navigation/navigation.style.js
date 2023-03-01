@@ -170,3 +170,20 @@ export const NavigationDotsLi = styled.li `
 export const NavigationDotsImg = styled.img `
   opacity: .4;
 `
+
+export const NavigationBellDiv = styled.div`
+  position: absolute;
+  right: 8.5rem;
+  top: 5rem;
+`
+
+export const NavigationBellUl = styled.ul `
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  width: 20rem;
+  background-color: white;
+  list-style-type: none;
+`
