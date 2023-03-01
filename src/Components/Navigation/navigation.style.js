@@ -175,6 +175,7 @@ export const NavigationBellDiv = styled.div`
   position: absolute;
   right: 8.5rem;
   top: 5rem;
+  background-color: white;
 `
 
 export const NavigationBellUl = styled.ul `

@@ -1,3 +1,8 @@
+import denyButton from "../../../../assets/svgs/ButtonDenyRequest.svg"
+import acceptButton from "../../../../assets/svgs/ButtonButtonAcceptR.svg"
+import checkMark from "../../../../assets/svgs/Ticker.svg"
+import cross from "../../../../assets/svgs/Shapecross.svg"
+
 const UsersSentRequest = (prop) => {
 
     console.log(prop.requester)
@@ -13,8 +18,11 @@ const UsersSentRequest = (prop) => {
                     {prop.requester.location}
                 </p>
             </div>
-            <button></button>
-            <button></button>
+            <img alt="acceptButton" src={acceptButton}/>
+            <img alt="checkMark" src={checkMark}/>
+            <img alt="denybutton" src={denyButton}/>
+            <img alt="cross" src={cross}/>
+            
         </div>
     )
 }
