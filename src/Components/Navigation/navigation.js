@@ -33,6 +33,7 @@ import BellAlerts from "./BellAlerts/bellAlerts";
 const Navigation = () => {
 
   const [dotsClicked, setDotsClicked] = useState(false)
+  const [bellClicked, setBellClicked] = useState(false)
 
   const handleDotsClicjed = () => {
     setDotsClicked(!dotsClicked)
@@ -40,6 +41,14 @@ const Navigation = () => {
 
   const handleMouseOutOfMenu = () => {
     setDotsClicked(!dotsClicked)
+  }
+
+  const handleBellClicked = () => {
+    setBellClicked(!bellClicked)
+  }
+
+  const handleMouseOutOfBellMenu = () => {
+    setBellClicked(!bellClicked)
   }
 
 
@@ -59,21 +68,24 @@ const Navigation = () => {
       </ContainerLeft>
       <ContainerRight>
         <AlertContainer>
-          <AlertIcon src={bell}></AlertIcon>
+          <AlertIcon src={bell} onClick={handleBellClicked }></AlertIcon>
           <AlertNumSpacerAbsolute>
             <AlertNumSpacer></AlertNumSpacer>
             <AlertNumDiv>
               <AlertNum>3</AlertNum>
             </AlertNumDiv>
           </AlertNumSpacerAbsolute>
-          {/* <NavigationBellDiv>
-            <BellAlerts/>
-          </NavigationBellDiv> */}
+          {bellClicked ?
+            <NavigationBellDiv onMouseLeave={handleMouseOutOfBellMenu}>
+              <BellAlerts/>
+            </NavigationBellDiv>:
+            ""
+          }
         </AlertContainer>
         <Avatar src={avatar}></Avatar>
         <MenuDots src={menuDots} onClick={handleDotsClicjed}></MenuDots>
         {dotsClicked ? 
-         <NavigationDotsDiv onMouseLeave={handleMouseOutOfMenu}>
+         <NavigationDotsDiv onMouseLeave={handleMouseOutOfMenu }>
          <NavigationDots/>
        </NavigationDotsDiv> :
        ""}

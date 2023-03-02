@@ -13,6 +13,7 @@ export const GridDiv = styled.div `
     justify-items: center;
     margin-top: 1rem;
     
+    
 `
 
 export const FindFriednsPageDiv = styled.div `
@@ -27,6 +28,7 @@ export const AvaterImg = styled.img `
     width: 6rem;
     height: 6rem;
     opacity: 0.9;
+    
 `
 
 export const AddFriendUserDiv = styled.div `
