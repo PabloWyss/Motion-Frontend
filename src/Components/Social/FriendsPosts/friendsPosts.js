@@ -4,7 +4,7 @@ import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import PostRender from "../PostRender/postRender";
 
-export const FriendsPosts = () => {
+ const FriendsPosts = () => {
   const [ownPosts, setOwnPosts] = useState([]);
   const Token = localStorage.getItem("auth-token");
 
@@ -42,6 +42,7 @@ export const FriendsPosts = () => {
       </GridDiv>
     </MainContainer>
   );
-};
+}
 
 
+export default FriendsPosts;

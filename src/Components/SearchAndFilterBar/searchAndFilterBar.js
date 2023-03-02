@@ -17,7 +17,7 @@ const handleLoginClick = async (e) => {
    
   console.log("test");
 
-  LikedPosts()
+  //LikedPosts()
   
 };
 
