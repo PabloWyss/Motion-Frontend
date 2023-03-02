@@ -164,6 +164,7 @@ export const NavigationDotsLi = styled.li `
   &:hover{
     background-color: #d8d3d3;
   }
+  background: ${props => props.active ?  "background-color: #d8d3d3" : "" };
 `
 
 export const NavigationDotsImg = styled.img `
@@ -212,6 +213,7 @@ export const NavigationBellinnerUL = styled.ul `
   width: 100%;
   margin: 0;
   padding: 0;
+  gap: .5rem
 `
 
 export const RequestDiv = styled.div `
@@ -252,7 +254,7 @@ export const AcceptDenyDiv = styled.div`
 export const BellInnerLi = styled.li`
   display: flex;
   justify-content: center;
-  border-bottom: solid 1px #d8d3d3;
+  
   height: 3rem;
   align-items: center;
 `
@@ -261,6 +263,10 @@ export const TitleSentAndReceived = styled.p`
   font-weight: 400;
   font-size: .9rem;
   padding-left: 1rem;
+  
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  margin: 0;
 `
 
 export const DotsInnerP = styled.p`

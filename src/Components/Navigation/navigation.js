@@ -30,15 +30,31 @@ import bell from "../../assets/svgs/notification_bell.svg"
 import NavigationDots from "./NavigationDots/navigationDots";
 import BellAlerts from "./BellAlerts/bellAlerts";
 import { NavLink } from "react-router-dom";
+import { useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchFriendRequests } from "../../redux/slices/friendReuqestSlice";
+import avatarImage from "../../assets/svgs/avatar.svg"
 
 const Navigation = () => {
+
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(fetchFriendRequests())
+  },[])
+  
+  const request = useSelector(store => store.friendRequests)
+
+  let countRequest = 0
+
+  if(request.requests.results){
+    countRequest = request.requests.results.length
+  }
+
+  
 
   const [dotsClicked, setDotsClicked] = useState(false)
   const [bellClicked, setBellClicked] = useState(false)
   const currentUser = JSON.parse(localStorage.getItem("user"))
-  console.log(currentUser.avatar)
-
-
 
   const handleDotsClicjed = () => {
     setDotsClicked(!dotsClicked)
@@ -114,7 +130,7 @@ const Navigation = () => {
           <AlertNumSpacerAbsolute>
             <AlertNumSpacer></AlertNumSpacer>
             <AlertNumDiv>
-              <AlertNum>3</AlertNum>
+              <AlertNum>{countRequest}</AlertNum>
             </AlertNumDiv>
           </AlertNumSpacerAbsolute>
           {bellClicked ?
@@ -126,7 +142,7 @@ const Navigation = () => {
         </AlertContainer>
         {currentUser.avatar ?
         <Avatar src={avatar}></Avatar>:
-        <Avatar src="https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg"></Avatar> 
+        <Avatar src={avatarImage}></Avatar> 
         }
         <MenuDots src={menuDots} onClick={handleDotsClicjed}></MenuDots>
         {dotsClicked ? 

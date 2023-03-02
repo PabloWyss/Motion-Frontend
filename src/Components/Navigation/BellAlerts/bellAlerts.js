@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react"
 import { NavigationBellUl,
 NavigationBellLi,
 NavigationBellInnerdiv,
 NavigationBellinnerUL,
 TitleSentAndReceived
  } from "../navigation.style"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchFriendRequests } from "../../../redux/slices/friendReuqestSlice"
+import { useSelector } from "react-redux"
 import UsersSentRequest from "./UsersAlerts/usersSentRequest"
 import UsersReceivedRequest from "./UsersAlerts/userReceibvedRequest"
 
@@ -14,17 +12,11 @@ import UsersReceivedRequest from "./UsersAlerts/userReceibvedRequest"
 
 const BellAlerts = () => {
 
-
-    const dispatch = useDispatch()
     const currentUser = JSON.parse(localStorage.getItem("user"));
 
     const myID = currentUser.id
     const requestedToUser = []
     const requestedByUser = []
-
-    useEffect(()=>{
-        dispatch(fetchFriendRequests())
-    },[])
 
     const request = useSelector(store => store.friendRequests)
     
