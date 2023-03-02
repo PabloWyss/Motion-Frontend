@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { GridDiv, MainContainer } from "./ownPosts.style";
+import { GridDiv, MainContainer } from "../OwnPosts/ownPosts.style";
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import PostRender from "../PostRender/postRender";
