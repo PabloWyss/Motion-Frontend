@@ -1,13 +1,17 @@
 import denyButton from "../../../../assets/images/denyInv.png"
 import acceptButton from "../../../../assets/images/acceptInv.png"
 import avatarImage from "../../../../assets/svgs/avatar.svg"
-import { AcceptDenyImg, RequestDiv,ImageNameDiv,BellNameP, FirstNameLastNameDiv,AcceptDenyDiv    } from "../../navigation.style"
+import { BellInnerLi,AcceptDenyImg, RequestDiv,ImageNameDiv,BellNameP, FirstNameLastNameDiv,AcceptDenyDiv    } from "../../navigation.style"
+import { useNavigate } from "react-router-dom"
+import { useState } from "react"
+
 
 const UsersSentRequest = (prop) => {
 
     const Token = localStorage.getItem("auth-token")
-
-    console.log(prop)
+    const navigate = useNavigate()
+    const [isClicked, setIsClicked] = useState(true)
+    const [message, setMessage] =useState("")
 
     const FriendsRequestsStatus = async(type,friend_request_id) => {
 
@@ -43,37 +47,51 @@ const UsersSentRequest = (prop) => {
       
       }
 
+
       const HandleAcceptButton = () => {
         FriendsRequestsStatus("PATCH",prop.requestId.toString())
+        setIsClicked(false)
+        setMessage("Friend Request accepted")
       } 
 
       const HandleDeleteButton = () => {
         FriendsRequestsStatus("DELETE",prop.requestId.toString())
+        setIsClicked(false)
+        setMessage("Friend Request rejected")
       }
+
+      const handleClickUser = () => {
+        navigate(`/profile/${prop.requestId}`)
+    }
 
 
     return (
-        <RequestDiv >
-            <ImageNameDiv >
-                {prop.requester.avatar?
-                <AcceptDenyImg alt="avatar" src={prop.requester.avatar}/>:
-                <AcceptDenyImg alt="avatar" src={avatarImage}/>}
-                <FirstNameLastNameDiv >
-                    <BellNameP >
-                        {prop.requester.first_name} {prop.requester.last_name}
-                    </BellNameP >
-                    <BellNameP >
-                        {prop.requester.location}
-                    </BellNameP >
+        <BellInnerLi>
+          {isClicked?
+          <RequestDiv >
+              <ImageNameDiv >
+                  {prop.requester.avatar?
+                  <AcceptDenyImg alt="avatar" src={prop.requester.avatar} onClick={handleClickUser}/>:
+                  <AcceptDenyImg alt="avatar" src={avatarImage} onClick={handleClickUser}/>}
+                  <FirstNameLastNameDiv >
+                      <BellNameP >
+                          {prop.requester.first_name} {prop.requester.last_name}
+                      </BellNameP >
+                      <BellNameP >
+                          {prop.requester.location}
+                      </BellNameP >
 
-                </FirstNameLastNameDiv >
-            </ImageNameDiv >
-            <AcceptDenyDiv  >
-                <AcceptDenyImg alt="acceptButton" src={acceptButton} onClick={HandleAcceptButton}/>
-                <AcceptDenyImg alt="denybutton" src={denyButton} onClick={HandleDeleteButton}/>
-            </AcceptDenyDiv  >
-            
-        </RequestDiv >
+                  </FirstNameLastNameDiv >
+              </ImageNameDiv >
+              <AcceptDenyDiv  >
+                  <AcceptDenyImg alt="acceptButton" src={acceptButton} onClick={HandleAcceptButton}/>
+                  <AcceptDenyImg alt="denybutton" src={denyButton} onClick={HandleDeleteButton}/>
+              </AcceptDenyDiv  >
+          </RequestDiv >
+          :
+          <BellNameP>{message}</BellNameP>
+          }
+        </BellInnerLi>
     )
 }
 

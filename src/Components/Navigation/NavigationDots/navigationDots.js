@@ -15,6 +15,7 @@ const NavigationDots = () => {
 
     const handleClickLogout = () => {
         localStorage.removeItem("auth-token")
+        localStorage.removeItem("user")
         navigate("/signin")
     }
 

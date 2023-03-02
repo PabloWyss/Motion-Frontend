@@ -19,7 +19,8 @@ import {
   AlertNumSpacer,
   AlertNumSpacerAbsolute,
   NavigationDotsDiv,
-  NavigationBellDiv
+  NavigationBellDiv,
+  NavLinkStyle 
 } from "./navigation.style";
 import logo from "../../assets/images/logo.png";
 import avatar from "../../assets/images/users/jennifer.png";
@@ -30,12 +31,29 @@ import bell from "../../assets/svgs/notification_bell.svg"
 import NavigationDots from "./NavigationDots/navigationDots";
 import BellAlerts from "./BellAlerts/bellAlerts";
 import { NavLink } from "react-router-dom";
+import { useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchFriendRequests } from "../../redux/slices/friendReuqestSlice";
+import avatarImage from "../../assets/svgs/avatar.svg"
 
 const Navigation = () => {
 
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(fetchFriendRequests())
+  },[])
+  
+  const request = useSelector(store => store.friendRequests)
+
+  let countRequest = 0
+
+  if(request.requests.results){
+    countRequest = request.requests.results.length
+  }
+
   const [dotsClicked, setDotsClicked] = useState(false)
   const [bellClicked, setBellClicked] = useState(false)
-
+  const currentUser = JSON.parse(localStorage.getItem("user"))
 
   const handleDotsClicjed = () => {
     setDotsClicked(!dotsClicked)
@@ -61,43 +79,51 @@ const Navigation = () => {
       <ContainerLeft>
         <Logo src={logo}></Logo>
         <PageTitle>Motion</PageTitle>
-        <PostsSection>
-          <NavLink 
+          <NavLink
           to="/"
-          style={({ isActive }) =>
+          style={
+            ({ isActive }) =>
             isActive
             ? {
                 color: "#ad73fd",
                 textDecoration: "none",
                 display: "flex", 
-                alignItems: "center"
+                alignItems: "center",
+                borderBottom: "2px solid #AD73FD",
+                height: "100%",
               }
             : { color: "grey",
                 textDecoration: "none",
                 display: "flex", 
-                alignItems: "center" }
+                alignItems: "center", 
+                height: "100%",}
             }
             >
+            <PostsSection>
             <PostLogo src={postsLogo}></PostLogo>
             <NavText>Posts</NavText>
+            </PostsSection>
           </NavLink>
-        </PostsSection>
+        
         <FindFriendsSection>
-          <NavLink 
+          <NavLink
             to="/find-friends"
             style={({ isActive }) =>
             isActive
             ? {
-                color: "#ad73fd",
-                textDecoration: "none",
-                display: "flex", 
-                alignItems: "center"
-              }
-            : { color: "grey",
-                textDecoration: "none",
-                display: "flex", 
-                alignItems: "center" }
+              color: "#ad73fd",
+              textDecoration: "none",
+              display: "flex", 
+              alignItems: "center",
+              borderBottom: "2px solid #AD73FD",
+              height: "100%",
             }
+          : { color: "grey",
+              textDecoration: "none",
+              display: "flex", 
+              alignItems: "center", 
+              height: "100%",}
+          }
             >
           <FindFriendsLogo src={findFriendLogo}></FindFriendsLogo>
           <NavText>Find Friends</NavText>
@@ -110,7 +136,7 @@ const Navigation = () => {
           <AlertNumSpacerAbsolute>
             <AlertNumSpacer></AlertNumSpacer>
             <AlertNumDiv>
-              <AlertNum>3</AlertNum>
+              <AlertNum>{countRequest}</AlertNum>
             </AlertNumDiv>
           </AlertNumSpacerAbsolute>
           {bellClicked ?
@@ -120,7 +146,10 @@ const Navigation = () => {
             ""
           }
         </AlertContainer>
-        <Avatar src={avatar}></Avatar>
+        {currentUser.avatar ?
+        <Avatar src={avatar}></Avatar>:
+        <Avatar src={avatarImage}></Avatar> 
+        }
         <MenuDots src={menuDots} onClick={handleDotsClicjed}></MenuDots>
         {dotsClicked ? 
          <NavigationDotsDiv onMouseLeave={handleMouseOutOfMenu }>
