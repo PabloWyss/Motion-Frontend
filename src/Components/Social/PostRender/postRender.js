@@ -23,6 +23,7 @@ import likeHeart from "../../../assets/svgs/heart.svg";
 import shareArrow from "../../../assets/svgs/share.svg";
 import EditForm from "../../Forms/editForm.js";
 import { useSelector } from "react-redux";
+import { v4 as uuid } from "uuid";
 
 const PostRender = (props) => {
   const moreThenOneImage = props.ownPosts.images.length > 1;
@@ -57,7 +58,7 @@ const PostRender = (props) => {
               <Time>Time</Time>
             </FlexColumnWrapper>
           </HeaderWrapper>
-          <EditForm postDetails={props.ownPosts} edit={handleEditAllow()} />
+          <EditForm key={uuid()} postDetails={props.ownPosts} edit={handleEditAllow()} />
         </FlexRowWrapper>
         <FlexRowWrapper>
           <PostText>{props.ownPosts.content}</PostText>
@@ -65,12 +66,12 @@ const PostRender = (props) => {
         {moreThenOneImage ? (
           <PictureGrid>
             {props.ownPosts.images.map((image) => {
-              return <GridImage src={image.image} alt={image.image} />;
+              return <GridImage key={uuid()} src={image.image} alt={image.image} />;
             })}
           </PictureGrid>
         ) : (
           props.ownPosts.images.map((image) => {
-            return <PostImage src={image.image} alt={image.image} />;
+            return <PostImage key={uuid()} src={image.image} alt={image.image} />;
           })
         )}
         <FooterWrapper>
