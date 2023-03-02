@@ -8,6 +8,8 @@ import {
 } from "./createOwnPost.style";
 import sendIcon from "../../../assets/svgs/send_button.svg";
 import { useSelector } from "react-redux";
+import CreatePost from "./createPost";
+import CreatePostForm from "../../Forms/createPostForm";
 
 const CreateOwnPost = () => {
 
@@ -21,6 +23,8 @@ const CreateOwnPost = () => {
     avatar = userData.currentuser.avatar;
   }
 
+  const handleCreatePost = () => <CreatePost/>
+
   
   return (
     <MainContainer>
@@ -30,9 +34,10 @@ const CreateOwnPost = () => {
           type="text"
           placeholder={`What's on your mind, `+ userData.currentuser.first_name}
         />
-        <SubmitButton>
-          <SubmitButtonIcon src={sendIcon} />
-        </SubmitButton>
+        <CreatePostForm/>
+        {/* <SubmitButton>
+          <SubmitButtonIcon src={sendIcon} onClick={handleCreatePost} />
+        </SubmitButton> */}
       </WrapperDiv>
     </MainContainer>
   );
