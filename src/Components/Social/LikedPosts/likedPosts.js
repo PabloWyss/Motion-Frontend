@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { GridDiv, MainContainer } from "./ownPosts.style";
+import { GridDiv, MainContainer } from "./likedPosts.style";
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import PostRender from "../PostRender/postRender";
@@ -9,7 +9,7 @@ import PostRender from "../PostRender/postRender";
   const Token = localStorage.getItem("auth-token");
 
   const GetLikedPosts = async () => {
-    //GET: lists all the posts of a specific user in chronological order
+    
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}`);
 
@@ -43,8 +43,6 @@ import PostRender from "../PostRender/postRender";
     </MainContainer>
   );
 }
-
-
 
 
 export default LikedPosts;
