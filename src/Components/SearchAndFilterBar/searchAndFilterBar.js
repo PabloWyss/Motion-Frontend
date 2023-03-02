@@ -10,6 +10,19 @@ import {
   FilterSetter,
   SearchBarWrapper
 } from "./searchAndFilterBar.style";
+import {LikedPosts} from  "../Social/LikedPosts/likedPosts"
+
+const handleLoginClick = async (e) => {
+  e.preventDefault();
+   
+  console.log("test");
+
+  LikedPosts()
+  
+};
+
+
+
 
 const SearchAndFilterBar = () => {
   return (
@@ -21,7 +34,8 @@ const SearchAndFilterBar = () => {
       </ContainerWrapperLeft>
       <ContainerWrapperRight>
         <FilterWrapper>
-          <FilterSetter>Liked</FilterSetter>
+    
+          <FilterSetter type="button" onClick={handleLoginClick}>Liked</FilterSetter>
           <FilterSetter>Friends</FilterSetter>
           <FilterSetter>Follow</FilterSetter>
         </FilterWrapper>
