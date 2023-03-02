@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { CgProfile} from 'react-icons/cg'
 import {
   Avatar,
   MainContainer,

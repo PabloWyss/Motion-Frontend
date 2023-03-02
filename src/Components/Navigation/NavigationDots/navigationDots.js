@@ -2,7 +2,8 @@ import profileImage from "../../../assets/svgs/ShapeProfileImage.svg"
 import logoutImage from "../../../assets/svgs/ShapeLogout.svg"
 import { NavigationDotsUl,
     NavigationDotsLi,
-    NavigationDotsImg} from "../navigation.style"
+    NavigationDotsImg,
+    DotsInnerP} from "../navigation.style"
 import { useNavigate } from "react-router-dom";
 
 const NavigationDots = () => {
@@ -21,11 +22,11 @@ const NavigationDots = () => {
         <NavigationDotsUl>
             <NavigationDotsLi onClick={handleClickProfile}>
                 <NavigationDotsImg alt="profileLogo Image" src={profileImage}/>
-                <p>Profile</p>
+                <DotsInnerP>Profile</DotsInnerP>
             </NavigationDotsLi>
             <NavigationDotsLi onClick={handleClickLogout}>
                 <NavigationDotsImg alt="Logout Image" src={logoutImage}/>
-                <p>Logout</p>
+                <DotsInnerP>Logout</DotsInnerP>
             </NavigationDotsLi>
         </NavigationDotsUl>
     )
