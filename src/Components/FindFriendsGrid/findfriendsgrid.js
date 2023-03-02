@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid'
 import { useState, useEffect} from "react"
 
 
+
 const FindFirendsGrid = () => {
 
     const [listOfUsers2,setListOfUsers2] = useState([])

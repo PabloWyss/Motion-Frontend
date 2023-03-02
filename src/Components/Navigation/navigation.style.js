@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink as Nav } from "react-router-dom";
 
 export const MainContainer = styled.div`
   height: 5rem;
@@ -158,13 +159,13 @@ export const NavigationDotsUl = styled.ul `
 export const NavigationDotsLi = styled.li `
   display: flex;
   justify-content: space-around;
-  gap: 1rem;
   width: 100%;
   margin: 0;
   border: solid 1px #d8d3d3;
   &:hover{
     background-color: #d8d3d3;
   }
+  background: ${props => props.active ?  "background-color: #d8d3d3" : "" };
 `
 
 export const NavigationDotsImg = styled.img `
@@ -213,18 +214,21 @@ export const NavigationBellinnerUL = styled.ul `
   width: 100%;
   margin: 0;
   padding: 0;
+  gap: .5rem;
 `
 
 export const RequestDiv = styled.div `
   display: flex;
   width: 90%;
   justify-content: space-between;
-  gap: 3rem;
 `
 
 export const AcceptDenyImg = styled.img `
   height: 2.5rem;
   width: 2.5rem;
+  &:hover{
+    transform: scale(1.1);;
+  }
 `
 
 export const ImageNameDiv = styled.div`
@@ -254,7 +258,7 @@ export const AcceptDenyDiv = styled.div`
 export const BellInnerLi = styled.li`
   display: flex;
   justify-content: center;
-  border-bottom: solid 1px #d8d3d3;
+  
   height: 3rem;
   align-items: center;
 `
@@ -263,12 +267,21 @@ export const TitleSentAndReceived = styled.p`
   font-weight: 400;
   font-size: .9rem;
   padding-left: 1rem;
+  
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  margin: 0;
 `
 
 export const DotsInnerP = styled.p`
   font-weight: 400;
   font-size: .9rem;
-  padding-left: 1rem;
 `
+
+// export const NavLinkStyle = styled.Nav`
+//   &:hover{
+//     border-bottom: 2px solid #AD73FD;
+//   }
+// `
 
 

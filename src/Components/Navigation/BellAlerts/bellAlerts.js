@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react"
 import { NavigationBellUl,
 NavigationBellLi,
 NavigationBellInnerdiv,
 NavigationBellinnerUL,
 TitleSentAndReceived
  } from "../navigation.style"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchFriendRequests } from "../../../redux/slices/friendReuqestSlice"
+import { useSelector } from "react-redux"
 import UsersSentRequest from "./UsersAlerts/usersSentRequest"
 import UsersReceivedRequest from "./UsersAlerts/userReceibvedRequest"
 
@@ -14,22 +12,16 @@ import UsersReceivedRequest from "./UsersAlerts/userReceibvedRequest"
 
 const BellAlerts = () => {
 
+    const currentUser = JSON.parse(localStorage.getItem("user"));
 
-    const dispatch = useDispatch()
-
-
-    const myID = "2236"
+    const myID = currentUser.id
     const requestedToUser = []
     const requestedByUser = []
 
-    useEffect(()=>{
-        dispatch(fetchFriendRequests())
-    },[])
-
-    const request = useSelector(store => store)
+    const request = useSelector(store => store.friendRequests)
     
-    if(request.friendRequests.requests.results){
-        const listOfRequests = request.friendRequests.requests.results
+    if(request.requests.results){
+        const listOfRequests = request.requests.results
         const requestKeys = Object.keys(listOfRequests)
         requestKeys.forEach((idElement)=>{
         if(listOfRequests[idElement].requester.id == myID && listOfRequests[idElement].status =="P" ) {
