@@ -340,3 +340,60 @@ export const FriendsRequestsStatus = async(type,friend_request_id) => {
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
       }
+
+
+
+      export const GetLikedPosts = async () => { 
+   
+       
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+  
+    let requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+  
+  await fetch("https://motion.propulsion-home.ch/backend/api/social/posts/likes/", requestOptions)
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+      }
+
+
+      export const GetFriendsPosts = async () => { 
+   
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+  
+    let requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+  
+  await fetch("https://motion.propulsion-home.ch/backend/api/social/posts/friends/", requestOptions)
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+      }
+
+
+      export const GetFollowersPosts = async () => { 
+   
+  
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${Token}` );
+  
+    let requestOptions = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };
+  
+  await fetch("https://motion.propulsion-home.ch/backend/api/social/posts/following/", requestOptions)
+    .then(response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+      }

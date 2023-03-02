@@ -23,9 +23,12 @@ export const ProfileCounterAmount = styled.div`
 export const ProfileCounterTag = styled.div`
   font-size: 0.8rem;
   color: rgba(0, 0, 0, 0.6);
-  border-bottom: 2px solid #ad73fd;
   height: 50%;
   margin-right: 40%;
   margin-left: 20%;
   padding-bottom: 10px;
+  &:hover {
+    border-bottom: 2px solid #ad73fd;
+    cursor: pointer;
+  }
 `;

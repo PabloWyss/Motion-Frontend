@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Avatar,
   Name,
@@ -8,7 +8,6 @@ import {
   ActionButton,
   ShareIcon,
   LikeCount,
-  Menu,
   FlexRowWrapper,
   FlexColumnWrapper,
   PictureGrid,
@@ -20,12 +19,19 @@ import {
   SeperatorDiv,
   FooterWrapper,
 } from "./postRender.style.js";
-import menuDots from "../../../assets/svgs/menu.svg";
 import likeHeart from "../../../assets/svgs/heart.svg";
 import shareArrow from "../../../assets/svgs/share.svg";
+import EditForm from "../../Forms/editForm.js";
+import { useSelector } from "react-redux";
 
 const PostRender = (props) => {
   const moreThenOneImage = props.ownPosts.images.length > 1;
+  const userData = useSelector((state) => state.currentuser.currentuser)
+  // const [editAllow, setEditAllow] = useState(false)
+  let editAllow = false
+  // console.log(userData.id)
+  // console.log(props.ownPosts.user.id)
+  
 
   let avatar = "";
   if (props.ownPosts.user.avatar === null) {
@@ -33,6 +39,10 @@ const PostRender = (props) => {
       "https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg";
   } else {
     avatar = props.ownPosts.user.avatar;
+  }
+
+  const handleEditAllow = () => {
+    return (userData.id !== props.ownPosts.user.id ? editAllow : (editAllow = !editAllow))
   }
 
 
@@ -47,7 +57,7 @@ const PostRender = (props) => {
               <Time>Time</Time>
             </FlexColumnWrapper>
           </HeaderWrapper>
-          <Menu src={menuDots} alt="MenuDots"></Menu>
+          <EditForm postDetails={props.ownPosts} edit={handleEditAllow()} />
         </FlexRowWrapper>
         <FlexRowWrapper>
           <PostText>{props.ownPosts.content}</PostText>
