@@ -9,8 +9,6 @@ import FilteredUsersFollowing from "./ProfileFilteredComponents/FilteredUsers/Fi
 function ProfileShowFiltered() {
   const filter = useSelector((store) => store.profilefilter.profilefilter); //get state from redux
 
-console.log(filter);
-
   //returns the component to render based on which filter is chosen
   const displayComponent = () => {
     switch (filter) {

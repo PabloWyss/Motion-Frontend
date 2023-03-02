@@ -31,4 +31,6 @@ export const ProfileCounterTag = styled.div`
     border-bottom: 2px solid #ad73fd;
     cursor: pointer;
   }
+  border-bottom: ${props =>
+  props.active ? '2px solid #ad73fd' : 'none'};
 `;
