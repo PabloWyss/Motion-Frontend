@@ -26,11 +26,21 @@ import shareArrow from "../../../assets/svgs/share.svg";
 
 const PostRender = (props) => {
   const moreThenOneImage = props.ownPosts.images.length > 1;
+
+  let avatar = "";
+  if (props.ownPosts.user.avatar === null) {
+    avatar =
+      "https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg";
+  } else {
+    avatar = props.ownPosts.user.avatar;
+  }
+
+
   return (
     <MainRenderContainer>
       <WrapperDiv>
         <FlexRowWrapper>
-          <Avatar src={props.ownPosts.user.avatar} />
+          <Avatar src={avatar} />
           <HeaderWrapper>
             <FlexColumnWrapper>
               <Name>{`${props.ownPosts.user.first_name} ${props.ownPosts.user.last_name}`}</Name>
