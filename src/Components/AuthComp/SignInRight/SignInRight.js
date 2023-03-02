@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import callAPI from "../../../axios/auth";
 import AvatarIcon from "../../../assets/svgs/avatar.svg";
 import PasswordIcon from "../../../assets/svgs/password.svg";
+import { setCurrentUser } from "../../../redux/slices/currentUser";
+import { useDispatch } from "react-redux";
 
 import {
   AuthForm,
@@ -22,7 +24,7 @@ function SignInRight() {
   const [userPassword, setPassword] = useState("");
   const navigate = useNavigate();
 
-
+  const dispatch = useDispatch();
   
   const [error, setError] = useState('');
 
@@ -65,14 +67,17 @@ function SignInRight() {
     
       );;
       
-  
+     
 
     //console.log("68: "+emessage);
       if (!emessage) 
       {
         navigate("/posts");
         localStorage.setItem("auth-token", response.data.access);
-        return;
+        console.log("auth-token :"+response.data.access);
+      
+        dispatch(setCurrentUser(response.data.access))
+        ////return;
       }
       else
       {
