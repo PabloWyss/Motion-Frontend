@@ -4,7 +4,7 @@ import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import PostRender from "../PostRender/postRender";
 
-export const FollowersPosts = () => {
+ const FollowersPosts = () => {
   const [ownPosts, setOwnPosts] = useState([]);
   const Token = localStorage.getItem("auth-token");
 
@@ -42,6 +42,8 @@ export const FollowersPosts = () => {
       </GridDiv>
     </MainContainer>
   );
-};
+}
+
+export default FollowersPosts;
 
 
