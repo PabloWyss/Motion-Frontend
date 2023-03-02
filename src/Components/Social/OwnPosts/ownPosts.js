@@ -8,8 +8,11 @@ const OwnPosts = () => {
   const [ownPosts, setOwnPosts] = useState([]);
   const Token = localStorage.getItem("auth-token");
 
-  const GetPost_UserId = async (UserId, offset) => {
-    //GET: lists all the posts of a specific user in chronological order
+  
+
+  const GetMyPosts = async (offset) => {
+    //GET: lists all the posts of all users in chronological order, with a pagination of 25 posts by default. To get the other posts, you should use limit and offset query params as following: /api/social/posts/?limit=<int>&offset=<int>
+
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `Bearer ${Token}`);
 
@@ -19,34 +22,34 @@ const OwnPosts = () => {
       redirect: "follow",
     };
 
-
     await fetch(
-      "https://motion.propulsion-home.ch/backend/api/social/posts/user/" +
-        UserId +
-        "/?limit=25&offset=" +
+      "https://motion.propulsion-home.ch/backend/api/social/posts/me/?limit=25&offset=" +
         offset,
       requestOptions
     )
       .then((response) => response.json())
       .then((result) => setOwnPosts(result.results))
       .catch((error) => console.log("error", error));
-    
   };
 
+
+
+
   useEffect(() => {
-    GetPost_UserId(2230, 0);
+    GetMyPosts(0);
   }, []);
 
 
-  return (
-    <MainContainer>
-      <GridDiv>
-        {ownPosts.map((post) => {
-          return <PostRender key={uuid()} ownPosts={post} />;
-        })}
-      </GridDiv>
-    </MainContainer>
-  );
+    return (
+      <MainContainer>
+        <GridDiv>
+          {ownPosts.map((post) => {
+            return <PostRender key={uuid()} ownPosts={post} />;
+          })}
+        </GridDiv>
+      </MainContainer>
+    );
+  
 };
 
 export default OwnPosts;
