@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { GridDiv, MainContainer } from "./ownPosts.style";
 import { useState } from "react";
-import OwnPostRender from "./OwnPostRender/ownPostRender";
 import { v4 as uuid } from "uuid";
+import PostRender from "../PostRender/postRender";
 
 const OwnPosts = () => {
   const [ownPosts, setOwnPosts] = useState([]);
@@ -42,7 +42,7 @@ const OwnPosts = () => {
     <MainContainer>
       <GridDiv>
         {ownPosts.map((post) => {
-          return <OwnPostRender key={uuid()} ownPosts={post} />;
+          return <PostRender key={uuid()} ownPosts={post} />;
         })}
       </GridDiv>
     </MainContainer>
