@@ -1,6 +1,13 @@
 //import { useSelector } from "react-redux";
-import UserFindFriendInfo from "../../../../FindFriendsGrid/UserFindFriendInfo/userFindFriendIndo";
-import OwnProfileInfos from "./OwnProfileInfos/OwnProfileInfos";
+import {
+  AddFriendlocationP,
+  AddFriendNameP,
+  AvatarImg,
+  MainContainer,
+} from "./profileCardLeft.style";
+import EditProfileButton from "./ProfileCardButtons/EditProfileButton/EditProfileButton";
+import FollowAddButtons from './ProfileCardButtons/FollowAddButtons/FollowAddButtons'
+import avatarImage from "../../../../../assets/svgs/avatar.svg";
 
 function ProfileCardLeft(props) {
   const currentUser = JSON.parse(localStorage.getItem("user"));
@@ -9,15 +16,26 @@ function ProfileCardLeft(props) {
 
   //check if user passed is the same as current user
   //and render the corresponding component
-  const displayContent = () => {
+  const displayButtons = () => {
     return props.userdata.id === currentUser.id ? (
-      <OwnProfileInfos userdata={props.userdata} />
+      <EditProfileButton />
     ) : (
-      <UserFindFriendInfo />
+      <FollowAddButtons />
     );
   };
 
-  return displayContent();
+  return (
+    <MainContainer>
+      {props.userdata.avatar ? (
+        <AvatarImg alt="avatar" src={props.userdata.avatar} />
+      ) : (
+        <AvatarImg alt="avatar" src={avatarImage} />
+      )}
+      <AddFriendNameP>{`${props.userdata.first_name} ${props.userdata.last_name}`}</AddFriendNameP>
+      <AddFriendlocationP>{props.userdata.location}</AddFriendlocationP>
+      {displayButtons()}
+    </MainContainer>
+  );
 }
 
 export default ProfileCardLeft;

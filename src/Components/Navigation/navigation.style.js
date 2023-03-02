@@ -189,7 +189,7 @@ export const NavigationBellUl = styled.ul `
   list-style-type: none;
 `
 
-export const NavigationBelldiv = styled.div `
+export const NavigationBellInnerdiv = styled.div `
   display: flex;
   justify-content: center;
   background-color: white;
@@ -203,38 +203,65 @@ export const NavigationBellLi = styled.li `
   gap: 1rem;
   width: 100%;
   margin: 0;
-  border: solid 1px #d8d3d3;
+`
+
+export const NavigationBellinnerUL = styled.ul `
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 `
 
 export const RequestDiv = styled.div `
   display: flex;
-  width: 100%;
+  width: 90%;
   justify-content: space-between;
   gap: 3rem;
 `
 
 export const AcceptDenyImg = styled.img `
-  height: 2rem;
-  width: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
 `
 
 export const ImageNameDiv = styled.div`
   display: flex;
   justify-content: flex-start;
   gap: 2rem;
-  padding-left: .5rem;
+  
 `
 
-export const NameP = styled.p`
+export const BellNameP = styled.p`
   margin:0;
+  font-weight: 400;
+  font-size: .8rem;
 `
 
 export const FirstNameLastNameDiv = styled.div`
   display: flex;
+  flex-direction: column;
 `
 
 export const AcceptDenyDiv = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding-right: .5rem;
+  
 `
+
+export const BellInnerLi = styled.li`
+  display: flex;
+  justify-content: center;
+  border-bottom: solid 1px #d8d3d3;
+  height: 3rem;
+  align-items: center;
+`
+
+export const TitleSentAndReceived = styled.p`
+  font-weight: 400;
+  font-size: .9rem;
+  padding-left: 1rem;
+`
+
+

@@ -47,9 +47,9 @@ const Navigation = () => {
     setBellClicked(!bellClicked)
   }
 
-  // const handleMouseOutOfBellMenu = () => {
-  //   setBellClicked(!bellClicked)
-  // }
+  const handleMouseOutOfBellMenu = () => {
+    setBellClicked(!bellClicked)
+  }
 
 
   return (
@@ -76,7 +76,7 @@ const Navigation = () => {
             </AlertNumDiv>
           </AlertNumSpacerAbsolute>
           {bellClicked ?
-            <NavigationBellDiv >
+            <NavigationBellDiv onMouseLeave={handleMouseOutOfBellMenu}>
               <BellAlerts/>
             </NavigationBellDiv>:
             ""
@@ -85,7 +85,7 @@ const Navigation = () => {
         <Avatar src={avatar}></Avatar>
         <MenuDots src={menuDots} onClick={handleDotsClicjed}></MenuDots>
         {dotsClicked ? 
-         <NavigationDotsDiv onMouseLeave={handleMouseOutOfMenu}>
+         <NavigationDotsDiv onMouseLeave={handleMouseOutOfMenu }>
          <NavigationDots/>
        </NavigationDotsDiv> :
        ""}

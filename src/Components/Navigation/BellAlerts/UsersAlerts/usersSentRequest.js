@@ -1,13 +1,13 @@
 import denyButton from "../../../../assets/images/denyInv.png"
 import acceptButton from "../../../../assets/images/acceptInv.png"
 import avatarImage from "../../../../assets/svgs/avatar.svg"
-import { AcceptDenyImg, RequestDiv,ImageNameDiv,NameP, FirstNameLastNameDiv,AcceptDenyDiv    } from "../../navigation.style"
+import { AcceptDenyImg, RequestDiv,ImageNameDiv,BellNameP, FirstNameLastNameDiv,AcceptDenyDiv    } from "../../navigation.style"
 
 const UsersSentRequest = (prop) => {
 
     const Token = localStorage.getItem("auth-token")
 
-    
+    console.log(prop)
 
     const FriendsRequestsStatus = async(type,friend_request_id) => {
 
@@ -59,12 +59,12 @@ const UsersSentRequest = (prop) => {
                 <AcceptDenyImg alt="avatar" src={prop.requester.avatar}/>:
                 <AcceptDenyImg alt="avatar" src={avatarImage}/>}
                 <FirstNameLastNameDiv >
-                    <NameP >
+                    <BellNameP >
                         {prop.requester.first_name} {prop.requester.last_name}
-                    </NameP >
-                    <NameP >
+                    </BellNameP >
+                    <BellNameP >
                         {prop.requester.location}
-                    </NameP >
+                    </BellNameP >
 
                 </FirstNameLastNameDiv >
             </ImageNameDiv >

@@ -1,9 +1,48 @@
-import { MainContainer } from "./profileData.style";
+import { v4 as uuid } from 'uuid'
+import {
+  LikedElementsDiv,
+  LikedIndivualElementDiv,
+  LikedIndivualElementP,
+  MainContainer,
+  ProfileAbout,
+  ProfileContacts,
+  ProfileDataLeft,
+  ProfileDataRight,
+  ProfileEmail,
+  ProfilePhone,
+} from "./profileData.style";
 
-function ProfileData() {
+function ProfileData(props) {
   return (
     <MainContainer>
-      <p>Profile Data</p>
+      <ProfileDataLeft>
+        <ProfileAbout>
+          <p>About</p>
+          <p>{props.userdata.about_me}</p>
+        </ProfileAbout>
+        <ProfileContacts>
+          <ProfileEmail>
+            <p>Email</p>
+            <p>{props.userdata.email}</p>
+          </ProfileEmail>
+          <ProfilePhone>
+            <p>Phone</p>
+            <p>{props.userdata.phone_number}</p>
+          </ProfilePhone>
+        </ProfileContacts>
+      </ProfileDataLeft>
+      <ProfileDataRight>
+        <p>Things I like</p>
+        <LikedElementsDiv>
+          {props.userdata.things_user_likes.map((element) => {
+            return (
+              <LikedIndivualElementDiv key={uuid()}>
+                <LikedIndivualElementP>{element}</LikedIndivualElementP>
+              </LikedIndivualElementDiv>
+            );
+          })}
+        </LikedElementsDiv>
+      </ProfileDataRight>
     </MainContainer>
   );
 }

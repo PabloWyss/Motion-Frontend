@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import { NavigationBellUl,
 NavigationBellLi,
-NavigationBelldiv
+NavigationBellInnerdiv,
+NavigationBellinnerUL,
+TitleSentAndReceived
  } from "../navigation.style"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchFriendRequests } from "../../../redux/slices/friendReuqestSlice"
@@ -34,42 +36,40 @@ const BellAlerts = () => {
             requestedByUser.push(listOfRequests[idElement])
         } else if (listOfRequests[idElement].requester.id != myID && listOfRequests[idElement].status =="P" ) {
             requestedToUser.push(listOfRequests[idElement])
-            }
+        } 
         })
     }
 
 
     return (
-        <NavigationBelldiv>
+        <NavigationBellInnerdiv>
             <NavigationBellUl>
                 <NavigationBellLi>
-                <p>
+                <TitleSentAndReceived>
                     Received Requests
-                </p>
+                </TitleSentAndReceived>
                 </NavigationBellLi>
-                <NavigationBellLi>
+                <NavigationBellinnerUL>
                 {requestedToUser.map((elementId)=>{
                     return (
                         <UsersSentRequest key={elementId.id} requester={elementId.requester} requestId = {elementId.id}/>
                     )
                 })}
-                </NavigationBellLi>
+                </NavigationBellinnerUL>
                 <NavigationBellLi>
-                </NavigationBellLi>
-                <NavigationBellLi>
-                <p>
+                <TitleSentAndReceived>
                     Sent Requests
-                </p>
+                </TitleSentAndReceived>
                 </NavigationBellLi>
-                <NavigationBellLi>
+                <NavigationBellinnerUL>
                 {requestedByUser.map((elementId)=>{
                     return (
                         <UsersReceivedRequest key={elementId.id} receiver={elementId.receiver} requestId = {elementId.id}/>
                     )
                 })}
-                </NavigationBellLi>
+                </NavigationBellinnerUL>
             </NavigationBellUl>
-        </NavigationBelldiv>
+        </NavigationBellInnerdiv>
         
     )
 }
