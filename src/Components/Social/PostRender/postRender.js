@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Avatar,
   Name,
@@ -18,15 +18,14 @@ import {
   PostImage,
   GridImage,
   SeperatorDiv,
-  FooterWrapper
-} from "../ownPosts.style.js";
-import menuDots from '../../../../assets/svgs/menu.svg'
-import likeHeart from "../../../../assets/svgs/heart.svg";
-import shareArrow from "../../../../assets/svgs/share.svg";
+  FooterWrapper,
+} from "./postRender.style.js";
+import menuDots from "../../../assets/svgs/menu.svg";
+import likeHeart from "../../../assets/svgs/heart.svg";
+import shareArrow from "../../../assets/svgs/share.svg";
 
-const OwnPostRender = (props) => {
-
-  const moreThenOneImage = (props.ownPosts.images.length > 1)
+const PostRender = (props) => {
+  const moreThenOneImage = props.ownPosts.images.length > 1;
   return (
     <MainRenderContainer>
       <WrapperDiv>
@@ -41,7 +40,7 @@ const OwnPostRender = (props) => {
           <Menu src={menuDots} alt="MenuDots"></Menu>
         </FlexRowWrapper>
         <FlexRowWrapper>
-        <PostText>{props.ownPosts.content}</PostText>
+          <PostText>{props.ownPosts.content}</PostText>
         </FlexRowWrapper>
         {moreThenOneImage ? (
           <PictureGrid>
@@ -50,7 +49,7 @@ const OwnPostRender = (props) => {
             })}
           </PictureGrid>
         ) : (
-            props.ownPosts.images.map((image) => {
+          props.ownPosts.images.map((image) => {
             return <PostImage src={image.image} alt={image.image} />;
           })
         )}
@@ -60,12 +59,13 @@ const OwnPostRender = (props) => {
           <ShareIcon src={shareArrow} alt="share Icon" />
           <ActionButton>Share</ActionButton>
           <SeperatorDiv>
-          <LikeCount>{props.ownPosts.amount_of_likes} likes</LikeCount>
+            <LikeCount>{props.ownPosts.amount_of_likes} likes</LikeCount>
           </SeperatorDiv>
         </FooterWrapper>
       </WrapperDiv>
     </MainRenderContainer>
   );
-}
+};
 
-export default OwnPostRender
+export default PostRender;
+

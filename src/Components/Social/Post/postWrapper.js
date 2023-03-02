@@ -14,7 +14,6 @@ const PostWrapper = () => {
       </SideSeperatorLeft>
       <SideSeperatorRight>
         <OtherPosts />
-        <SharedPosts />
       </SideSeperatorRight>
     </MainContainer>
   );
