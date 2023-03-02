@@ -213,7 +213,7 @@ export const NavigationBellinnerUL = styled.ul `
   width: 100%;
   margin: 0;
   padding: 0;
-  gap: .5rem
+  gap: .5rem;
 `
 
 export const RequestDiv = styled.div `
@@ -225,6 +225,9 @@ export const RequestDiv = styled.div `
 export const AcceptDenyImg = styled.img `
   height: 2.5rem;
   width: 2.5rem;
+  &:hover{
+    transform: scale(1.1);;
+  }
 `
 
 export const ImageNameDiv = styled.div`

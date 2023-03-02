@@ -78,7 +78,6 @@ const Navigation = () => {
   return (
     <MainContainer>
       <ContainerLeft>
-
         <Logo src={logo}></Logo>
         <PageTitle>Motion</PageTitle>
         <PostsSection>
