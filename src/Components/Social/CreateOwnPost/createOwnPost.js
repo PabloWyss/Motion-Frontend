@@ -1,5 +1,3 @@
-import React, { useEffect } from "react";
-import { CgProfile} from 'react-icons/cg'
 import {
   Avatar,
   MainContainer,
@@ -8,7 +6,6 @@ import {
   SubmitButtonIcon,
   WrapperDiv,
 } from "./createOwnPost.style";
-import avatarJennifer from "../../../assets/images/users/jennifer.png";
 import sendIcon from "../../../assets/svgs/send_button.svg";
 import { useSelector } from "react-redux";
 
@@ -23,8 +20,6 @@ const CreateOwnPost = () => {
   } else {
     avatar = userData.currentuser.avatar;
   }
-    
-    console.log(userData.currentuser.avatar);
 
   
   return (
