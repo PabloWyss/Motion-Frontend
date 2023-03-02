@@ -77,7 +77,7 @@ function SignInRight() {
         console.log("auth-token :"+response.data.access);
       
         dispatch(setCurrentUser(response.data.access))
-        //return;
+        ////return;
       }
       else
       {
