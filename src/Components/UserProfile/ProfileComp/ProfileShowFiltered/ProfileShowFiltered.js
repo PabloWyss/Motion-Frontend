@@ -1,29 +1,40 @@
-import FindFirendsGrid from "../../../FindFriendsGrid/findfriendsgrid";
-import FilteredUsers from "./ProfileFilteredComponents/FilteredUsers/FilteredUsers";
+import { useSelector } from "react-redux";
+import LikedPosts from "../../../Social/LikedPosts/likedPosts";
+import OwnPosts from "../../../Social/OwnPosts/ownPosts";
+import FilteredUsers from "./ProfileFilteredComponents/FilteredUsers/FilteredUsersFollowing";
+import FilteredUsersFollowers from "./ProfileFilteredComponents/FilteredUsers/FilteredUsersFollowers";
+import FilteredUsersFriends from "./ProfileFilteredComponents/FilteredUsers/FilteredUsersFriends";
 import { MainContainer } from "./profileShowFiltered.style";
+import FilteredUsersFollowing from "./ProfileFilteredComponents/FilteredUsers/FilteredUsersFollowing";
 
 function ProfileShowFiltered() {
-  let state = "friends"; //get state from redux
+  const filter = useSelector((store) => store.profilefilter.profilefilter); //get state from redux
+
+console.log(filter);
 
   //returns the component to render based on which filter is chosen
   const displayComponent = () => {
-    switch (state) {
+    switch (filter) {
       case "posts":
-        return;
+        return <OwnPosts />;
       case "likes":
-        return;
+        return <LikedPosts />;
       case "friends":
-        return <FilteredUsers />;
+        return <FilteredUsersFriends />;
       case "followers":
-        return;
+        return <FilteredUsersFollowers />;
       case "following":
-        return;
+        return <FilteredUsersFollowing />;
       default:
-        return; // -> posts
+        return <OwnPosts />;
     }
   };
 
-  return <MainContainer><div>{displayComponent()}</div></MainContainer>;
+  return (
+    <MainContainer>
+      <div>{displayComponent()}</div>
+    </MainContainer>
+  );
 }
 
 export default ProfileShowFiltered;

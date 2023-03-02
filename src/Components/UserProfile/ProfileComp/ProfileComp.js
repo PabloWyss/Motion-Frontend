@@ -7,7 +7,8 @@ import { ProfileCompContainer } from "./profileComp.style";
 import ProfileShowFiltered from "./ProfileShowFiltered/ProfileShowFiltered";
 
 function ProfileComp() {
-  //let userdata = JSON.parse(localStorage.getItem("user"))
+  //initialize userdata with data of current user
+  //they are then changed to those of the passed user, if any
   const [userdata, setUserdata] = useState(JSON.parse(localStorage.getItem("user")));
 
   //handle passing of user ID via URL
@@ -31,8 +32,6 @@ function ProfileComp() {
     GetUserByID();
   }, []);
 
-  //console.log(userdata)
-
   //update userdata of current user
   const dispatch = useDispatch();
   const GetUsers_me = async () => {
@@ -54,9 +53,6 @@ function ProfileComp() {
   useEffect(() => {
     GetUsers_me();
   }, []);
-
-  //retrieve data of current user or keep data of passed user
-
 
   return (
     <ProfileCompContainer>
