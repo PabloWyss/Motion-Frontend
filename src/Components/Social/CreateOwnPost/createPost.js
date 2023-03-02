@@ -10,18 +10,20 @@ const CreatePost = () => {
 
   const handlePictureChange = (e) => {
     const files = e.target.files;
+    
     const newPictures = [];
 
     for (let i = 0; i < files.length; i++) {
       const fileReader = new FileReader();
       fileReader.readAsDataURL(files[i]);
-
+      
       fileReader.onload = (event) => {
         newPictures.push(event.target.result);
         setPictures([...newPictures]);
       };
     }
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,9 +34,10 @@ const CreatePost = () => {
     <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="content">Content:</label>
-        <input
-          type="text"
+        <textarea
           id="content"
+          cols="40"
+          rows="5"
           name="content"
           value={content}
           onChange={handleContentChange}
@@ -62,6 +65,8 @@ const CreatePost = () => {
       <button type="submit">Submit</button>
     </form>
   );
+  
+
 };
 
 export default CreatePost;
