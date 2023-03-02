@@ -1,13 +1,12 @@
 import denyButton from "../../../../assets/images/denyInv.png"
 import acceptButton from "../../../../assets/images/acceptInv.png"
 import avatarImage from "../../../../assets/svgs/avatar.svg"
-import { AcceptDenyImg, RequestDiv,ImageNameDiv,BellNameP, FirstNameLastNameDiv,AcceptDenyDiv    } from "../../navigation.style"
+import { BellInnerLi,AcceptDenyImg, RequestDiv,ImageNameDiv,BellNameP, FirstNameLastNameDiv,AcceptDenyDiv    } from "../../navigation.style"
 
 const UsersSentRequest = (prop) => {
 
     const Token = localStorage.getItem("auth-token")
-
-    console.log(prop)
+    
 
     const FriendsRequestsStatus = async(type,friend_request_id) => {
 
@@ -53,27 +52,30 @@ const UsersSentRequest = (prop) => {
 
 
     return (
-        <RequestDiv >
-            <ImageNameDiv >
-                {prop.requester.avatar?
-                <AcceptDenyImg alt="avatar" src={prop.requester.avatar}/>:
-                <AcceptDenyImg alt="avatar" src={avatarImage}/>}
-                <FirstNameLastNameDiv >
-                    <BellNameP >
-                        {prop.requester.first_name} {prop.requester.last_name}
-                    </BellNameP >
-                    <BellNameP >
-                        {prop.requester.location}
-                    </BellNameP >
+        <BellInnerLi>
 
-                </FirstNameLastNameDiv >
-            </ImageNameDiv >
-            <AcceptDenyDiv  >
-                <AcceptDenyImg alt="acceptButton" src={acceptButton} onClick={HandleAcceptButton}/>
-                <AcceptDenyImg alt="denybutton" src={denyButton} onClick={HandleDeleteButton}/>
-            </AcceptDenyDiv  >
-            
-        </RequestDiv >
+          <RequestDiv >
+              <ImageNameDiv >
+                  {prop.requester.avatar?
+                  <AcceptDenyImg alt="avatar" src={prop.requester.avatar}/>:
+                  <AcceptDenyImg alt="avatar" src={avatarImage}/>}
+                  <FirstNameLastNameDiv >
+                      <BellNameP >
+                          {prop.requester.first_name} {prop.requester.last_name}
+                      </BellNameP >
+                      <BellNameP >
+                          {prop.requester.location}
+                      </BellNameP >
+
+                  </FirstNameLastNameDiv >
+              </ImageNameDiv >
+              <AcceptDenyDiv  >
+                  <AcceptDenyImg alt="acceptButton" src={acceptButton} onClick={HandleAcceptButton}/>
+                  <AcceptDenyImg alt="denybutton" src={denyButton} onClick={HandleDeleteButton}/>
+              </AcceptDenyDiv  >
+              
+          </RequestDiv >
+        </BellInnerLi>
     )
 }
 

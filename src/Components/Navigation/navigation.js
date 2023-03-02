@@ -35,6 +35,9 @@ const Navigation = () => {
 
   const [dotsClicked, setDotsClicked] = useState(false)
   const [bellClicked, setBellClicked] = useState(false)
+  const currentUser = JSON.parse(localStorage.getItem("user"))
+  console.log(currentUser.avatar)
+
 
 
   const handleDotsClicjed = () => {
@@ -59,6 +62,7 @@ const Navigation = () => {
   return (
     <MainContainer>
       <ContainerLeft>
+
         <Logo src={logo}></Logo>
         <PageTitle>Motion</PageTitle>
         <PostsSection>
@@ -120,7 +124,10 @@ const Navigation = () => {
             ""
           }
         </AlertContainer>
-        <Avatar src={avatar}></Avatar>
+        {currentUser.avatar ?
+        <Avatar src={avatar}></Avatar>:
+        <Avatar src="https://t4.ftcdn.net/jpg/03/59/58/91/360_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg"></Avatar> 
+        }
         <MenuDots src={menuDots} onClick={handleDotsClicjed}></MenuDots>
         {dotsClicked ? 
          <NavigationDotsDiv onMouseLeave={handleMouseOutOfMenu }>

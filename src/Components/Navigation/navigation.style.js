@@ -158,7 +158,6 @@ export const NavigationDotsUl = styled.ul `
 export const NavigationDotsLi = styled.li `
   display: flex;
   justify-content: space-around;
-  gap: 1rem;
   width: 100%;
   margin: 0;
   border: solid 1px #d8d3d3;
@@ -219,7 +218,6 @@ export const RequestDiv = styled.div `
   display: flex;
   width: 90%;
   justify-content: space-between;
-  gap: 3rem;
 `
 
 export const AcceptDenyImg = styled.img `
@@ -268,7 +266,6 @@ export const TitleSentAndReceived = styled.p`
 export const DotsInnerP = styled.p`
   font-weight: 400;
   font-size: .9rem;
-  padding-left: 1rem;
 `
 
 

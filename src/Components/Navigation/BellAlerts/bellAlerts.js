@@ -16,9 +16,9 @@ const BellAlerts = () => {
 
 
     const dispatch = useDispatch()
+    const currentUser = JSON.parse(localStorage.getItem("user"));
 
-
-    const myID = "2236"
+    const myID = currentUser.id
     const requestedToUser = []
     const requestedByUser = []
 
@@ -26,10 +26,10 @@ const BellAlerts = () => {
         dispatch(fetchFriendRequests())
     },[])
 
-    const request = useSelector(store => store)
+    const request = useSelector(store => store.friendRequests)
     
-    if(request.friendRequests.requests.results){
-        const listOfRequests = request.friendRequests.requests.results
+    if(request.requests.results){
+        const listOfRequests = request.requests.results
         const requestKeys = Object.keys(listOfRequests)
         requestKeys.forEach((idElement)=>{
         if(listOfRequests[idElement].requester.id == myID && listOfRequests[idElement].status =="P" ) {

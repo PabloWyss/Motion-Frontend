@@ -8,7 +8,6 @@ const UsersReceivedRequest = (prop) => {
     
     return (
         <BellInnerLi>
-
             <RequestDiv >
                 <ImageNameDiv >
                     {prop.receiver.avatar?
