@@ -142,6 +142,7 @@ export const NavigationDotsDiv = styled.div`
   position: absolute;
   right: 1rem;
   top: 5rem;
+  z-index: 2;
 `
 
 export const NavigationDotsUl = styled.ul `
@@ -175,7 +176,7 @@ export const NavigationBellDiv = styled.div`
   right: 8.5rem;
   top: 5rem;
   border: solid 1px #d8d3d3;
-  z-index: 1;
+  z-index: 2;
 `
 
 export const NavigationBellUl = styled.ul `
@@ -259,6 +260,12 @@ export const BellInnerLi = styled.li`
 `
 
 export const TitleSentAndReceived = styled.p`
+  font-weight: 400;
+  font-size: .9rem;
+  padding-left: 1rem;
+`
+
+export const DotsInnerP = styled.p`
   font-weight: 400;
   font-size: .9rem;
   padding-left: 1rem;

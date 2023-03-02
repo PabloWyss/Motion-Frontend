@@ -29,11 +29,13 @@ import postsLogo from "../../assets/svgs/posts_logo.svg"
 import bell from "../../assets/svgs/notification_bell.svg"
 import NavigationDots from "./NavigationDots/navigationDots";
 import BellAlerts from "./BellAlerts/bellAlerts";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
 
   const [dotsClicked, setDotsClicked] = useState(false)
   const [bellClicked, setBellClicked] = useState(false)
+
 
   const handleDotsClicjed = () => {
     setDotsClicked(!dotsClicked)
@@ -52,18 +54,54 @@ const Navigation = () => {
   }
 
 
+
+
   return (
     <MainContainer>
       <ContainerLeft>
         <Logo src={logo}></Logo>
         <PageTitle>Motion</PageTitle>
         <PostsSection>
-          <PostLogo src={postsLogo}></PostLogo>
-          <NavText>Posts</NavText>
+          <NavLink 
+          to="/"
+          style={({ isActive }) =>
+            isActive
+            ? {
+                color: "#ad73fd",
+                textDecoration: "none",
+                display: "flex", 
+                alignItems: "center"
+              }
+            : { color: "grey",
+                textDecoration: "none",
+                display: "flex", 
+                alignItems: "center" }
+            }
+            >
+            <PostLogo src={postsLogo}></PostLogo>
+            <NavText>Posts</NavText>
+          </NavLink>
         </PostsSection>
         <FindFriendsSection>
+          <NavLink 
+            to="/find-friends"
+            style={({ isActive }) =>
+            isActive
+            ? {
+                color: "#ad73fd",
+                textDecoration: "none",
+                display: "flex", 
+                alignItems: "center"
+              }
+            : { color: "grey",
+                textDecoration: "none",
+                display: "flex", 
+                alignItems: "center" }
+            }
+            >
           <FindFriendsLogo src={findFriendLogo}></FindFriendsLogo>
           <NavText>Find Friends</NavText>
+          </NavLink>
         </FindFriendsSection>
       </ContainerLeft>
       <ContainerRight>
