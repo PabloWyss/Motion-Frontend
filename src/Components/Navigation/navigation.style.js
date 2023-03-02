@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink as Nav } from "react-router-dom";
 
 export const MainContainer = styled.div`
   height: 5rem;
@@ -276,5 +277,11 @@ export const DotsInnerP = styled.p`
   font-weight: 400;
   font-size: .9rem;
 `
+
+// export const NavLinkStyle = styled.Nav`
+//   &:hover{
+//     border-bottom: 2px solid #AD73FD;
+//   }
+// `
 
 

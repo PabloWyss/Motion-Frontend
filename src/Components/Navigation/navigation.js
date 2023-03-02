@@ -19,7 +19,8 @@ import {
   AlertNumSpacer,
   AlertNumSpacerAbsolute,
   NavigationDotsDiv,
-  NavigationBellDiv
+  NavigationBellDiv,
+  NavLinkStyle 
 } from "./navigation.style";
 import logo from "../../assets/images/logo.png";
 import avatar from "../../assets/images/users/jennifer.png";
@@ -80,43 +81,51 @@ const Navigation = () => {
       <ContainerLeft>
         <Logo src={logo}></Logo>
         <PageTitle>Motion</PageTitle>
-        <PostsSection>
-          <NavLink 
+          <NavLink
           to="/"
-          style={({ isActive }) =>
+          style={
+            ({ isActive }) =>
             isActive
             ? {
                 color: "#ad73fd",
                 textDecoration: "none",
                 display: "flex", 
-                alignItems: "center"
+                alignItems: "center",
+                borderBottom: "2px solid #AD73FD",
+                height: "100%",
               }
             : { color: "grey",
                 textDecoration: "none",
                 display: "flex", 
-                alignItems: "center" }
+                alignItems: "center", 
+                height: "100%",}
             }
             >
+            <PostsSection>
             <PostLogo src={postsLogo}></PostLogo>
             <NavText>Posts</NavText>
+            </PostsSection>
           </NavLink>
-        </PostsSection>
+        
         <FindFriendsSection>
-          <NavLink 
+          <NavLink
             to="/find-friends"
             style={({ isActive }) =>
             isActive
             ? {
-                color: "#ad73fd",
-                textDecoration: "none",
-                display: "flex", 
-                alignItems: "center"
-              }
-            : { color: "grey",
-                textDecoration: "none",
-                display: "flex", 
-                alignItems: "center" }
+              color: "#ad73fd",
+              textDecoration: "none",
+              display: "flex", 
+              alignItems: "center",
+              borderBottom: "2px solid #AD73FD",
+              height: "100%",
             }
+          : { color: "grey",
+              textDecoration: "none",
+              display: "flex", 
+              alignItems: "center", 
+              height: "100%",}
+          }
             >
           <FindFriendsLogo src={findFriendLogo}></FindFriendsLogo>
           <NavText>Find Friends</NavText>
