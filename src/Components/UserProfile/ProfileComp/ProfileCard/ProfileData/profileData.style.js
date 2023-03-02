@@ -52,6 +52,7 @@ export const LikedIndivualElementDiv = styled.div`
   mix-blend-mode: normal;
   background-color: #f4f3f3;
   border-radius: 2rem;
+  height: 2.1rem;
 `;
 
 export const LikedIndivualElementP = styled.p`

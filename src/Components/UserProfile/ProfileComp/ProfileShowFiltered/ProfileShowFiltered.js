@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import LikedPosts from "../../../Social/LikedPosts/likedPosts";
 import OwnPosts from "../../../Social/OwnPosts/ownPosts";
-import FilteredUsers from "./ProfileFilteredComponents/FilteredUsers/FilteredUsersFollowing";
 import FilteredUsersFollowers from "./ProfileFilteredComponents/FilteredUsers/FilteredUsersFollowers";
 import FilteredUsersFriends from "./ProfileFilteredComponents/FilteredUsers/FilteredUsersFriends";
 import { MainContainer } from "./profileShowFiltered.style";
@@ -9,8 +8,6 @@ import FilteredUsersFollowing from "./ProfileFilteredComponents/FilteredUsers/Fi
 
 function ProfileShowFiltered() {
   const filter = useSelector((store) => store.profilefilter.profilefilter); //get state from redux
-
-console.log(filter);
 
   //returns the component to render based on which filter is chosen
   const displayComponent = () => {
