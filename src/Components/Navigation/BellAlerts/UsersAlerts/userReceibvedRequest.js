@@ -6,7 +6,6 @@ import { useState } from "react"
 
 const UsersReceivedRequest = (prop) => {
 
-    const [isClicked, setIsClicked] = useState(true)
     const navigate = useNavigate()
     const handleClickUser = () => {
         navigate(`/profile/${prop.receiver.id}`)

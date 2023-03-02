@@ -51,8 +51,6 @@ const Navigation = () => {
     countRequest = request.requests.results.length
   }
 
-  
-
   const [dotsClicked, setDotsClicked] = useState(false)
   const [bellClicked, setBellClicked] = useState(false)
   const currentUser = JSON.parse(localStorage.getItem("user"))
