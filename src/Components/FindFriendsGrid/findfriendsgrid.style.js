@@ -138,3 +138,10 @@ export const TickerImage = styled.img`
     width: 1.5rem;
     opacity: .4;
 `
+
+export const DivImageName = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem
+`

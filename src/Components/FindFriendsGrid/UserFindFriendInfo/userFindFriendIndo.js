@@ -1,16 +1,17 @@
 import { AvaterImg,AddFriendUserDiv,AddFriendNameP,AddFriendlocationP,
         AddFriendsDivButton,AddFriendsInerDivButton,AddFollowAddFriendButton,FollowInerDivButton,
-        AboutMeInfoP,LikedElementsDiv,LikedIndivualElementDiv,LikedIndivualElementP,TickerImage} from "../findfriendsgrid.style"
+        AboutMeInfoP,LikedElementsDiv,LikedIndivualElementDiv,LikedIndivualElementP,TickerImage,DivImageName} from "../findfriendsgrid.style"
 import { v4 as uuid } from 'uuid'
 import { useState } from "react"
 import tickerImage from "../../../assets/svgs/Ticker.svg"
 import avatarImage from "../../../assets/svgs/avatar.svg"
+import { useNavigate } from "react-router-dom"
 
 const UserFindFriendInfo = (prop) => {
     
     const [FolowUser,setFollowUser] = useState(prop.userInfo.logged_in_user_is_following)
     const [addFriend,setAddFriend] = useState(prop.userInfo.logged_in_user_sent_fr)
-
+    const navigate = useNavigate()
 
     const Token = localStorage.getItem("auth-token")
 
@@ -63,14 +64,20 @@ const UserFindFriendInfo = (prop) => {
         }
     }
 
+    const handleClickUser = () => {
+        navigate(`/profile/${prop.userInfo.id}`)
+    }
+
     return(
         <AddFriendUserDiv >
-            {prop.userInfo.avatar? 
-            <AvaterImg alt="avatar" src={prop.userInfo.avatar}/> : 
-            <AvaterImg alt="avatar" src={avatarImage}/>
-            }
-            <AddFriendNameP>{`${prop.userInfo.first_name} ${prop.userInfo.last_name}`}</AddFriendNameP >
-            <AddFriendlocationP>{prop.userInfo.location}</AddFriendlocationP>
+            <DivImageName onClick={handleClickUser}>
+                {prop.userInfo.avatar? 
+                <AvaterImg alt="avatar" src={prop.userInfo.avatar}/> : 
+                <AvaterImg alt="avatar" src={avatarImage}/>
+                }
+                <AddFriendNameP>{`${prop.userInfo.first_name} ${prop.userInfo.last_name}`}</AddFriendNameP >
+                <AddFriendlocationP>{prop.userInfo.location}</AddFriendlocationP>
+            </DivImageName>
             <AddFriendsDivButton>
                 <FollowInerDivButton follow={FolowUser} onClick={hanldeFollowButton}>
                     <AddFollowAddFriendButton>{FolowUser? "Followed" : "Follow"}</AddFollowAddFriendButton>
