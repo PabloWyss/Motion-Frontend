@@ -54,6 +54,7 @@ const Navigation = () => {
   const [dotsClicked, setDotsClicked] = useState(false)
   const [bellClicked, setBellClicked] = useState(false)
   const currentUser = JSON.parse(localStorage.getItem("user"))
+  console.log(currentUser)
 
   const handleDotsClicjed = () => {
     setDotsClicked(!dotsClicked)
@@ -146,10 +147,10 @@ const Navigation = () => {
             ""
           }
         </AlertContainer>
-        {currentUser.avatar ?
+        {/* {currentUser.avatar ?
         <Avatar src={avatar}></Avatar>:
         <Avatar src={avatarImage}></Avatar> 
-        }
+        } */}
         <MenuDots src={menuDots} onClick={handleDotsClicjed}></MenuDots>
         {dotsClicked ? 
          <NavigationDotsDiv onMouseLeave={handleMouseOutOfMenu }>
