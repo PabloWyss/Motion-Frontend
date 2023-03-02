@@ -3,9 +3,26 @@ import UserFindFriendInfo from "../../../../../FindFriendsGrid/UserFindFriendInf
 import { v4 as uuid } from "uuid";
 import { useState, useEffect } from "react";
 
-const FilteredUsers = () => {
+const FilteredUsers = (props) => {
   const [listOfUsers2, setListOfUsers2] = useState([]);
 
+  //define which kind of users is to be fetched
+  let url = "";
+  switch (props.filter) {
+    case "friends":
+      url = "social/friends";
+      break;
+    case "followers":
+      url = "social/followers/followers";
+      break;
+    case "following":
+      url = "social/followers/following";
+      break;
+    default:
+      url = "social/friends/";
+  }
+
+  //fetch the users
   const getUsers = async () => {
     const Token = localStorage.getItem("auth-token");
 
@@ -19,14 +36,13 @@ const FilteredUsers = () => {
 
     let userList = [];
 
-    await fetch(`https://motion.propulsion-home.ch/backend/api/social/friends`, requestOptions)
+    await fetch('https://motion.propulsion-home.ch/backend/api/' + url, requestOptions)
       .then((response) => response.json())
       .then((result) => (userList = result.results))
       .catch((error) => console.log("error", error));
 
     setListOfUsers2(userList);
   };
-
   useEffect(() => {
     getUsers();
   }, []);

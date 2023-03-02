@@ -44,4 +44,4 @@ export const LikedPosts = () => {
   );
 };
 
-
+export default LikedPosts;
