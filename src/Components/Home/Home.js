@@ -21,6 +21,7 @@ function Home() {
         <Route path="/posts" element={<RouteProtection route={<Posts />}/>} />
         <Route path="/find-friends" element={<RouteProtection route={<FindFirends />}/>} />
         <Route path="/profile" element={<RouteProtection route={<Profile />}/>} />
+        <Route path="/profile/:profileId" element={<RouteProtection route={<Profile />}/>} />
       </Routes>
     </div>
   );
