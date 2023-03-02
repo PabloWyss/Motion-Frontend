@@ -49,6 +49,13 @@ const Navigation = () => {
 
   if(request.requests.results){
     countRequest = request.requests.results.length
+    let inerCount = 0
+    request.requests.results.forEach((element)=>{
+      if(element.status == "P"){
+        inerCount  += 1
+      }
+    })
+    countRequest = inerCount
   }
 
   const [dotsClicked, setDotsClicked] = useState(false)
