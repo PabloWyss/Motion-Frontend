@@ -12,7 +12,7 @@ const CreatePostForm = (props) => {
   const toggleOverlay = () => {
     setIsOpen(!isOpen);
   };
-  console.log(props.input)
+  // console.log(props.input)
   
   // console.log(props.edit)
   // console.log(props.postDetails.user.avatar)
