@@ -2,13 +2,10 @@ import {
   Avatar,
   MainContainer,
   InputField,
-  SubmitButton,
-  SubmitButtonIcon,
   WrapperDiv,
 } from "./createOwnPost.style";
-import sendIcon from "../../../assets/svgs/send_button.svg";
+
 import { useSelector } from "react-redux";
-import CreatePost from "./createPost";
 import CreatePostForm from "../../Forms/createPostForm";
 import { useState } from "react";
 
