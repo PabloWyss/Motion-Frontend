@@ -5,7 +5,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-gap: 1rem;
+gap: 0.8rem;
 width: 25%;
 border-right: 1px solid rgba(0, 0, 0, 0.1);
 `;
