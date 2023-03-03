@@ -1,15 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const profileFilter = createSlice({
-  name: "profile-filter",
+export const postsFilter = createSlice({
+  name: "postsFilter",
   initialState: {
-    profilefilter: '',
+    postsFilter: '',
   },
   reducers: {
-    setProfileFilter: (state, action) => {
-      state.profilefilter = action.payload;
+    setpostsFilter: (state, action) => {
+      console.log("slices....."+action.payload);
+      state.postsFilter = action.payload;
     },
   },
 });
-export const { setProfileFilter } = profileFilter.actions;
-export default profileFilter.reducer;
+export const { setpostsFilter } = postsFilter.actions;
+export default postsFilter.reducer;
