@@ -44,17 +44,23 @@ const Navigation = () => {
   },[])
   
   const request = useSelector(store => store.friendRequests)
+  const currentUser = useSelector(store => store.currentuser.currentuser)
 
   let countRequest = 0
 
   if(request.requests.results){
     countRequest = request.requests.results.length
+    let inerCount = 0
+    request.requests.results.forEach((element)=>{
+      if(element.status == "P"){
+        inerCount  += 1
+      }
+    })
+    countRequest = inerCount
   }
 
   const [dotsClicked, setDotsClicked] = useState(false)
   const [bellClicked, setBellClicked] = useState(false)
-  const currentUser = JSON.parse(localStorage.getItem("user"))
-  console.log(currentUser)
 
   const handleDotsClicjed = () => {
     setDotsClicked(!dotsClicked)
@@ -147,10 +153,10 @@ const Navigation = () => {
             ""
           }
         </AlertContainer>
-        {/* {currentUser.avatar ?
-        <Avatar src={avatar}></Avatar>:
-        <Avatar src={avatarImage}></Avatar> 
-        } */}
+        {(currentUser.avatar == null)?
+        <Avatar src={avatarImage}></Avatar> :
+        <Avatar src={currentUser.avatar}></Avatar>
+        }
         <MenuDots src={menuDots} onClick={handleDotsClicjed}></MenuDots>
         {dotsClicked ? 
          <NavigationDotsDiv onMouseLeave={handleMouseOutOfMenu }>

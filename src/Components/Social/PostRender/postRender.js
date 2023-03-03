@@ -23,6 +23,9 @@ import likeHeart from "../../../assets/svgs/heart.svg";
 import shareArrow from "../../../assets/svgs/share.svg";
 import EditForm from "../../Forms/editForm.js";
 import { useSelector } from "react-redux";
+import LikePost from "../../LikePost/likePost.js";
+import likeHeartClicked from "../../../assets/svgs/ShapelikedHeart.svg";
+
 import { v4 as uuid } from "uuid";
 
 const PostRender = (props) => {
@@ -32,7 +35,10 @@ const PostRender = (props) => {
   let editAllow = false
   // console.log(userData.id)
   // console.log(props.ownPosts.user.id)
-  
+
+  const [postIsLiked,setPostIsLiked] = useState(props.ownPosts.logged_in_user_liked)
+  const [amountOfLikes,setAmountOfLikes] = useState(props.ownPosts.amount_of_likes)
+  const currentUserToken = localStorage.getItem("auth-token")
 
   let avatar = "";
   if (props.ownPosts.user.avatar === null) {
@@ -44,6 +50,17 @@ const PostRender = (props) => {
 
   const handleEditAllow = () => {
     return (userData.id !== props.ownPosts.user.id ? editAllow : (editAllow = !editAllow))
+  }
+
+
+  const handleClickLike = () => {
+    LikePost(currentUserToken,props.ownPosts.id)
+    setPostIsLiked(!postIsLiked)
+    if(postIsLiked){
+      setAmountOfLikes(amountOfLikes -1)
+    } else {
+      setAmountOfLikes(amountOfLikes +1)
+    }
   }
 
 
@@ -75,12 +92,15 @@ const PostRender = (props) => {
           })
         )}
         <FooterWrapper>
-          <HeartIcon src={likeHeart} alt="like heart" />
+          {postIsLiked ?
+          <HeartIcon onClick={handleClickLike} src={likeHeartClicked} alt="like heart" />:
+          <HeartIcon onClick={handleClickLike} src={likeHeart} alt="like heart" />
+          }
           <ActionButton>Like</ActionButton>
           <ShareIcon src={shareArrow} alt="share Icon" />
           <ActionButton>Share</ActionButton>
           <SeperatorDiv>
-            <LikeCount>{props.ownPosts.amount_of_likes} likes</LikeCount>
+            <LikeCount>{amountOfLikes} likes</LikeCount>
           </SeperatorDiv>
         </FooterWrapper>
       </WrapperDiv>
