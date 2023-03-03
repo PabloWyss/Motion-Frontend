@@ -93,10 +93,14 @@ const PostRender = (props) => {
         )}
         <FooterWrapper>
           {postIsLiked ?
-          <HeartIcon onClick={handleClickLike} src={likeHeartClicked} alt="like heart" />:
+          <HeartIcon onClick={handleClickLike} src={likeHeartClicked} alt="like heart" />
+          :
           <HeartIcon onClick={handleClickLike} src={likeHeart} alt="like heart" />
           }
-          <ActionButton>Like</ActionButton>
+          {postIsLiked ?
+          <ActionButton onClick={handleClickLike}>Liked</ActionButton>:
+          <ActionButton onClick={handleClickLike}>Like</ActionButton>
+           }
           <ShareIcon src={shareArrow} alt="share Icon" />
           <ActionButton>Share</ActionButton>
           <SeperatorDiv>
