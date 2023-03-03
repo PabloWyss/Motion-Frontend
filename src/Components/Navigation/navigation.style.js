@@ -278,10 +278,4 @@ export const DotsInnerP = styled.p`
   font-size: .9rem;
 `
 
-// export const NavLinkStyle = styled.Nav`
-//   &:hover{
-//     border-bottom: 2px solid #AD73FD;
-//   }
-// `
-
 

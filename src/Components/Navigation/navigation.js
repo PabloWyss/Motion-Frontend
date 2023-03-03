@@ -44,6 +44,7 @@ const Navigation = () => {
   },[])
   
   const request = useSelector(store => store.friendRequests)
+  const currentUser = useSelector(store => store.currentuser.currentuser)
 
   let countRequest = 0
 
@@ -60,8 +61,6 @@ const Navigation = () => {
 
   const [dotsClicked, setDotsClicked] = useState(false)
   const [bellClicked, setBellClicked] = useState(false)
-  const currentUser = JSON.parse(localStorage.getItem("user"))
-  console.log(currentUser)
 
   const handleDotsClicjed = () => {
     setDotsClicked(!dotsClicked)
