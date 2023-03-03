@@ -84,6 +84,7 @@ export const AddFriendsInerDivButton = styled.div`
     border: 1px solid #d9d9d9;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07);
     border-radius: 3rem;
+    gap: .5rem;
     width: 8rem;
     height: 2.5rem;
     display: flex;

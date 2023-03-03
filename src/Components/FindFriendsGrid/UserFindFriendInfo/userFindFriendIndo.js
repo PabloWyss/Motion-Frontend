@@ -13,8 +13,7 @@ const UserFindFriendInfo = (prop) => {
     
     const [FolowUser,setFollowUser] = useState(prop.userInfo.logged_in_user_is_following)
     const [addFriend,setAddFriend] = useState(prop.userInfo.logged_in_user_sent_fr)
-    const [addFriendStatus,setAddFriendStatus] = useState(prop.userInfo.logged_in_user_is_friends)
-    console.log(prop.userInfo)
+    const addFriendStatus = prop.userInfo.logged_in_user_is_friends
     const navigate = useNavigate()
 
     const Token = localStorage.getItem("auth-token")
