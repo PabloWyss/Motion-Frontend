@@ -13,7 +13,6 @@ const LikePost = async (Token,postID) => {
       
       await fetch(`https://motion.propulsion-home.ch/backend/api/social/posts/toggle-like/${postID}/`, requestOptions)
         .then(response => response.json())
-        .then()
         .catch(error => console.log('error', error));
           
 

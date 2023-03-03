@@ -1,16 +1,19 @@
 import { AvaterImg,AddFriendUserDiv,AddFriendNameP,AddFriendlocationP,
         AddFriendsDivButton,AddFriendsInerDivButton,AddFollowAddFriendButton,FollowInerDivButton,
-        AboutMeInfoP,LikedElementsDiv,LikedIndivualElementDiv,LikedIndivualElementP,TickerImage,DivImageName} from "../findfriendsgrid.style"
+        AboutMeInfoP,LikedElementsDiv,LikedIndivualElementDiv,LikedIndivualElementP,TickerImage,DivImageName,
+        ClockImage} from "../findfriendsgrid.style"
 import { v4 as uuid } from 'uuid'
 import { useState } from "react"
 import tickerImage from "../../../assets/svgs/Ticker.svg"
 import avatarImage from "../../../assets/svgs/avatar.svg"
 import { useNavigate } from "react-router-dom"
+import clock from "../../../assets/svgs/Groupclock.svg"
 
 const UserFindFriendInfo = (prop) => {
     
     const [FolowUser,setFollowUser] = useState(prop.userInfo.logged_in_user_is_following)
     const [addFriend,setAddFriend] = useState(prop.userInfo.logged_in_user_sent_fr)
+    const addFriendStatus = prop.userInfo.logged_in_user_is_friends
     const navigate = useNavigate()
 
     const Token = localStorage.getItem("auth-token")
@@ -83,7 +86,10 @@ const UserFindFriendInfo = (prop) => {
                     <AddFollowAddFriendButton>{FolowUser? "Followed" : "Follow"}</AddFollowAddFriendButton>
                 </FollowInerDivButton>
                 <AddFriendsInerDivButton onClick={hanldeAddFriendButton}>
-                    {addFriend ?<TickerImage src={tickerImage}/>:""}
+                    {addFriend ?
+                    <ClockImage src={clock}/> : addFriendStatus ?
+                    <TickerImage src={tickerImage}/> :
+                    ""}
                     <AddFollowAddFriendButton >Add Friend</AddFollowAddFriendButton>
                 </AddFriendsInerDivButton>
             </AddFriendsDivButton>
