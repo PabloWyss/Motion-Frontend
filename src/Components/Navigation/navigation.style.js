@@ -97,6 +97,9 @@ export const AlertContainer = styled.div`
 export const AlertIcon = styled.img`
 margin: 0 45px 0 10px;
 height: 16px;
+&:hover {
+      cursor: pointer;
+    }
 `;
 
 export const AlertNumSpacerAbsolute = styled.div`
@@ -136,10 +139,16 @@ width: 40px;
 height: 40px;
 border-radius: 50%;
 object-fit: cover;
+&:hover {
+      cursor: pointer;
+    }
 `;
 
 export const MenuDots = styled.img`
 margin: 0 2.5rem 0 0;
+&:hover {
+      cursor: pointer;
+    }
 `;
 
 export const NavigationDotsDiv = styled.div`
@@ -167,6 +176,7 @@ export const NavigationDotsLi = styled.li `
   border: solid 1px #d8d3d3;
   &:hover{
     background-color: #d8d3d3;
+    cursor: pointer;
   }
   background: ${props => props.active ?  "background-color: #d8d3d3" : "" };
 `
