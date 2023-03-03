@@ -10,18 +10,48 @@ import {
   FilterSetter,
   SearchBarWrapper
 } from "./searchAndFilterBar.style";
-
+import LikedPosts from "../Social/LikedPosts/likedPosts";
+import { useDispatch } from "react-redux";
+import { setpostsFilter } from "../../redux/slices/postsFilter";
+import OtherPosts from "../Social/OtherPosts/otherPosts";
 
 const SearchAndFilterBar = () => {
 
 
   const Token = localStorage.getItem("auth-token");
   const [ownPosts, setOwnPosts] = useState([]);
+  const dispatch = useDispatch();
 
   const handleLoginClick = async (e) => {
     e.preventDefault();
-    await GetLikedPosts();
-    console.log(ownPosts);
+   
+   
+    dispatch(setpostsFilter("Liked"));
+    
+    //GetLikedPosts();
+
+    
+  };
+
+  const handleLoginClick2 = async (e) => {
+    e.preventDefault();
+   
+   
+    dispatch(setpostsFilter("Friends"));
+    
+    //GetLikedPosts();
+
+    
+  };
+
+  const handleLoginClick3 = async (e) => {
+    e.preventDefault();
+   
+   
+    dispatch(setpostsFilter("Follow"));
+    
+    //GetLikedPosts();
+
     
   };
   
@@ -39,7 +69,8 @@ const SearchAndFilterBar = () => {
     
     fetch("https://motion.propulsion-home.ch/backend/api/social/posts/likes/", requestOptions)
       .then(response => response.json())
-      .then(result => setOwnPosts(result.results))
+      //.then(result => dispatch(setpostFilter(result.results)))
+      .then(result => dispatch(setpostsFilter(result.results)))
       .catch(error => console.log('error', error));
   }
 
@@ -52,10 +83,10 @@ const SearchAndFilterBar = () => {
       </ContainerWrapperLeft>
       <ContainerWrapperRight>
         <FilterWrapper>
-    
+   
           <FilterSetter type="button" onClick={handleLoginClick}>Liked</FilterSetter>
-          <FilterSetter>Friends</FilterSetter>
-          <FilterSetter>Follow</FilterSetter>
+          <FilterSetter type="button" onClick={handleLoginClick2}>Friends</FilterSetter>
+          <FilterSetter type="button" onClick={handleLoginClick3}>Follow</FilterSetter>
         </FilterWrapper>
       </ContainerWrapperRight>
       </SearchBarWrapper>
