@@ -38,7 +38,7 @@ const OtherPosts = () => {
 
 
   useEffect(() => {
-    GetAll_Post(350);
+    GetAll_Post(370);
   }, []);
 
 
