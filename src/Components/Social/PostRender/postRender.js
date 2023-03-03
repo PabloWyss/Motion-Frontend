@@ -23,6 +23,7 @@ import likeHeart from "../../../assets/svgs/heart.svg";
 import shareArrow from "../../../assets/svgs/share.svg";
 import EditForm from "../../Forms/editForm.js";
 import { useSelector } from "react-redux";
+import LikePost from "../../LikePost/likePost.js";
 
 const PostRender = (props) => {
   const moreThenOneImage = props.ownPosts.images.length > 1;
@@ -43,6 +44,10 @@ const PostRender = (props) => {
 
   const handleEditAllow = () => {
     return (userData.id !== props.ownPosts.user.id ? editAllow : (editAllow = !editAllow))
+  }
+
+  const handleClickLike = () => {
+    LikePost()
   }
 
 
