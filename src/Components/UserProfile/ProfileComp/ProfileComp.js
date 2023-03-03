@@ -13,7 +13,14 @@ function ProfileComp() {
   const [userdata, setUserdata] = useState(JSON.parse(localStorage.getItem("user")));
 
   //handle passing of user ID via URL
-  const userID = useParams().profileId;
+  console.log('reading URL params: ' + useParams().profileId);
+  let userID = useParams().profileId;
+  console.log('userID: ' + userID)
+  //if no user ID is passed, use the one of the current user
+  if (!userID) {
+    userID = JSON.parse(localStorage.getItem("user")).id
+  }
+
   //retrieve userdata of passed user
   const GetUserByID = async () => {
     const Token = localStorage.getItem("auth-token");
@@ -48,6 +55,7 @@ function ProfileComp() {
       .then((response) => response.json())
       .then((result) => {
         dispatch(setCurrentUser(result));
+        //reset view
         dispatch(setProfileFilter("posts"));
       })
       .catch((error) => console.log("error", error));
@@ -55,6 +63,8 @@ function ProfileComp() {
   useEffect(() => {
     GetUsers_me();
   }, [userID]);
+
+console.log('userID: ' + userID)
 
   return (
     <ProfileCompContainer>

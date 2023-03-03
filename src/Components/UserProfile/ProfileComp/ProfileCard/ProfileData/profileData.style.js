@@ -43,7 +43,7 @@ export const LikedElementsDiv = styled.div`
   width: 90%;
   height: 80%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 0.5rem;
 `;

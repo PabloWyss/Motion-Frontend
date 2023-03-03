@@ -46,6 +46,9 @@ export const Avatar = styled.img`
   height: 45px;
   border-radius: 50%;
   object-fit: cover;
+  &:hover {
+      cursor: pointer;
+    }
 `;
 
 export const FlexRowWrapper = styled.div`
@@ -76,6 +79,9 @@ export const Name = styled.p`
   font-weight: 400;
   font-size: 12px;
   margin: 0;
+  &:hover {
+      cursor: pointer;
+    }
 `;
 export const Time = styled.p`
   display: flex;
