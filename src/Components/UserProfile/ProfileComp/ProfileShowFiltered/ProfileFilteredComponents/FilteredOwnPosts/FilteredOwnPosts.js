@@ -28,7 +28,7 @@ const FilteredOwnPosts = (props) => {
     await fetch(
       //   "https://motion.propulsion-home.ch/backend/api/social/posts/me/?limit=25&offset=" +
       //"https://motion.propulsion-home.ch/backend/api/social/posts/user/2236/?limit=25&offset=" +
-      "https://motion.propulsion-home.ch/backend/api/social/posts/user/" + userID + "/?limit=25&offset=" +
+      "https://motion.propulsion-home.ch/backend/api/social/posts/user/" + userID + "/?limit=10&offset=" +
         offset,
       requestOptions
     )
