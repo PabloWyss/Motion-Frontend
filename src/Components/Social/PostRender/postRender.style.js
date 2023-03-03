@@ -128,7 +128,12 @@ export const FooterWrapper = styled.div`
   align-items: center;
   width: 100%;
 `;
-export const HeartIcon = styled.img``;
+export const HeartIcon = styled.img`
+  &:hover {
+      transform: scale(1.02);
+      cursor: pointer;
+    }
+`;
 export const ActionButton = styled.p`
   margin: 0 2rem 0 1rem;
 `;
