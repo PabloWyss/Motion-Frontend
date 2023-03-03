@@ -38,10 +38,10 @@ import avatarImage from "../../assets/svgs/avatar.svg"
 
 const Navigation = () => {
 
-  // const dispatch = useDispatch()
-  // useEffect(()=>{
-  //   dispatch(fetchFriendRequests())
-  // },[])
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(fetchFriendRequests())
+  },[])
   
   const request = useSelector(store => store.friendRequests)
   const currentUser = useSelector(store => store.currentuser.currentuser)
