@@ -41,7 +41,7 @@ const CreateOwnPost = () => {
           type="text"
           placeholder={`What's on your mind, ` + userData.currentuser.first_name}
           onChange={handleInput} />
-        <CreatePostForm input={input} />
+        <CreatePostForm input={input} avatar={avatar} />
         
       </WrapperDiv>
     </MainContainer>

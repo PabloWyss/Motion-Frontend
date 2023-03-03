@@ -23,7 +23,7 @@ const CreatePostForm = (props) => {
       </OverlayButton>
 
       <Overlay isOpen={isOpen} onClose={toggleOverlay}>
-        <CreatePost input={ props.input} />
+        <CreatePost input={ props.input} avatar={props.avatar} />
       </Overlay>
     </div>
   );

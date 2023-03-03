@@ -1,4 +1,13 @@
 import React, { useState } from "react";
+import {
+  Avatar,
+  ColumnWrapperDiv,
+  ContentWrapperDiv,
+  MainContainer,
+  RowWrapperDiv,
+  PictureGrid,
+  UploadWrapperDiv,
+} from "./createPost.style";
 
 const CreatePost = (props) => {
   const [content, setContent] = useState(props.input);
@@ -62,39 +71,47 @@ const CreatePost = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="content">Content:</label>
-        <textarea
-          id="content"
-          cols="40"
-          rows="5"
-          name="content"
-          value={content}
-          onChange={handleContentChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="pictures">Pictures:</label>
-        <input
-          type="file"
-          id="pictures"
-          name="pictures"
-          accept="image/*"
-          multiple
-          onChange={handlePictureChange}
-        />
-        {pictures.map((picture, index) => (
-          <img
-            key={index}
-            src={picture}
-            alt={`Picture ${index}`}
-            style={{ maxWidth: "200px" }}
-          />
-        ))}
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    <MainContainer>
+      <ColumnWrapperDiv>
+        <form onSubmit={handleSubmit}>
+          <RowWrapperDiv>
+            <Avatar src={props.avatar} />
+            <ContentWrapperDiv>
+              <textarea
+                id="content"
+                cols="40"
+                rows="5"
+                name="content"
+                value={content}
+                onChange={handleContentChange}
+              />
+            </ContentWrapperDiv>
+          </RowWrapperDiv>
+          <UploadWrapperDiv>
+            <input
+              type="file"
+              id="pictures"
+              name="pictures"
+              accept="image/*"
+              multiple
+              onChange={handlePictureChange}
+            />
+            <PictureGrid>
+
+            {pictures.map((picture, index) => (
+              <img
+                key={index}
+                src={picture}
+                alt={`Picture ${index}`}
+                style={{ maxWidth: "200px" }}
+              />
+            ))}
+            </PictureGrid>
+          </UploadWrapperDiv>
+          <button type="submit">Submit</button>
+        </form>
+      </ColumnWrapperDiv>
+    </MainContainer>
   );
 };
 
