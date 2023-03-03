@@ -25,7 +25,7 @@ const OtherPosts = () => {
     };
 
     await fetch(
-      "https://motion.propulsion-home.ch/backend/api/social/posts/?limit=25&offset=" +
+      "https://motion.propulsion-home.ch/backend/api/social/posts/?limit=10&offset=" +
         offset,
       requestOptions
     )
