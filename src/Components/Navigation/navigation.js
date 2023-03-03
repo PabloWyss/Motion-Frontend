@@ -35,17 +35,18 @@ import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFriendRequests } from "../../redux/slices/friendReuqestSlice";
 import avatarImage from "../../assets/svgs/avatar.svg"
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
 
-  // const dispatch = useDispatch()
-  // useEffect(()=>{
-  //   dispatch(fetchFriendRequests())
-  // },[])
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(fetchFriendRequests())
+  },[])
   
   const request = useSelector(store => store.friendRequests)
   const currentUser = useSelector(store => store.currentuser.currentuser)
-
+  const navigate = useNavigate()
   let countRequest = 0
 
   if(request.requests.results){
@@ -78,7 +79,9 @@ const Navigation = () => {
     setBellClicked(!bellClicked)
   }
 
-
+  const handleClickUser = () => {
+   navigate(`/profile`)
+  }
 
 
   return (
@@ -154,8 +157,8 @@ const Navigation = () => {
           }
         </AlertContainer>
         {(currentUser.avatar == null)?
-        <Avatar src={avatarImage}></Avatar> :
-        <Avatar src={currentUser.avatar}></Avatar>
+        <Avatar src={avatarImage} onClick={handleClickUser}></Avatar> :
+        <Avatar src={currentUser.avatar} onClick={handleClickUser}></Avatar>
         }
         <MenuDots src={menuDots} onClick={handleDotsClicjed}></MenuDots>
         {dotsClicked ? 
