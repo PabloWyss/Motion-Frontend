@@ -20,7 +20,7 @@ function ProfileCardLeft(props) {
     return props.userdata.id === currentUser.id ? (
       <EditProfileButton />
     ) : (
-      <FollowAddButtons />
+      <FollowAddButtons userdata={props.userdata}/>
     );
   };
 

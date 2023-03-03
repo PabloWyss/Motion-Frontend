@@ -30,7 +30,7 @@ function ProfileComp() {
   };
   useEffect(() => {
     GetUserByID();
-  }, []);
+  }, [userID]);
 
   //update userdata of current user
   const dispatch = useDispatch();
@@ -52,7 +52,7 @@ function ProfileComp() {
   };
   useEffect(() => {
     GetUsers_me();
-  }, []);
+  }, [userID]);
 
   return (
     <ProfileCompContainer>
