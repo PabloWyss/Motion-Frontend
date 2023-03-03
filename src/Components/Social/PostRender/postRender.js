@@ -26,12 +26,14 @@ import { useSelector } from "react-redux";
 import LikePost from "../../LikePost/likePost.js";
 import likeHeartClicked from "../../../assets/svgs/ShapelikedHeart.svg";
 import ReactTimeAgo from "react-time-ago";
+import { useNavigate } from "react-router-dom";
 
 import { v4 as uuid } from "uuid";
 
 const PostRender = (props) => {
   const moreThenOneImage = props.ownPosts.images.length > 1;
   const userData = useSelector((state) => state.currentuser.currentuser)
+  
   // const [editAllow, setEditAllow] = useState(false)
   let editAllow = false
   // console.log(userData.id)
@@ -40,6 +42,15 @@ const PostRender = (props) => {
   const [postIsLiked,setPostIsLiked] = useState(props.ownPosts.logged_in_user_liked)
   const [amountOfLikes,setAmountOfLikes] = useState(props.ownPosts.amount_of_likes)
   const currentUserToken = localStorage.getItem("auth-token")
+  const navigate = useNavigate()
+
+  const handleClickUser = () => {
+    if(props.ownPosts.user.id == userData.id) {
+      navigate(`/profile/`)
+    } else{
+      navigate(`/profile/${props.ownPosts.user.id}`)
+    }
+  }
 
   let avatar = "";
   if (props.ownPosts.user.avatar === null) {
@@ -70,10 +81,10 @@ const PostRender = (props) => {
     <MainRenderContainer>
       <WrapperDiv>
         <FlexRowWrapper>
-          <Avatar src={avatar} />
+          <Avatar src={avatar} onClick={handleClickUser}/>
           <HeaderWrapper>
             <FlexColumnWrapper>
-              <Name>{`${props.ownPosts.user.first_name} ${props.ownPosts.user.last_name}`}</Name>
+              <Name onClick={handleClickUser}>{`${props.ownPosts.user.first_name} ${props.ownPosts.user.last_name}`}</Name>
               <Time>
                 <ReactTimeAgo date={props.ownPosts.created} locale="en-US" />
               </Time>
