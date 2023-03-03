@@ -8,6 +8,7 @@ import Profile from "../../pages/Profile/Profile";
 import "./App.css";
 import FindFirends from "../../pages/Find-Friends/find-firends";
 import RouteProtection from "../HOC/RouteProtection";
+import EditProfile from "../../pages/EditProfile/EditProfile";
 
 function Home() {
   return (
@@ -22,6 +23,7 @@ function Home() {
         <Route path="/find-friends" element={<RouteProtection route={<FindFirends />}/>} />
         <Route path="/profile" element={<RouteProtection route={<Profile />}/>} />
         <Route path="/profile/:profileId" element={<RouteProtection route={<Profile />}/>} />
+        <Route path="/edit-profile" element={<RouteProtection route={<EditProfile />}/>} />
       </Routes>
     </div>
   );
