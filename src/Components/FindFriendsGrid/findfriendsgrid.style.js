@@ -138,6 +138,10 @@ export const TickerImage = styled.img`
     width: 1.5rem;
     opacity: .4;
 `
+export const ClockImage = styled.img`
+    height: 1.5rem;
+    width: 1.5rem;
+`
 
 export const DivImageName = styled.div`
     display: flex;
