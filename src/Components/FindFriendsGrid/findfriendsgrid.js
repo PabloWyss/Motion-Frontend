@@ -8,6 +8,7 @@ import { useState, useEffect} from "react"
 const FindFirendsGrid = () => {
 
     const [listOfUsers2,setListOfUsers2] = useState([])
+    const randomNumber = (Math.round(Math.random()*1500))
 
     const getUsers = async () => {
 
@@ -22,7 +23,7 @@ const FindFirendsGrid = () => {
       };
 
       let limit = "9"
-      let offset = "10"
+      let offset = randomNumber.toString()
 
       
       let userList = []
