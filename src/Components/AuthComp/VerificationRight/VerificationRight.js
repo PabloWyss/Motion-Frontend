@@ -11,7 +11,8 @@ import {
   InputContainer,
   InputField,
   ProgressCirclesContainer,
-  RightSide,ErrorMessage
+  RightSide,
+  ErrorMessage,
 } from "./VerificationRight.style";
 
 function VerificationRight() {
@@ -25,8 +26,7 @@ function VerificationRight() {
   const [passwordMatch, setPasswordMatch] = useState(true);
   const navigate = useNavigate();
 
-
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   //store typed email
   const handleEmailInput = (e) => {
@@ -80,77 +80,52 @@ function VerificationRight() {
   const handleActivateClick = async (e) => {
     e.preventDefault();
 
-
-    if (!userEmail || !userName || !verificationCode || !userPassword || !repeatPassword|| !firstName|| !lastName) 
-    {
-      setError('Every field is required.');
+    if (
+      !userEmail ||
+      !userName ||
+      !verificationCode ||
+      !userPassword ||
+      !repeatPassword ||
+      !firstName ||
+      !lastName
+    ) {
+      setError("Every field is required.");
       return;
-    }
-    else
-    {
-     let emessage="";
+    } else {
+      let emessage = "";
 
+      //registration request to API
+      await callAPI
+        .patch(
+          "registration/validation/",
+          JSON.stringify({
+            email: userEmail,
+            username: userName,
+            code: verificationCode,
+            password: userPassword,
+            password_repeat: repeatPassword,
+            first_name: firstName,
+            last_name: lastName,
+          })
+        )
+        .catch((error) => (emessage = error.message));
 
+      //console.log("68: "+emessage);
+      if (!emessage) {
+        //redirect to login page
+        navigate("/signin");
 
-
-
-    
-    //registration request to API
-    await callAPI.patch(
-      "registration/validation/",
-      JSON.stringify({
-        email: userEmail,
-        username: userName,
-        code: verificationCode,
-        password: userPassword,
-        password_repeat: repeatPassword,
-        first_name: firstName,
-        last_name: lastName,
-      })
-    ).catch(error => 
-     
-      emessage=error.message,
-      
-    
-      );;
-      
-  
-
-    //console.log("68: "+emessage);
-    if (!emessage) 
-      {
-         //redirect to login page
-          navigate("/signin");
-     
         return;
+      } else {
+        alert(emessage);
       }
-      else
-      {
-       
-          alert(emessage)
-        
-      }
-    
-    
-    
-    
-    
-    
-    ;
     }
-
-
-
-
-
-
-  
   };
 
   return (
     <RightSide>
       <AuthForm className="activation-form">
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+        {error && <ErrorMessage>{error}</ErrorMessage>}
         <FormTitle>Verification</FormTitle>
         <FormContainer>
           <InputCode
@@ -165,19 +140,19 @@ function VerificationRight() {
               value={userEmail}
               onChange={handleEmailInput}
             />
+            <InputField placeholder="Username" value={userName} onChange={handleUserNameInput} />
             <InputField
               placeholder="First Name"
               value={firstName}
               onChange={handleFirstNameInput}
             />
+            <InputField placeholder="Last Name" value={lastName} onChange={handleLastNameInput} />
             <InputField
               placeholder="Password"
               type="password"
               value={userPassword}
               onChange={handlePasswordInput}
             />
-            <InputField placeholder="Username" value={userName} onChange={handleUserNameInput} />
-            <InputField placeholder="Last Name" value={lastName} onChange={handleLastNameInput} />
             <InputField
               placeholder="Repeat Password"
               type="password"
