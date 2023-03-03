@@ -134,6 +134,7 @@ export const HeartIcon = styled.img`
       transform: scale(1.02);
       cursor: pointer;
     }
+    
 `;
 export const ActionButton = styled.p`
   margin: 0 2rem 0 1rem;
