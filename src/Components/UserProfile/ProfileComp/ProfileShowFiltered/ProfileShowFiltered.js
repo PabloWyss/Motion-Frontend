@@ -5,9 +5,17 @@ import FilteredUsersFollowers from "./ProfileFilteredComponents/FilteredUsers/Fi
 import FilteredUsersFriends from "./ProfileFilteredComponents/FilteredUsers/FilteredUsersFriends";
 import { MainContainer } from "./profileShowFiltered.style";
 import FilteredUsersFollowing from "./ProfileFilteredComponents/FilteredUsers/FilteredUsersFollowing";
+import { useState } from "react";
 
-function ProfileShowFiltered() {
+function ProfileShowFiltered(props) {
   const filter = useSelector((store) => store.profilefilter.profilefilter); //get state from redux
+
+  const [isCurrentUser, setIsCurrentUser] = useState(false);
+  const checkIfCurrentUser = () => {
+    const currentUser = JSON.parse(localStorage.getItem("user"))
+    if (props.userdata.id === )
+  }
+
 
   //returns the component to render based on which filter is chosen
   const displayComponent = () => {

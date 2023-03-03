@@ -57,7 +57,7 @@ function ProfileComp() {
   return (
     <ProfileCompContainer>
       <ProfileCard userdata={userdata} />
-      <ProfileShowFiltered />
+      <ProfileShowFiltered userdata={userdata} />
     </ProfileCompContainer>
   );
 }
