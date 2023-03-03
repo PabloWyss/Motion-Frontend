@@ -25,6 +25,7 @@ import EditForm from "../../Forms/editForm.js";
 import { useSelector } from "react-redux";
 import LikePost from "../../LikePost/likePost.js";
 import likeHeartClicked from "../../../assets/svgs/ShapelikedHeart.svg";
+import ReactTimeAgo from "react-time-ago";
 
 import { v4 as uuid } from "uuid";
 
@@ -63,6 +64,7 @@ const PostRender = (props) => {
     }
   }
 
+  
 
   return (
     <MainRenderContainer>
@@ -72,10 +74,16 @@ const PostRender = (props) => {
           <HeaderWrapper>
             <FlexColumnWrapper>
               <Name>{`${props.ownPosts.user.first_name} ${props.ownPosts.user.last_name}`}</Name>
-              <Time>Time</Time>
+              <Time>
+                <ReactTimeAgo date={props.ownPosts.created} locale="en-US" />
+              </Time>
             </FlexColumnWrapper>
           </HeaderWrapper>
-          <EditForm key={uuid()} postDetails={props.ownPosts} edit={handleEditAllow()} />
+          <EditForm
+            key={uuid()}
+            postDetails={props.ownPosts}
+            edit={handleEditAllow()}
+          />
         </FlexRowWrapper>
         <FlexRowWrapper>
           <PostText>{props.ownPosts.content}</PostText>
@@ -83,24 +91,37 @@ const PostRender = (props) => {
         {moreThenOneImage ? (
           <PictureGrid>
             {props.ownPosts.images.map((image) => {
-              return <GridImage key={uuid()} src={image.image} alt={image.image} />;
+              return (
+                <GridImage key={uuid()} src={image.image} alt={image.image} />
+              );
             })}
           </PictureGrid>
         ) : (
           props.ownPosts.images.map((image) => {
-            return <PostImage key={uuid()} src={image.image} alt={image.image} />;
+            return (
+              <PostImage key={uuid()} src={image.image} alt={image.image} />
+            );
           })
         )}
         <FooterWrapper>
-          {postIsLiked ?
-          <HeartIcon onClick={handleClickLike} src={likeHeartClicked} alt="like heart" />
-          :
-          <HeartIcon onClick={handleClickLike} src={likeHeart} alt="like heart" />
-          }
-          {postIsLiked ?
-          <ActionButton onClick={handleClickLike}>Liked</ActionButton>:
-          <ActionButton onClick={handleClickLike}>Like</ActionButton>
-           }
+          {postIsLiked ? (
+            <HeartIcon
+              onClick={handleClickLike}
+              src={likeHeartClicked}
+              alt="like heart"
+            />
+          ) : (
+            <HeartIcon
+              onClick={handleClickLike}
+              src={likeHeart}
+              alt="like heart"
+            />
+          )}
+          {postIsLiked ? (
+            <ActionButton onClick={handleClickLike}>Liked</ActionButton>
+          ) : (
+            <ActionButton onClick={handleClickLike}>Like</ActionButton>
+          )}
           <ShareIcon src={shareArrow} alt="share Icon" />
           <ActionButton>Share</ActionButton>
           <SeperatorDiv>
