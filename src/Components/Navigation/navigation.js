@@ -61,6 +61,7 @@ const Navigation = () => {
   const [dotsClicked, setDotsClicked] = useState(false)
   const [bellClicked, setBellClicked] = useState(false)
   const currentUser = JSON.parse(localStorage.getItem("user"))
+  console.log(currentUser)
 
   const handleDotsClicjed = () => {
     setDotsClicked(!dotsClicked)

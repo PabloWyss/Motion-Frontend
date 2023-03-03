@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const CardMainContainer = styled.div`
+  position: absolute;
+  top: 150px;
   display: flex;
   width: 62rem;
   margin-left: auto;
