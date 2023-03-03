@@ -26,6 +26,7 @@ export const Avatar = styled.img`
   display: flex;
   align-items: center;
   justify-content: center;
+  object-fit: cover;
   
 `;
 export const InputField = styled.input`

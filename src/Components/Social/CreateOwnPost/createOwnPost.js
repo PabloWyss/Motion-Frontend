@@ -10,11 +10,13 @@ import sendIcon from "../../../assets/svgs/send_button.svg";
 import { useSelector } from "react-redux";
 import CreatePost from "./createPost";
 import CreatePostForm from "../../Forms/createPostForm";
+import { useState } from "react";
 
 const CreateOwnPost = () => {
 
   const userData = useSelector((state) => state.currentuser); 
-
+  const [input, setInput] = useState('')
+  
   let avatar = '';
   if (userData.currentuser.avatar === null) {
     avatar =
@@ -23,8 +25,13 @@ const CreateOwnPost = () => {
     avatar = userData.currentuser.avatar;
   }
 
-  const handleCreatePost = () => <CreatePost/>
 
+
+  const handleInput = (e) => {
+    setInput(e.target.value)
+    
+  }
+  
   
   return (
     <MainContainer>
@@ -32,12 +39,10 @@ const CreateOwnPost = () => {
         <Avatar src={avatar} />
         <InputField
           type="text"
-          placeholder={`What's on your mind, `+ userData.currentuser.first_name}
-        />
-        <CreatePostForm/>
-        {/* <SubmitButton>
-          <SubmitButtonIcon src={sendIcon} onClick={handleCreatePost} />
-        </SubmitButton> */}
+          placeholder={`What's on your mind, ` + userData.currentuser.first_name}
+          onChange={handleInput} />
+        <CreatePostForm input={input} avatar={avatar} />
+        
       </WrapperDiv>
     </MainContainer>
   );

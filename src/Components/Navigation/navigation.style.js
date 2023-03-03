@@ -120,7 +120,7 @@ export const AlertNumDiv = styled.div`
   height: 16px;
   width: 16px;
   color: white;
-  opacity: 40%;
+  /* opacity: 40%; */
 
 
   
@@ -132,7 +132,10 @@ export const AlertNum = styled.span`
 
 export const Avatar = styled.img`
 margin: 0 25px 0 10px;
-width: 35px;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+object-fit: cover;
 `;
 
 export const MenuDots = styled.img`

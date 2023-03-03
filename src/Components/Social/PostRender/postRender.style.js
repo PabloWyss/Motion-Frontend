@@ -45,6 +45,7 @@ export const Avatar = styled.img`
   width: 45px;
   height: 45px;
   border-radius: 50%;
+  object-fit: cover;
 `;
 
 export const FlexRowWrapper = styled.div`

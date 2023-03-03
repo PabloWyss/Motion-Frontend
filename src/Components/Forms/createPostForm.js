@@ -12,7 +12,7 @@ const CreatePostForm = (props) => {
   const toggleOverlay = () => {
     setIsOpen(!isOpen);
   };
-
+  console.log(props.input)
   
   // console.log(props.edit)
   // console.log(props.postDetails.user.avatar)
@@ -23,7 +23,7 @@ const CreatePostForm = (props) => {
       </OverlayButton>
 
       <Overlay isOpen={isOpen} onClose={toggleOverlay}>
-        <CreatePost/>
+        <CreatePost input={ props.input} avatar={props.avatar} />
       </Overlay>
     </div>
   );
