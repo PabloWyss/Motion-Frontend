@@ -55,7 +55,7 @@ const PostRender = (props) => {
   const handleClickLike = () => {
     LikePost(currentUserToken,props.ownPosts.id)
     setPostIsLiked(!postIsLiked)
-    if(props.ownPosts.logged_in_user_liked){
+    if(postIsLiked){
       setAmountOfLikes(amountOfLikes -1)
     } else {
       setAmountOfLikes(amountOfLikes +1)
