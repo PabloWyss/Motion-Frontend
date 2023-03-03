@@ -7,7 +7,16 @@ import {
   RowWrapperDiv,
   PictureGrid,
   UploadWrapperDiv,
-} from "./createPost.style.js";
+  FileUploadButton,
+  SubmitButtonStyle,
+  TextField,
+  SubmitButtonIcon,
+  UploadButtonIcon,
+  BorderLineDiv,
+  
+} from "./createPost.style";
+import sendIcon from "../../../assets/svgs/send_button.svg";
+import uploadIcon from '../../../assets/svgs/Shape.svg'
 
 const CreatePost = (props) => {
   const [content, setContent] = useState(props.input);
@@ -74,10 +83,12 @@ const CreatePost = (props) => {
     <MainContainer>
       <ColumnWrapperDiv>
         <form onSubmit={handleSubmit}>
+          <BorderLineDiv>
+
           <RowWrapperDiv>
             <Avatar src={props.avatar} />
             <ContentWrapperDiv>
-              <textarea
+              <TextField
                 id="content"
                 cols="40"
                 rows="5"
@@ -87,17 +98,7 @@ const CreatePost = (props) => {
               />
             </ContentWrapperDiv>
           </RowWrapperDiv>
-          <UploadWrapperDiv>
-            <input
-              type="file"
-              id="pictures"
-              name="pictures"
-              accept="image/*"
-              multiple
-              onChange={handlePictureChange}
-            />
-            <PictureGrid>
-
+          <PictureGrid>
             {pictures.map((picture, index) => (
               <img
                 key={index}
@@ -106,9 +107,24 @@ const CreatePost = (props) => {
                 style={{ maxWidth: "200px" }}
               />
             ))}
-            </PictureGrid>
+          </PictureGrid>
+          </BorderLineDiv>
+          <UploadWrapperDiv>
+            <label htmlFor="pictures">
+              <UploadButtonIcon src={uploadIcon} />
+            </label>
+            <FileUploadButton
+              type="file"
+              id="pictures"
+              name="pictures"
+              accept="image/*"
+              multiple
+              onChange={handlePictureChange}
+            />
+            <SubmitButtonStyle type="submit">
+              <SubmitButtonIcon src={sendIcon} />
+            </SubmitButtonStyle>
           </UploadWrapperDiv>
-          <button type="submit">Submit</button>
         </form>
       </ColumnWrapperDiv>
     </MainContainer>

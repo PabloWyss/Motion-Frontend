@@ -13,6 +13,8 @@ border-right: 1px solid rgba(0, 0, 0, 0.1);
 export const AvatarImg = styled.img`
 width: 6rem;
 height: 6rem;
+border-radius: 50%;
+object-fit: cover;
 opacity: 0.9;
 `;
 
