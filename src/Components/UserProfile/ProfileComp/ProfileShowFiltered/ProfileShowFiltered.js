@@ -1,29 +1,45 @@
 import { useSelector } from "react-redux";
 import LikedPosts from "../../../Social/LikedPosts/likedPosts";
-import OwnPosts from "../../../Social/OwnPosts/ownPosts";
 import FilteredUsersFollowers from "./ProfileFilteredComponents/FilteredUsers/FilteredUsersFollowers";
 import FilteredUsersFriends from "./ProfileFilteredComponents/FilteredUsers/FilteredUsersFriends";
 import { MainContainer } from "./profileShowFiltered.style";
 import FilteredUsersFollowing from "./ProfileFilteredComponents/FilteredUsers/FilteredUsersFollowing";
+import { useParams } from "react-router-dom";
+import FilteredOwnPosts from "./ProfileFilteredComponents/FilteredOwnPosts/FilteredOwnPosts";
 
-function ProfileShowFiltered() {
+function ProfileShowFiltered(props) {
   const filter = useSelector((store) => store.profilefilter.profilefilter); //get state from redux
+
+  //check if loading the current user or another one
+  const userID = useParams().profileId;
 
   //returns the component to render based on which filter is chosen
   const displayComponent = () => {
     switch (filter) {
       case "posts":
-        return <OwnPosts />;
+        return <FilteredOwnPosts userID={userID} />;
       case "likes":
-        return <LikedPosts />;
+        if (!userID) {
+          return <LikedPosts />;
+        }
+        break;
       case "friends":
-        return <FilteredUsersFriends />;
+        if (!userID) {
+          return <FilteredUsersFriends />;
+        }
+        break;
       case "followers":
-        return <FilteredUsersFollowers />;
+        if (!userID) {
+          return <FilteredUsersFollowers />;
+        }
+        break;
       case "following":
-        return <FilteredUsersFollowing />;
+        if (!userID) {
+          return <FilteredUsersFollowing />;
+        }
+        break;
       default:
-        return <OwnPosts />;
+        return <FilteredOwnPosts userID={userID} />;
     }
   };
 

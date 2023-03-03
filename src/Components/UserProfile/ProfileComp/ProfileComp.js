@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { setCurrentUser } from "../../../redux/slices/currentUser";
+import { setProfileFilter } from "../../../redux/slices/profileFilter";
 import ProfileCard from "./ProfileCard/ProfileCard";
 import { ProfileCompContainer } from "./profileComp.style";
 import ProfileShowFiltered from "./ProfileShowFiltered/ProfileShowFiltered";
@@ -47,6 +48,7 @@ function ProfileComp() {
       .then((response) => response.json())
       .then((result) => {
         dispatch(setCurrentUser(result));
+        dispatch(setProfileFilter("posts"));
       })
       .catch((error) => console.log("error", error));
   };
@@ -57,7 +59,7 @@ function ProfileComp() {
   return (
     <ProfileCompContainer>
       <ProfileCard userdata={userdata} />
-      <ProfileShowFiltered />
+      <ProfileShowFiltered userdata={userdata} />
     </ProfileCompContainer>
   );
 }
