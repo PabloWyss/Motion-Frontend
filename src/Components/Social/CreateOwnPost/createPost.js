@@ -7,7 +7,7 @@ import {
   RowWrapperDiv,
   PictureGrid,
   UploadWrapperDiv,
-} from "./createPost.style";
+} from "./createPost.style.js";
 
 const CreatePost = (props) => {
   const [content, setContent] = useState(props.input);
